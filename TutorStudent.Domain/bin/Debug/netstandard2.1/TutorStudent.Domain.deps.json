@@ -10,7 +10,8 @@
       "TutorStudent.Domain/1.0.0": {
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.1.1",
-          "JetBrains.Annotations": "2021.1.0-eap01"
+          "JetBrains.Annotations": "2021.1.0-eap01",
+          "stateless": "5.11.0"
         },
         "runtime": {
           "TutorStudent.Domain.dll": {}
@@ -87,6 +88,14 @@
           "lib/netstandard2.0/Microsoft.Extensions.Primitives.dll": {
             "assemblyVersion": "3.0.0.0",
             "fileVersion": "3.0.19.46305"
+          }
+        }
+      },
+      "stateless/5.11.0": {
+        "runtime": {
+          "lib/netstandard2.0/stateless.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "5.11.0.0"
           }
         }
       },
@@ -192,6 +201,13 @@
       "sha512": "sha512-6gwewTbmOh+ZVBicVkL1XRp79sx4O7BVY6Yy+7OYZdwn3pyOKe9lOam+3gXJ3TZMjhJZdV0Ub8hxHt2vkrmN5Q==",
       "path": "microsoft.extensions.primitives/3.0.0",
       "hashPath": "microsoft.extensions.primitives.3.0.0.nupkg.sha512"
+    },
+    "stateless/5.11.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5XXmdEQBOpgE90vqxfZH0ekdqfGB6xLe0Uyb7EyHr/fgv/zkZtDcru4KxRvAvWxE1u4c8MOZnOnXoRfQOfFnTg==",
+      "path": "stateless/5.11.0",
+      "hashPath": "stateless.5.11.0.nupkg.sha512"
     },
     "System.Buffers/4.4.0": {
       "type": "package",

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "AkXJJR5Y3JvFE2tbgQvgQfOF77lwBkyVD4bB/AFu/bEHJ19PjkxktztsANxGdjoWQKNhRcZrX9al0cfTBhr4Qw==",
+  "dgSpecHash": "nrZ3RHsB6LptK3vHSvUJzntNf89sfQPYi3KVlcZ41ti9qbpS2BsWWg2iUL67vlEflJ6PkQptaIRq0BWqdir0yg==",
   "success": true,
   "projectFilePath": "C:\\Users\\b.dara\\Desktop\\TutorStudent\\TutorStudent.Infrastructure\\TutorStudent.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -52,6 +52,7 @@
     "C:\\Users\\b.dara\\.nuget\\packages\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\b.dara\\.nuget\\packages\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\b.dara\\.nuget\\packages\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
+    "C:\\Users\\b.dara\\.nuget\\packages\\stateless\\5.11.0\\stateless.5.11.0.nupkg.sha512",
     "C:\\Users\\b.dara\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\b.dara\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\b.dara\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

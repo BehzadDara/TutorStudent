@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "0gxQKylgK54jtMSHiHTGlcZQpqtapF+dFZZxzjV2sisSSWu3AgQ3RwKAypzs+d26+YWji5V6qalLMWjmkiQIsQ==",
+  "dgSpecHash": "GDfww+xyEshzEQlbuQiLOHQ8NOV+juW66MLTqPsHLQaRFyC4RIc2e8v7kf0jenpL1EOyuO2ndEbsbT5AExytDg==",
   "success": true,
   "projectFilePath": "C:\\Users\\b.dara\\Desktop\\TutorStudent\\TutorStudent.Application\\TutorStudent.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\b.dara\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\b.dara\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
+    "C:\\Users\\b.dara\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\b.dara\\.nuget\\packages\\humanizer.core.fa\\2.8.26\\humanizer.core.fa.2.8.26.nupkg.sha512",
     "C:\\Users\\b.dara\\.nuget\\packages\\jetbrains.annotations\\2021.1.0-eap01\\jetbrains.annotations.2021.1.0-eap01.nupkg.sha512",
     "C:\\Users\\b.dara\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\b.dara\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
@@ -109,6 +111,7 @@
     "C:\\Users\\b.dara\\.nuget\\packages\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\b.dara\\.nuget\\packages\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\b.dara\\.nuget\\packages\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
+    "C:\\Users\\b.dara\\.nuget\\packages\\stateless\\5.11.0\\stateless.5.11.0.nupkg.sha512",
     "C:\\Users\\b.dara\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\b.dara\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\b.dara\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

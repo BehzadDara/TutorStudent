@@ -29,6 +29,26 @@
           "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
+      "Humanizer.Core/2.8.26": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Humanizer.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Humanizer.dll": {}
+        }
+      },
+      "Humanizer.Core.fa/2.8.26": {
+        "type": "package",
+        "dependencies": {
+          "Humanizer.Core": "[2.8.26]"
+        },
+        "resource": {
+          "lib/netstandard2.0/fa/Humanizer.resources.dll": {
+            "locale": "fa"
+          }
+        }
+      },
       "JetBrains.Annotations/2021.1.0-eap01": {
         "type": "package",
         "compile": {
@@ -1461,6 +1481,15 @@
             "assetType": "native",
             "rid": "ubuntu.16.10-x64"
           }
+        }
+      },
+      "stateless/5.11.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/stateless.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/stateless.dll": {}
         }
       },
       "System.AppContext/4.3.0": {
@@ -3037,7 +3066,8 @@
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.1.1",
-          "JetBrains.Annotations": "2021.1.0-eap01"
+          "JetBrains.Annotations": "2021.1.0-eap01",
+          "Stateless": "5.11.0"
         },
         "compile": {
           "bin/placeholder/TutorStudent.Domain.dll": {}
@@ -3091,6 +3121,36 @@
         "automapper.extensions.microsoft.dependencyinjection.nuspec",
         "icon.png",
         "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
+      ]
+    },
+    "Humanizer.Core/2.8.26": {
+      "sha512": "OiKusGL20vby4uDEswj2IgkdchC1yQ6rwbIkZDVBPIR6al2b7n3pC91elBul9q33KaBgRKhbZH3+2Ur4fnWx2A==",
+      "type": "package",
+      "path": "humanizer.core/2.8.26",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "humanizer.core.2.8.26.nupkg.sha512",
+        "humanizer.core.nuspec",
+        "lib/netstandard1.0/Humanizer.dll",
+        "lib/netstandard1.0/Humanizer.xml",
+        "lib/netstandard2.0/Humanizer.dll",
+        "lib/netstandard2.0/Humanizer.xml",
+        "logo.png"
+      ]
+    },
+    "Humanizer.Core.fa/2.8.26": {
+      "sha512": "WTcXRJ534ZTYF7Q8qixWkul25VUpr3eb9vCk/NsCXT3xPj547mPAq9ADqmTQUu3tH3LxnSW1wHFj3AvqoEKZUQ==",
+      "type": "package",
+      "path": "humanizer.core.fa/2.8.26",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "humanizer.core.fa.2.8.26.nupkg.sha512",
+        "humanizer.core.fa.nuspec",
+        "lib/netstandard1.0/fa/Humanizer.resources.dll",
+        "lib/netstandard2.0/fa/Humanizer.resources.dll",
+        "logo.png"
       ]
     },
     "JetBrains.Annotations/2021.1.0-eap01": {
@@ -4827,6 +4887,30 @@
         "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
         "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.nuspec",
         "runtimes/ubuntu.16.10-x64/native/System.Security.Cryptography.Native.OpenSsl.so"
+      ]
+    },
+    "stateless/5.11.0": {
+      "sha512": "5XXmdEQBOpgE90vqxfZH0ekdqfGB6xLe0Uyb7EyHr/fgv/zkZtDcru4KxRvAvWxE1u4c8MOZnOnXoRfQOfFnTg==",
+      "type": "package",
+      "path": "stateless/5.11.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Stateless.png",
+        "lib/net40/stateless.dll",
+        "lib/net40/stateless.xml",
+        "lib/net45/stateless.dll",
+        "lib/net45/stateless.xml",
+        "lib/net472/stateless.dll",
+        "lib/net472/stateless.xml",
+        "lib/net5.0/stateless.dll",
+        "lib/net5.0/stateless.xml",
+        "lib/netstandard1.0/stateless.dll",
+        "lib/netstandard1.0/stateless.xml",
+        "lib/netstandard2.0/stateless.dll",
+        "lib/netstandard2.0/stateless.xml",
+        "stateless.5.11.0.nupkg.sha512",
+        "stateless.nuspec"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -9401,6 +9485,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.1": [
+      "Humanizer.Core.fa >= 2.8.26",
       "Microsoft.AspNetCore.Mvc >= 2.2.0",
       "TutorStudent.Infrastructure >= 1.0.0"
     ]
@@ -9454,6 +9539,10 @@
       "netstandard2.1": {
         "targetAlias": "netstandard2.1",
         "dependencies": {
+          "Humanizer.Core.fa": {
+            "target": "Package",
+            "version": "[2.8.26, )"
+          },
           "Microsoft.AspNetCore.Mvc": {
             "target": "Package",
             "version": "[2.2.0, )"

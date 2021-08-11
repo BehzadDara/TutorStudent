@@ -29,17 +29,27 @@
       <e p="TutorStudent.Application" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Contracts" t="Include">
+          <e p="AdvertisementCreateDto.cs" t="Include" />
+          <e p="AdvertisementDto.cs" t="Include" />
+          <e p="AdvertisementUpdateDto.cs" t="Include" />
+          <e p="ApplyCreateDto.cs" t="Include" />
+          <e p="ApplyDto.cs" t="Include" />
           <e p="ChangeInfoDto.cs" t="Include" />
           <e p="ChangePasswordDto.cs" t="Include" />
           <e p="EntityDto.cs" t="Include" />
+          <e p="LogDto.cs" t="Include" />
           <e p="LoginDto.cs" t="Include" />
           <e p="ManagerDto.cs" t="Include" />
+          <e p="MeetingDto.cs" t="Include" />
           <e p="ResponseDto.cs" t="Include" />
           <e p="StudentCreateDto.cs" t="Include" />
           <e p="StudentDto.cs" t="Include" />
           <e p="StudentUpdateDto.cs" t="Include" />
           <e p="TutorCreateDto.cs" t="Include" />
           <e p="TutorDto.cs" t="Include" />
+          <e p="TutorScheduleCreateDto.cs" t="Include" />
+          <e p="TutorScheduleDto.cs" t="Include" />
+          <e p="TutorScheduleUpdateDto.cs" t="Include" />
           <e p="TutorUpdateDto.cs" t="Include" />
           <e p="UserCreateDto.cs" t="Include" />
           <e p="UserDto.cs" t="Include" />
@@ -53,8 +63,12 @@
           </e>
         </e>
         <e p="Services" t="Include">
+          <e p="AdvertisementAppService.cs" t="Include" />
+          <e p="ApplyAppService.cs" t="Include" />
+          <e p="MeetingAppService.cs" t="Include" />
           <e p="StudentAppService.cs" t="Include" />
           <e p="TutorAppService.cs" t="Include" />
+          <e p="TutorScheduleAppService.cs" t="Include" />
           <e p="UserAppService.cs" t="Include" />
         </e>
         <e p="TutorStudent.Application.csproj" t="IncludeRecursive" />
@@ -63,7 +77,11 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Enums" t="Include">
           <e p="GenderType.cs" t="Include" />
+          <e p="MeetingType.cs" t="Include" />
           <e p="RoleType.cs" t="Include" />
+          <e p="StateType.cs" t="Include" />
+          <e p="TicketType.cs" t="Include" />
+          <e p="TriggerType.cs" t="Include" />
         </e>
         <e p="Implementations" t="Include">
           <e p="Comb.cs" t="Include" />
@@ -81,8 +99,13 @@
           <e p="Specification.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
+          <e p="Advertisement.cs" t="Include" />
+          <e p="Apply.cs" t="Include" />
+          <e p="Log.cs" t="Include" />
+          <e p="Meeting.cs" t="Include" />
           <e p="Student.cs" t="Include" />
           <e p="Tutor.cs" t="Include" />
+          <e p="TutorSchedule.cs" t="Include" />
           <e p="User.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -93,8 +116,15 @@
           </e>
         </e>
         <e p="Specifications" t="Include">
+          <e p="GetAdvertisementByTicket.cs" t="Include" />
+          <e p="GetAdvertisementByTutorId.cs" t="Include" />
+          <e p="GetApplyByStudentId.cs" t="Include" />
+          <e p="GetApplyByTutorId.cs" t="Include" />
+          <e p="GetLogByApplyId.cs" t="Include" />
+          <e p="GetMeetingByTutorScheduleId.cs" t="Include" />
           <e p="GetStudentByUserId.cs" t="Include" />
           <e p="GetTutorByUserId.cs" t="Include" />
+          <e p="GetTutorScheduleByTutorId.cs" t="Include" />
           <e p="GetUserByUserNameAndPassword.cs" t="Include" />
         </e>
         <e p="TutorStudent.Domain.csproj" t="IncludeRecursive" />
@@ -107,8 +137,8 @@
           <e p="SpecificationEvaluator.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
-          <e p="20210810110644_Init.cs" t="Include" />
-          <e p="20210810110644_Init.Designer.cs" t="Include" />
+          <e p="20210811101522_Init.cs" t="Include" />
+          <e p="20210811101522_Init.Designer.cs" t="Include" />
           <e p="TutorStudentDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">

@@ -11,6 +11,11 @@ namespace TutorStudent.Infrastructure
         public DbSet<User> Users { get; set; }
         public DbSet<Tutor> Tutors { get; set; }
         public DbSet<Student> Students { get; set; }
+        public DbSet<TutorSchedule> TutorSchedules { get; set; }
+        public DbSet<Meeting> Meetings { get; set; }
+        public DbSet<Advertisement> Advertisements { get; set; }
+        public DbSet<Apply> Applies { get; set; }
+        public DbSet<Log> Logs { get; set; }
         
         public TutorStudentDbContext(DbContextOptions options) :base(options)
         {
@@ -21,6 +26,11 @@ namespace TutorStudent.Infrastructure
             modelBuilder.Entity<User>().HasKey(x => x.Id);
             modelBuilder.Entity<Tutor>().HasKey(x => x.Id);
             modelBuilder.Entity<Student>().HasKey(x => x.Id);
+            modelBuilder.Entity<TutorSchedule>().HasKey(x => x.Id);
+            modelBuilder.Entity<Meeting>().HasKey(x => x.Id);
+            modelBuilder.Entity<Advertisement>().HasKey(x => x.Id);
+            modelBuilder.Entity<Apply>().HasKey(x => x.Id);
+            modelBuilder.Entity<Log>().HasKey(x => x.Id);
             
             modelBuilder.Entity<User>().Property(e => e.Gender)
                 .HasConversion(
@@ -31,6 +41,22 @@ namespace TutorStudent.Infrastructure
                 .HasConversion(
                     v => v.ToString(),
                     v => (RoleType)Enum.Parse(typeof(RoleType), v));
+            
+            modelBuilder.Entity<TutorSchedule>().Property(e => e.Meeting)
+                .HasConversion(
+                    v => v.ToString(),
+                    v => (MeetingType)Enum.Parse(typeof(MeetingType), v));
+            
+            modelBuilder.Entity<Advertisement>().Property(e => e.Ticket)
+                .HasConversion(
+                    v => v.ToString(),
+                    v => (TicketType)Enum.Parse(typeof(TicketType), v));
+            
+            modelBuilder.Entity<Apply>().Property(e => e.Ticket)
+                .HasConversion(
+                    v => v.ToString(),
+                    v => (TicketType)Enum.Parse(typeof(TicketType), v));
+            
 
 
         }

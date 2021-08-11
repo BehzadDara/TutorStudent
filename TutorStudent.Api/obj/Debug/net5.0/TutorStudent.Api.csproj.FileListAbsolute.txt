@@ -78,3 +78,5 @@ C:\Users\b.dara\Desktop\TutorStudent\TutorStudent.Api\bin\Debug\net5.0\Microsoft
 C:\Users\b.dara\Desktop\TutorStudent\TutorStudent.Api\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\b.dara\Desktop\TutorStudent\TutorStudent.Api\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\b.dara\Desktop\TutorStudent\TutorStudent.Api\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\b.dara\Desktop\TutorStudent\TutorStudent.Api\bin\Debug\net5.0\stateless.dll
+C:\Users\b.dara\Desktop\TutorStudent\TutorStudent.Api\bin\Debug\net5.0\fa\Humanizer.resources.dll

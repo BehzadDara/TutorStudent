@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "IrNFZtXEo5T7S3Fr3xZj1mPCzUJrvWG2R081wNeDbyQT+GmqLIbuHsoCdKvGkuZuJKLdFaqz1G1Zr1LSsyLXxg==",
+  "dgSpecHash": "IApqQSBKIHFRt/D33Byo2vS8d/lk/dJ4yMzOSG87LnMseQFQtlVzokoInk3IaeBzaSWr0o3SSp1rvb9l/5tcdw==",
   "success": true,
   "projectFilePath": "C:\\Users\\b.dara\\Desktop\\TutorStudent\\TutorStudent.Api\\TutorStudent.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\b.dara\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\b.dara\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
     "C:\\Users\\b.dara\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\b.dara\\.nuget\\packages\\humanizer.core.fa\\2.8.26\\humanizer.core.fa.2.8.26.nupkg.sha512",
     "C:\\Users\\b.dara\\.nuget\\packages\\jetbrains.annotations\\2021.1.0-eap01\\jetbrains.annotations.2021.1.0-eap01.nupkg.sha512",
     "C:\\Users\\b.dara\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\b.dara\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
@@ -116,6 +117,7 @@
     "C:\\Users\\b.dara\\.nuget\\packages\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\b.dara\\.nuget\\packages\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\b.dara\\.nuget\\packages\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
+    "C:\\Users\\b.dara\\.nuget\\packages\\stateless\\5.11.0\\stateless.5.11.0.nupkg.sha512",
     "C:\\Users\\b.dara\\.nuget\\packages\\swashbuckle.aspnetcore\\6.0.7\\swashbuckle.aspnetcore.6.0.7.nupkg.sha512",
     "C:\\Users\\b.dara\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.0.7\\swashbuckle.aspnetcore.swagger.6.0.7.nupkg.sha512",
     "C:\\Users\\b.dara\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.0.7\\swashbuckle.aspnetcore.swaggergen.6.0.7.nupkg.sha512",

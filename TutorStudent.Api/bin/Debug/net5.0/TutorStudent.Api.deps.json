@@ -366,6 +366,16 @@
           "lib/netstandard2.0/Humanizer.dll": {}
         }
       },
+      "Humanizer.Core.fa/2.8.26": {
+        "dependencies": {
+          "Humanizer.Core": "2.8.26"
+        },
+        "resources": {
+          "lib/netstandard2.0/fa/Humanizer.resources.dll": {
+            "locale": "fa"
+          }
+        }
+      },
       "JetBrains.Annotations/2021.1.0-eap01": {
         "runtime": {
           "lib/netstandard2.0/JetBrains.Annotations.dll": {
@@ -1320,6 +1330,17 @@
       "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
+      "stateless/5.11.0": {
+        "runtime": {
+          "lib/net5.0/stateless.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "5.11.0.0"
+          }
+        },
+        "compile": {
+          "lib/net5.0/stateless.dll": {}
+        }
+      },
       "Swashbuckle.AspNetCore/6.0.7": {
         "dependencies": {
           "Microsoft.Extensions.ApiDescription.Server": "3.0.0",
@@ -2275,6 +2296,7 @@
       },
       "TutorStudent.Application/1.0.0": {
         "dependencies": {
+          "Humanizer.Core.fa": "2.8.26",
           "Microsoft.AspNetCore.Mvc": "2.2.0",
           "TutorStudent.Infrastructure": "1.0.0"
         },
@@ -2288,7 +2310,8 @@
       "TutorStudent.Domain/1.0.0": {
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.1.1",
-          "JetBrains.Annotations": "2021.1.0-eap01"
+          "JetBrains.Annotations": "2021.1.0-eap01",
+          "stateless": "5.11.0"
         },
         "runtime": {
           "TutorStudent.Domain.dll": {}
@@ -4037,6 +4060,13 @@
       "path": "humanizer.core/2.8.26",
       "hashPath": "humanizer.core.2.8.26.nupkg.sha512"
     },
+    "Humanizer.Core.fa/2.8.26": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WTcXRJ534ZTYF7Q8qixWkul25VUpr3eb9vCk/NsCXT3xPj547mPAq9ADqmTQUu3tH3LxnSW1wHFj3AvqoEKZUQ==",
+      "path": "humanizer.core.fa/2.8.26",
+      "hashPath": "humanizer.core.fa.2.8.26.nupkg.sha512"
+    },
     "JetBrains.Annotations/2021.1.0-eap01": {
       "type": "package",
       "serviceable": true,
@@ -4799,6 +4829,13 @@
       "sha512": "sha512-VB5cn/7OzUfzdnC8tqAIMQciVLiq2epm2NrAm1E9OjNRyG4lVhfR61SMcLizejzQP8R8Uf/0l5qOIbUEi+RdEg==",
       "path": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "hashPath": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512"
+    },
+    "stateless/5.11.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5XXmdEQBOpgE90vqxfZH0ekdqfGB6xLe0Uyb7EyHr/fgv/zkZtDcru4KxRvAvWxE1u4c8MOZnOnXoRfQOfFnTg==",
+      "path": "stateless/5.11.0",
+      "hashPath": "stateless.5.11.0.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore/6.0.7": {
       "type": "package",

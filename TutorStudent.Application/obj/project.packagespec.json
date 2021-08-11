@@ -36,6 +36,10 @@
   "frameworks": {
     "netstandard2.1": {
       "dependencies": {
+        "Humanizer.Core.fa": {
+          "target": "Package",
+          "version": "[2.8.26, )"
+        },
         "Microsoft.AspNetCore.Mvc": {
           "target": "Package",
           "version": "[2.2.0, )"
