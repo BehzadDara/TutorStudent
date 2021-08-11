@@ -27,7 +27,7 @@ namespace TutorStudent.Domain.Specifications
         }
 
         public override Expression<Func<TutorSchedule, bool>> Criteria =>
-            myTutorSchedule => myTutorSchedule.TutorId == _tutorId && Convert.ToInt32(myTutorSchedule.Date) >= ParseToSolar(DateTime.Now);
+            myTutorSchedule => myTutorSchedule.TutorId == _tutorId && Convert.ToInt32(myTutorSchedule.Date) >= ParseToSolar(DateTime.Now) && myTutorSchedule.Remain > 0;
     }
     
     
