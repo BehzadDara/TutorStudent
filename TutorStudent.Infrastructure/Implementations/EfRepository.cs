@@ -78,9 +78,22 @@ namespace TutorStudent.Infrastructure.Implementations
 
         public virtual async Task<IList<T>> ListAsync(Specification<T> spec)
         {
-            var query = SpecificationEvaluator<T>.GetQuery(_dbContext.Set<T>().AsQueryable(), spec);
-        
-            return await query.ToListAsync();
+            var query = await SpecificationEvaluator<T>.GetQuery(_dbContext.Set<T>().AsQueryable(), spec).ToListAsync();
+            var result = new List<T>();
+            foreach (var entity in query)
+            {
+                if (entity is ISoftDeletable deletable)
+                {
+                    if(!deletable.IsDeleted)
+                        result.Add(entity);
+                }
+                else
+                {
+                    result.Add(entity);
+                }
+            }
+            
+            return result;
         }
 
         public  async Task<T> GetByIdAsync(Guid id)

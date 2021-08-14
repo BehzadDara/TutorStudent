@@ -17,7 +17,7 @@ namespace TutorStudent.Domain.Specifications
         }
 
         public override Expression<Func<TutorSchedule, bool>> Criteria =>
-            myTutorSchedule => myTutorSchedule.TutorId == _tutorId && myTutorSchedule.Remain > 0 && !myTutorSchedule.IsDeleted;
+            myTutorSchedule => myTutorSchedule.TutorId == _tutorId && myTutorSchedule.Remain > 0;
 
 
     }

@@ -26,61 +26,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bcf6ed1-08bb-483c-a58d-12fe98bdb87c" name="Default Changelist" comment="5.18">
-      <change afterPath="$PROJECT_DIR$/TutorStudent.Infrastructure/Migrations/20210814063416_Init2.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TutorStudent.Infrastructure/Migrations/20210814063416_Init2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TutorStudent/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TutorStudent/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TutorStudent/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TutorStudent/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Api/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Api/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Api/TutorStudentProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Api/TutorStudentProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Api/bin/Debug/net5.0/TutorStudent.Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Api/bin/Debug/net5.0/TutorStudent.Api.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Api/bin/Debug/net5.0/TutorStudent.Api.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Api/bin/Debug/net5.0/TutorStudent.Api.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Api/bin/Debug/net5.0/TutorStudent.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Api/bin/Debug/net5.0/TutorStudent.Application.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Api/bin/Debug/net5.0/TutorStudent.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Api/bin/Debug/net5.0/TutorStudent.Application.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Api/bin/Debug/net5.0/TutorStudent.Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Api/bin/Debug/net5.0/TutorStudent.Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Api/bin/Debug/net5.0/TutorStudent.Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Api/bin/Debug/net5.0/TutorStudent.Domain.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Api/bin/Debug/net5.0/TutorStudent.Infrastructure.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Api/bin/Debug/net5.0/TutorStudent.Infrastructure.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Api/bin/Debug/net5.0/TutorStudent.Infrastructure.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Api/bin/Debug/net5.0/TutorStudent.Infrastructure.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Api/obj/Debug/net5.0/TutorStudent.Api.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Api/obj/Debug/net5.0/TutorStudent.Api.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Api/obj/Debug/net5.0/TutorStudent.Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Api/obj/Debug/net5.0/TutorStudent.Api.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Api/obj/Debug/net5.0/TutorStudent.Api.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Api/obj/Debug/net5.0/TutorStudent.Api.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Application/Contracts/TutorScheduleCreateDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Application/Contracts/TutorScheduleCreateDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Application/Contracts/TutorScheduleDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Application/Contracts/TutorScheduleDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Application/Services/AdvertisementAppService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Application/Services/AdvertisementAppService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Application/Services/ApplyAppService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Application/Services/ApplyAppService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Application/Services/MeetingAppService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Application/Services/MeetingAppService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Application/Services/TutorScheduleAppService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Application/Services/TutorScheduleAppService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Application/bin/Debug/netstandard2.1/TutorStudent.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Application/bin/Debug/netstandard2.1/TutorStudent.Application.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Application/bin/Debug/netstandard2.1/TutorStudent.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Application/bin/Debug/netstandard2.1/TutorStudent.Application.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Application/bin/Debug/netstandard2.1/TutorStudent.Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Application/bin/Debug/netstandard2.1/TutorStudent.Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Application/bin/Debug/netstandard2.1/TutorStudent.Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Application/bin/Debug/netstandard2.1/TutorStudent.Domain.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Application/bin/Debug/netstandard2.1/TutorStudent.Infrastructure.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Application/bin/Debug/netstandard2.1/TutorStudent.Infrastructure.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Application/bin/Debug/netstandard2.1/TutorStudent.Infrastructure.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Application/bin/Debug/netstandard2.1/TutorStudent.Infrastructure.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Application/obj/Debug/netstandard2.1/TutorStudent.Application.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Application/obj/Debug/netstandard2.1/TutorStudent.Application.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Application/obj/Debug/netstandard2.1/TutorStudent.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Application/obj/Debug/netstandard2.1/TutorStudent.Application.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Application/obj/Debug/netstandard2.1/TutorStudent.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Application/obj/Debug/netstandard2.1/TutorStudent.Application.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Domain/Models/TutorSchedule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Domain/Models/TutorSchedule.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Domain/Specifications/GetAdvertisementByTicket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Domain/Specifications/GetAdvertisementByTicket.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Domain/Specifications/GetAdvertisementByTutorId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Domain/Specifications/GetAdvertisementByTutorId.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Domain/Specifications/GetApplyByStudentId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Domain/Specifications/GetApplyByStudentId.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Domain/Specifications/GetApplyByTutorId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Domain/Specifications/GetApplyByTutorId.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Domain/Specifications/GetLogByApplyId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Domain/Specifications/GetLogByApplyId.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Domain/Specifications/GetMeetingByTutorScheduleId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Domain/Specifications/GetMeetingByTutorScheduleId.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Domain/Specifications/GetTutorScheduleByTutorId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Domain/Specifications/GetTutorScheduleByTutorId.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Domain/bin/Debug/netstandard2.1/TutorStudent.Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Domain/bin/Debug/netstandard2.1/TutorStudent.Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Domain/bin/Debug/netstandard2.1/TutorStudent.Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Domain/bin/Debug/netstandard2.1/TutorStudent.Domain.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Domain/obj/Debug/netstandard2.1/TutorStudent.Domain.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Domain/obj/Debug/netstandard2.1/TutorStudent.Domain.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Domain/obj/Debug/netstandard2.1/TutorStudent.Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Domain/obj/Debug/netstandard2.1/TutorStudent.Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Domain/obj/Debug/netstandard2.1/TutorStudent.Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Domain/obj/Debug/netstandard2.1/TutorStudent.Domain.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Infrastructure/Implementations/SpecificationEvaluator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Infrastructure/Implementations/SpecificationEvaluator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Infrastructure/Migrations/TutorStudentDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Infrastructure/Migrations/TutorStudentDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Infrastructure/bin/Debug/netstandard2.1/TutorStudent.Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Infrastructure/bin/Debug/netstandard2.1/TutorStudent.Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Infrastructure/bin/Debug/netstandard2.1/TutorStudent.Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Infrastructure/bin/Debug/netstandard2.1/TutorStudent.Domain.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Infrastructure/bin/Debug/netstandard2.1/TutorStudent.Infrastructure.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Infrastructure/bin/Debug/netstandard2.1/TutorStudent.Infrastructure.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Infrastructure/bin/Debug/netstandard2.1/TutorStudent.Infrastructure.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Infrastructure/bin/Debug/netstandard2.1/TutorStudent.Infrastructure.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Infrastructure/obj/Debug/netstandard2.1/TutorStudent.Infrastructure.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Infrastructure/obj/Debug/netstandard2.1/TutorStudent.Infrastructure.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Infrastructure/obj/Debug/netstandard2.1/TutorStudent.Infrastructure.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Infrastructure/obj/Debug/netstandard2.1/TutorStudent.Infrastructure.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Infrastructure/obj/Debug/netstandard2.1/TutorStudent.Infrastructure.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Infrastructure/obj/Debug/netstandard2.1/TutorStudent.Infrastructure.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutorStudent.Infrastructure/obj/Debug/netstandard2.1/TutorStudent.Infrastructure.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TutorStudent.Infrastructure/obj/Debug/netstandard2.1/TutorStudent.Infrastructure.pdb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,7 +243,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1628577119928</updated>
-      <workItem from="1628577137081" duration="49222000" />
+      <workItem from="1628577137081" duration="51579000" />
     </task>
     <task id="LOCAL-00001" summary="5.18">
       <created>1628597777475</created>
@@ -344,86 +290,86 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="437" height="464" key="DebuggerActiveHint/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628921248635" />
-    <state width="1557" height="130" key="GridCell.Tab.0.bottom" timestamp="1628934824487">
+    <state width="1557" height="442" key="GridCell.Tab.0.bottom" timestamp="1628936394061">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="130" key="GridCell.Tab.0.bottom/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628934824487" />
-    <state width="1557" height="130" key="GridCell.Tab.0.center" timestamp="1628934824487">
+    <state width="1557" height="442" key="GridCell.Tab.0.bottom/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628936394061" />
+    <state width="1557" height="442" key="GridCell.Tab.0.center" timestamp="1628936394061">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="130" key="GridCell.Tab.0.center/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628934824487" />
-    <state width="1557" height="130" key="GridCell.Tab.0.left" timestamp="1628934824487">
+    <state width="1557" height="442" key="GridCell.Tab.0.center/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628936394061" />
+    <state width="1557" height="442" key="GridCell.Tab.0.left" timestamp="1628936394061">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="130" key="GridCell.Tab.0.left/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628934824487" />
-    <state width="1557" height="130" key="GridCell.Tab.0.right" timestamp="1628934824487">
+    <state width="1557" height="442" key="GridCell.Tab.0.left/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628936394061" />
+    <state width="1557" height="442" key="GridCell.Tab.0.right" timestamp="1628936394061">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="130" key="GridCell.Tab.0.right/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628934824487" />
-    <state width="1557" height="130" key="GridCell.Tab.1.bottom" timestamp="1628934824128">
+    <state width="1557" height="442" key="GridCell.Tab.0.right/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628936394061" />
+    <state width="1557" height="442" key="GridCell.Tab.1.bottom" timestamp="1628936394061">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="130" key="GridCell.Tab.1.bottom/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628934824128" />
-    <state width="1557" height="130" key="GridCell.Tab.1.center" timestamp="1628934824128">
+    <state width="1557" height="442" key="GridCell.Tab.1.bottom/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628936394061" />
+    <state width="1557" height="442" key="GridCell.Tab.1.center" timestamp="1628936394061">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="130" key="GridCell.Tab.1.center/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628934824128" />
-    <state width="1557" height="130" key="GridCell.Tab.1.left" timestamp="1628934824128">
+    <state width="1557" height="442" key="GridCell.Tab.1.center/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628936394061" />
+    <state width="1557" height="442" key="GridCell.Tab.1.left" timestamp="1628936394061">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="130" key="GridCell.Tab.1.left/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628934824128" />
-    <state width="1557" height="130" key="GridCell.Tab.1.right" timestamp="1628934824128">
+    <state width="1557" height="442" key="GridCell.Tab.1.left/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628936394061" />
+    <state width="1557" height="442" key="GridCell.Tab.1.right" timestamp="1628936394061">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="130" key="GridCell.Tab.1.right/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628934824128" />
-    <state width="1557" height="130" key="GridCell.Tab.2.bottom" timestamp="1628934824128">
+    <state width="1557" height="442" key="GridCell.Tab.1.right/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628936394061" />
+    <state width="1557" height="442" key="GridCell.Tab.2.bottom" timestamp="1628936394061">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="130" key="GridCell.Tab.2.bottom/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628934824128" />
-    <state width="1557" height="130" key="GridCell.Tab.2.center" timestamp="1628934824128">
+    <state width="1557" height="442" key="GridCell.Tab.2.bottom/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628936394061" />
+    <state width="1557" height="442" key="GridCell.Tab.2.center" timestamp="1628936394061">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="130" key="GridCell.Tab.2.center/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628934824128" />
-    <state width="1557" height="130" key="GridCell.Tab.2.left" timestamp="1628934824128">
+    <state width="1557" height="442" key="GridCell.Tab.2.center/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628936394061" />
+    <state width="1557" height="442" key="GridCell.Tab.2.left" timestamp="1628936394061">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="130" key="GridCell.Tab.2.left/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628934824128" />
-    <state width="1557" height="130" key="GridCell.Tab.2.right" timestamp="1628934824128">
+    <state width="1557" height="442" key="GridCell.Tab.2.left/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628936394061" />
+    <state width="1557" height="442" key="GridCell.Tab.2.right" timestamp="1628936394061">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="130" key="GridCell.Tab.2.right/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628934824128" />
-    <state width="1557" height="130" key="GridCell.Tab.3.bottom" timestamp="1628934824128">
+    <state width="1557" height="442" key="GridCell.Tab.2.right/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628936394061" />
+    <state width="1557" height="442" key="GridCell.Tab.3.bottom" timestamp="1628936394061">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="130" key="GridCell.Tab.3.bottom/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628934824128" />
-    <state width="1557" height="130" key="GridCell.Tab.3.center" timestamp="1628934824128">
+    <state width="1557" height="442" key="GridCell.Tab.3.bottom/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628936394061" />
+    <state width="1557" height="442" key="GridCell.Tab.3.center" timestamp="1628936394061">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="130" key="GridCell.Tab.3.center/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628934824128" />
-    <state width="1557" height="130" key="GridCell.Tab.3.left" timestamp="1628934824128">
+    <state width="1557" height="442" key="GridCell.Tab.3.center/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628936394061" />
+    <state width="1557" height="442" key="GridCell.Tab.3.left" timestamp="1628936394061">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="130" key="GridCell.Tab.3.left/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628934824128" />
-    <state width="1557" height="130" key="GridCell.Tab.3.right" timestamp="1628934824128">
+    <state width="1557" height="442" key="GridCell.Tab.3.left/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628936394061" />
+    <state width="1557" height="442" key="GridCell.Tab.3.right" timestamp="1628936394061">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="130" key="GridCell.Tab.3.right/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628934824128" />
-    <state width="1557" height="130" key="GridCell.Tab.4.bottom" timestamp="1628934824128">
+    <state width="1557" height="442" key="GridCell.Tab.3.right/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628936394061" />
+    <state width="1557" height="442" key="GridCell.Tab.4.bottom" timestamp="1628936394061">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="130" key="GridCell.Tab.4.bottom/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628934824128" />
-    <state width="1557" height="130" key="GridCell.Tab.4.center" timestamp="1628934824128">
+    <state width="1557" height="442" key="GridCell.Tab.4.bottom/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628936394061" />
+    <state width="1557" height="442" key="GridCell.Tab.4.center" timestamp="1628936394061">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="130" key="GridCell.Tab.4.center/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628934824128" />
-    <state width="1557" height="130" key="GridCell.Tab.4.left" timestamp="1628934824128">
+    <state width="1557" height="442" key="GridCell.Tab.4.center/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628936394061" />
+    <state width="1557" height="442" key="GridCell.Tab.4.left" timestamp="1628936394061">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="130" key="GridCell.Tab.4.left/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628934824128" />
-    <state width="1557" height="130" key="GridCell.Tab.4.right" timestamp="1628934824128">
+    <state width="1557" height="442" key="GridCell.Tab.4.left/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628936394061" />
+    <state width="1557" height="442" key="GridCell.Tab.4.right" timestamp="1628936394061">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="130" key="GridCell.Tab.4.right/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628934824128" />
+    <state width="1557" height="442" key="GridCell.Tab.4.right/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1628936394061" />
     <state x="392" y="162" key="Rider.ProjectTemplateDialog.Size" timestamp="1628577210841">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
