@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -39,7 +38,7 @@ namespace TutorStudent.Application.Services
             var myUser = await _repository.GetAsync(new GetUserByUserNameAndPassword(userName, password));
             if (myUser is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.LoginError));
             }
 
             var myLogin = new LoginDto
@@ -55,7 +54,7 @@ namespace TutorStudent.Application.Services
             var myUser = await _repository.GetByIdAsync(id);
             if (myUser is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.UserNotFound));
             }
 
             switch (myUser.Role)
@@ -70,7 +69,7 @@ namespace TutorStudent.Application.Services
                     var myTutor = await _tutors.GetAsync(new GetTutorByUserId(myUser.Id));
                     if (myTutor is null)
                     {
-                        return NotFound();
+                        return NotFound(new ResponseDto(Error.UserNotFound));
                     }
 
                     myTutor.User = myUser;
@@ -79,7 +78,7 @@ namespace TutorStudent.Application.Services
                     var myStudent = await _students.GetAsync(new GetStudentByUserId(myUser.Id));
                     if (myStudent is null)
                     {
-                        return NotFound();
+                        return NotFound(new ResponseDto(Error.UserNotFound));
                     }
 
                     myStudent.User = myUser;
@@ -95,7 +94,7 @@ namespace TutorStudent.Application.Services
         {
             if (adminKey != "b123@123")
             {
-                return Unauthorized();
+                return Unauthorized(new ResponseDto(Error.AccessDenied));
             }
 
             var myUser = _mapper.Map<User>(input);
@@ -112,13 +111,13 @@ namespace TutorStudent.Application.Services
             var myManager = await _repository.GetByIdAsync(managerId);
             if (myManager is null || myManager.Role != RoleType.Manager)
             {
-                return Unauthorized();
+                return Unauthorized(new ResponseDto(Error.AccessDenied));
             }
             
             var myUser = await _repository.GetByIdAsync(id);
             if (myUser is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.UserNotFound));
             }
 
             myUser.UserName = input.UserName;
@@ -140,12 +139,12 @@ namespace TutorStudent.Application.Services
             var myUser = await _repository.GetByIdAsync(id);
             if (myUser is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.UserNotFound));
             }
 
             if (myUser.Password != input.OldPassword)
             {
-                return Unauthorized();
+                return BadRequest(new ResponseDto(Error.WrongPassword));
             }
             
             

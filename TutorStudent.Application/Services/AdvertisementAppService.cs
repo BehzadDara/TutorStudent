@@ -37,7 +37,7 @@ namespace TutorStudent.Application.Services
             var myTutor = await _tutors.GetAsync(new GetTutorByUserId(userId));
             if (myTutor is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.TutorNotFound));
             }
             
             var myAdvertisement = _mapper.Map<Advertisement>(input);
@@ -56,16 +56,16 @@ namespace TutorStudent.Application.Services
             var myAdvertisement = await _repository.GetByIdAsync(id);
             if (myAdvertisement is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.AdvertisementNotFound));
             }
             var myTutor = await _tutors.GetAsync(new GetTutorByUserId(userId));
             if (myTutor is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.TutorNotFound));
             }
             if (myTutor.Id != myAdvertisement.TutorId)
             {
-                return Unauthorized();
+                return Unauthorized(new ResponseDto(Error.AccessDenied));
             }
 
             myAdvertisement.Ticket = (TicketType) Enum.Parse(typeof(TicketType), input.Ticket, true);
@@ -84,16 +84,16 @@ namespace TutorStudent.Application.Services
             var myAdvertisement = await _repository.GetByIdAsync(id);
             if (myAdvertisement is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.AdvertisementNotFound));
             }
             var myTutor = await _tutors.GetAsync(new GetTutorByUserId(userId));
             if (myTutor is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.TutorNotFound));
             }
             if (myTutor.Id != myAdvertisement.TutorId)
             {
-                return Unauthorized();
+                return Unauthorized(new ResponseDto(Error.AccessDenied));
             }
 
             await _repository.DeleteAsync(myAdvertisement.Id);
@@ -117,7 +117,7 @@ namespace TutorStudent.Application.Services
             var myTutor = await _tutors.GetAsync(new GetTutorByUserId(userId));
             if (myTutor is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.TutorNotFound));
             }
 
             var myAdvertisements = await _repository.ListAsync(new GetAdvertisementByTutorId(myTutor.Id));
@@ -140,7 +140,7 @@ namespace TutorStudent.Application.Services
             var myAdvertisement = await _repository.GetByIdAsync(id);
             if (myAdvertisement is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.AdvertisementNotFound));
             }
             
             return Ok(_mapper.Map<AdvertisementDto>(myAdvertisement));

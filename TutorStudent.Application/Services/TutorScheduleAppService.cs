@@ -40,15 +40,15 @@ namespace TutorStudent.Application.Services
             var myTutor = await _tutors.GetAsync(new GetTutorByUserId(userId));
             if (myTutor is null)
             {
-                return Unauthorized();
+                return Unauthorized(new ResponseDto(Error.AccessDenied));
             }
             if (input.Capacity <= 0)
             {
-                return BadRequest();
+                return BadRequest(new ResponseDto(Error.CapacityControl));
             }
             if (Convert.ToInt32(input.BeginHour) >= Convert.ToInt32(input.EndHour))
             {
-                return BadRequest();
+                return BadRequest(new ResponseDto(Error.DateControl));
             }
             
             var myTutorSchedule = _mapper.Map<TutorSchedule>(input);
@@ -67,21 +67,21 @@ namespace TutorStudent.Application.Services
             var myTutorSchedule = await _repository.GetByIdAsync(id);
             if (myTutorSchedule is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.TutorScheduleNotFound));
             }
             var myTutor = await _tutors.GetAsync(new GetTutorByUserId(userId));
             if (myTutor is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.TutorNotFound));
             }
             if (myTutor.Id != myTutorSchedule.TutorId)
             {
-                return Unauthorized();
+                return Unauthorized(new ResponseDto(Error.AccessDenied));
             }
 
             if (input.Capacity < myTutorSchedule.Capacity - myTutorSchedule.Remain)
             {
-                return BadRequest();
+                return BadRequest(new ResponseDto(Error.CapacityControl2));
             }
 
             var use = myTutorSchedule.Capacity - myTutorSchedule.Remain;
@@ -101,21 +101,21 @@ namespace TutorStudent.Application.Services
             var myTutorSchedule = await _repository.GetByIdAsync(id);
             if (myTutorSchedule is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.TutorScheduleNotFound));
             }
             var myTutor = await _tutors.GetAsync(new GetTutorByUserId(userId));
             if (myTutor is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.TutorNotFound));
             }
             if (myTutor.Id != myTutorSchedule.TutorId)
             {
-                return Unauthorized();
+                return Unauthorized(new ResponseDto(Error.AccessDenied));
             }
             var myMeeting = await _meeting.ListAsync(new GetMeetingByTutorScheduleId(myTutorSchedule.Id));
             if (myMeeting.Count != 0)
             {
-                return Unauthorized();
+                return Unauthorized(new ResponseDto(Error.TutorScheduleInUse));
             }
 
             await _repository.DeleteAsync(myTutorSchedule.Id);
@@ -130,7 +130,7 @@ namespace TutorStudent.Application.Services
             var myTutor = await _tutors.GetAsync(new GetTutorByUserId(userId));
             if (myTutor is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.TutorNotFound));
             }
 
             var myTutorSchedules = await _repository.ListAsync(new GetTutorScheduleByTutorId(myTutor.Id));
@@ -144,7 +144,7 @@ namespace TutorStudent.Application.Services
             var myTutorSchedule = await _repository.GetByIdAsync(id);
             if (myTutorSchedule is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.TutorScheduleNotFound));
             }
 
             

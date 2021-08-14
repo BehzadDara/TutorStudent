@@ -36,7 +36,7 @@ namespace TutorStudent.Application.Services
             var myManager = await _users.GetByIdAsync(managerId);
             if (myManager is null || myManager.Role != RoleType.Manager)
             {
-                return Unauthorized();
+                return Unauthorized(new ResponseDto(Error.AccessDenied));
             }
             
             var myTutor = _mapper.Map<Tutor>(input);
@@ -53,12 +53,12 @@ namespace TutorStudent.Application.Services
             var myTutor = await _repository.GetAsync(new GetTutorByUserId(id));
             if (myTutor is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.TutorNotFound));
             }
             var myUser = await _users.GetByIdAsync(myTutor.UserId);
             if (myUser is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.TutorNotFound));
             }
 
             myTutor.SkypeId = input.SkypeId;
@@ -82,18 +82,18 @@ namespace TutorStudent.Application.Services
             var myManager = await _users.GetByIdAsync(managerId);
             if (myManager is null || myManager.Role != RoleType.Manager)
             {
-                return Unauthorized();
+                return Unauthorized(new ResponseDto(Error.AccessDenied));
             }
             
             var myTutor = await _repository.GetAsync(new GetTutorByUserId(id));
             if (myTutor is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.TutorNotFound));
             }
             var myUser = await _users.GetByIdAsync(myTutor.UserId);
             if (myUser is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.TutorNotFound));
             }
 
             await _repository.DeleteAsync(myTutor.Id);
@@ -109,12 +109,12 @@ namespace TutorStudent.Application.Services
             var myTutor = await _repository.GetAsync(new GetTutorByUserId(id));
             if (myTutor is null)
             { 
-                return NotFound(new ResponseDto("not found !!!"));
+                return NotFound(new ResponseDto(Error.TutorNotFound));
             }
             var myUser = await _users.GetByIdAsync(myTutor.UserId);
             if (myUser is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.TutorNotFound));
             }
             myTutor.User = myUser;
             return Ok(_mapper.Map<TutorDto>(myTutor));
@@ -130,7 +130,7 @@ namespace TutorStudent.Application.Services
                 var myUser = await _users.GetByIdAsync(myTutor.UserId);
                 if (myUser is null)
                 {
-                    return NotFound();
+                    return NotFound(new ResponseDto(Error.TutorNotFound));
                 }
                 myTutor.User = myUser;
             }

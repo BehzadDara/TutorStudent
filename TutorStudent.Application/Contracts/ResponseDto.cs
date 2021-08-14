@@ -4,9 +4,9 @@
     {
         public ResponseDto(string message)
         {
-            _message = message;
+            Message = message;
         }
 
-        private string _message;
+        public string Message { get; }
     }
 }

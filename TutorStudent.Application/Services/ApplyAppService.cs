@@ -42,12 +42,12 @@ namespace TutorStudent.Application.Services
             var myStudent = await _students.GetAsync(new GetStudentByUserId(userId));
             if (myStudent is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.StudentNotFound));
             }       
             var myTutor = await _tutors.GetByIdAsync(input.TutorId);
             if (myTutor is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.TutorNotFound));
             }
             
             var myApply = _mapper.Map<Apply>(input);
@@ -68,16 +68,16 @@ namespace TutorStudent.Application.Services
             var myApply = await _repository.GetByIdAsync(id);
             if (myApply is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.ApplyNotFound));
             }
             var myStudent = await _students.GetAsync(new GetStudentByUserId(userId));
             if (myStudent is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.StudentNotFound));
             }
             if (myStudent.Id != myApply.StudentId)
             {
-                return Unauthorized();
+                return Unauthorized(new ResponseDto(Error.AccessDenied));
             }
 
             await _repository.DeleteAsync(myApply.Id);
@@ -93,7 +93,7 @@ namespace TutorStudent.Application.Services
             var myTutor = await _tutors.GetAsync(new GetTutorByUserId(userId));
             if (myTutor is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.TutorNotFound));
             }
 
             var myApplys = await _repository.ListAsync(new GetApplyByTutorId(myTutor.Id));
@@ -107,7 +107,7 @@ namespace TutorStudent.Application.Services
             var myStudent = await _students.GetAsync(new GetStudentByUserId(userId));
             if (myStudent is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.StudentNotFound));
             }
 
             var myApplys = await _repository.ListAsync(new GetApplyByStudentId(myStudent.Id));
@@ -121,7 +121,7 @@ namespace TutorStudent.Application.Services
             var myApply = await _repository.GetByIdAsync(id);
             if (myApply is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.ApplyNotFound));
             }
             
             return Ok(_mapper.Map<ApplyDto>(myApply));
@@ -133,18 +133,18 @@ namespace TutorStudent.Application.Services
             var myApply = await _repository.GetByIdAsync(id);
             if (myApply is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.ApplyNotFound));
             }
 
             var myTutor = await _tutors.GetAsync(new GetTutorByUserId(userId));
             if (myTutor is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.TutorNotFound));
             }
 
             if (myTutor.Id != myApply.TutorId)
             {
-                return Unauthorized();
+                return Unauthorized(new ResponseDto(Error.AccessDenied));
             }
 
             await myApply.FireTrigger(TriggerType.Open, "");
@@ -170,18 +170,18 @@ namespace TutorStudent.Application.Services
             var myApply = await _repository.GetByIdAsync(id);
             if (myApply is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.ApplyNotFound));
             }
             
             var myTutor = await _tutors.GetAsync(new GetTutorByUserId(userId));
             if (myTutor is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.TutorNotFound));
             }
 
             if (myTutor.Id != myApply.TutorId)
             {
-                return Unauthorized();
+                return Unauthorized(new ResponseDto(Error.AccessDenied));
             }
 
             await myApply.FireTrigger(TriggerType.Confirm, comment);
@@ -207,18 +207,18 @@ namespace TutorStudent.Application.Services
             var myApply = await _repository.GetByIdAsync(id);
             if (myApply is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.ApplyNotFound));
             }
 
             var myTutor = await _tutors.GetAsync(new GetTutorByUserId(userId));
             if (myTutor is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.TutorNotFound));
             }
 
             if (myTutor.Id != myApply.TutorId)
             {
-                return Unauthorized();
+                return Unauthorized(new ResponseDto(Error.AccessDenied));
             }
 
             await myApply.FireTrigger(TriggerType.Reject, comment);
@@ -244,7 +244,7 @@ namespace TutorStudent.Application.Services
             var myApply = await _repository.GetByIdAsync(id);
             if (myApply is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.LogNotFound));
             }
             var myLogs = await _logs.ListAsync(new GetLogByApplyId(myApply.Id));
             return Ok(_mapper.Map<IList<LogDto>>(myLogs).OrderByDescending(x=>x.CreatedAtUtc));

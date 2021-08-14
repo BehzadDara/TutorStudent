@@ -72,7 +72,7 @@ namespace TutorStudent.Api
 
             app.UseMiddleware<ExceptionHandlingMiddleware>();
             
-            app.UseCors("allowall"); 
+            app.UseCors("allowall");
             
             app.UseSwagger(options => { options.RouteTemplate = "api-docs/{documentName}/swagger.json"; });
 

@@ -38,18 +38,18 @@ namespace TutorStudent.Application.Services
             var myStudent = await _student.GetAsync(new GetStudentByUserId(userId));
             if (myStudent is null)
             {
-                return Unauthorized();
+                return NotFound(new ResponseDto(Error.StudentNotFound));
             }   
             
             var myTutorSchedule = await _tutorSchedule.GetByIdAsync(tutorScheduleId);
             if (myTutorSchedule is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.TutorScheduleNotFound));
             }
 
             if (myTutorSchedule.Remain <= 0)
             {
-                return BadRequest();
+                return BadRequest(new ResponseDto(Error.RemainControl));
             }
             
             var myMeeting = new Meeting
@@ -74,24 +74,24 @@ namespace TutorStudent.Application.Services
             var myStudent = await _student.GetAsync(new GetStudentByUserId(userId));
             if (myStudent is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.StudentNotFound));
             }
             
             var myMeeting = await _repository.GetByIdAsync(id);
             if (myMeeting is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.MeetingNotFound));
             }
             
             if (myMeeting.StudentId != myStudent.Id)
             {
-                return Unauthorized();
+                return Unauthorized(new ResponseDto(Error.AccessDenied));
             }
             
             var myTutorSchedule = await _tutorSchedule.GetByIdAsync(myMeeting.TutorScheduleId);
             if (myTutorSchedule is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.TutorScheduleNotFound));
             }
 
             await _repository.DeleteAsync(myMeeting.Id);
@@ -110,7 +110,7 @@ namespace TutorStudent.Application.Services
             var myMeetings = await _repository.ListAsync(new GetMeetingByTutorScheduleId(tutorScheduleId));
             if (myMeetings is null)
             {
-                return NotFound();
+                return NotFound(new ResponseDto(Error.MeetingNotFound));
             }
 
             foreach (var myMeeting in myMeetings)

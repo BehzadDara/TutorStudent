@@ -101,6 +101,7 @@
         <e p="Models" t="Include">
           <e p="Advertisement.cs" t="Include" />
           <e p="Apply.cs" t="Include" />
+          <e p="Error.cs" t="Include" />
           <e p="Log.cs" t="Include" />
           <e p="Meeting.cs" t="Include" />
           <e p="Student.cs" t="Include" />
