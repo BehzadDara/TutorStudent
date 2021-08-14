@@ -138,6 +138,20 @@ namespace TutorStudent.Application.Services
             return Ok(_mapper.Map<IList<TutorScheduleDto>>(myTutorSchedules).Where(y=>CheckDate(y.Date)).OrderBy(x=>x.Date));
         }
 
+        [HttpGet("TutorSchedule")]
+        public async Task<IActionResult> GetSTutorSchedule(Guid id)
+        {
+            var myTutorSchedule = await _repository.GetByIdAsync(id);
+            if (myTutorSchedule is null)
+            {
+                return NotFound();
+            }
+
+            
+            return Ok(_mapper.Map<TutorScheduleDto>(myTutorSchedule));
+        }
+        
+        
         private static bool CheckDate(string date)
         {
             var result = String.Compare(date, ParseToSolar(), StringComparison.Ordinal);
@@ -153,20 +167,5 @@ namespace TutorStudent.Application.Services
                 persianCalendar.GetDayOfMonth(DateTime.Now).ToString().PadLeft(2,'0');
             return solarDate;
         }
-
-        [HttpGet("TutorSchedule")]
-        public async Task<IActionResult> GetSTutorSchedule(Guid id)
-        {
-            var myTutorSchedule = await _repository.GetByIdAsync(id);
-            if (myTutorSchedule is null)
-            {
-                return NotFound();
-            }
-
-            
-            return Ok(_mapper.Map<TutorScheduleDto>(myTutorSchedule));
-        }
-        
-        
     }
 }

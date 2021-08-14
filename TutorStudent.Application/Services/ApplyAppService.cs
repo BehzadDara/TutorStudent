@@ -87,7 +87,7 @@ namespace TutorStudent.Application.Services
         }
         
                 
-        [HttpGet("ApplysByTutor")]
+        [HttpGet("Apply/Tutor")]
         public async Task<IActionResult> GetApplyByTutor(Guid userId)
         {
             var myTutor = await _tutors.GetAsync(new GetTutorByUserId(userId));
@@ -101,7 +101,7 @@ namespace TutorStudent.Application.Services
             return Ok(_mapper.Map<IList<ApplyDto>>(myApplys).OrderByDescending(x=>x.CreatedAtUtc));
         }   
         
-        [HttpGet("ApplysByStudent")]
+        [HttpGet("Apply/Student")]
         public async Task<IActionResult> GetApplyByStudent(Guid userId)
         {
             var myStudent = await _students.GetAsync(new GetStudentByUserId(userId));
@@ -238,7 +238,7 @@ namespace TutorStudent.Application.Services
             return Ok(_mapper.Map<ApplyDto>(myApply));
         }
         
-        [HttpGet("Logs")]
+        [HttpGet("Log")]
         public async Task<IActionResult> GetLogs(Guid id)
         {
             var myApply = await _repository.GetByIdAsync(id);

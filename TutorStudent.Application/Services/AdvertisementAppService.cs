@@ -111,7 +111,7 @@ namespace TutorStudent.Application.Services
             return Ok(_mapper.Map<IList<AdvertisementDto>>(myAdvertisements).OrderByDescending(x=>x.CreatedAtUtc));
         }
                 
-        [HttpGet("AdvertisementsByTutor")]
+        [HttpGet("Advertisement/Tutor")]
         public async Task<IActionResult> GetAdvertisementByTutor(Guid userId)
         {
             var myTutor = await _tutors.GetAsync(new GetTutorByUserId(userId));
@@ -125,7 +125,7 @@ namespace TutorStudent.Application.Services
             return Ok(_mapper.Map<IList<AdvertisementDto>>(myAdvertisements).OrderByDescending(x=>x.CreatedAtUtc));
         }
                 
-        [HttpGet("AdvertisementsByTicket")]
+        [HttpGet("Advertisement/Ticket")]
         public async Task<IActionResult> GetAdvertisementByTicket(string ticket)
         {
 

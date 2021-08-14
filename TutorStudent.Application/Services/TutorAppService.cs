@@ -109,7 +109,7 @@ namespace TutorStudent.Application.Services
             var myTutor = await _repository.GetAsync(new GetTutorByUserId(id));
             if (myTutor is null)
             { 
-                return NotFound();
+                return NotFound(new ResponseDto("not found !!!"));
             }
             var myUser = await _users.GetByIdAsync(myTutor.UserId);
             if (myUser is null)
