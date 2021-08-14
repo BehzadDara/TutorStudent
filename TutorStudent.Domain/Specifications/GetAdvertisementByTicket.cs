@@ -18,7 +18,7 @@ namespace TutorStudent.Domain.Specifications
         }
 
         public override Expression<Func<Advertisement, bool>> Criteria =>
-            myAdvertisement => myAdvertisement.Ticket == _ticket;
+            myAdvertisement => myAdvertisement.Ticket == _ticket && !myAdvertisement.IsDeleted;
     }
     
     

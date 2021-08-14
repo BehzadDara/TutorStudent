@@ -139,6 +139,8 @@
         <e p="Migrations" t="Include">
           <e p="20210811101522_Init.cs" t="Include" />
           <e p="20210811101522_Init.Designer.cs" t="Include" />
+          <e p="20210814063416_Init2.cs" t="Include" />
+          <e p="20210814063416_Init2.Designer.cs" t="Include" />
           <e p="TutorStudentDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">

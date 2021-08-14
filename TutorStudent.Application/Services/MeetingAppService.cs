@@ -68,8 +68,6 @@ namespace TutorStudent.Application.Services
             return Ok(_mapper.Map<MeetingDto>(myMeeting));
         }  
         
-        
-        
         [HttpDelete("Meeting")]
         public async Task<IActionResult> DeleteMeeting(Guid userId, Guid id)
         {

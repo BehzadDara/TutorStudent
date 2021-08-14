@@ -120,7 +120,7 @@ namespace TutorStudent.Application.Services
                 return NotFound();
             }
 
-            var myAdvertisements = await _repository.GetAsync(new GetAdvertisementByTutorId(myTutor.Id));
+            var myAdvertisements = await _repository.ListAsync(new GetAdvertisementByTutorId(myTutor.Id));
             
             return Ok(_mapper.Map<IList<AdvertisementDto>>(myAdvertisements).OrderByDescending(x=>x.CreatedAtUtc));
         }
@@ -129,7 +129,7 @@ namespace TutorStudent.Application.Services
         public async Task<IActionResult> GetAdvertisementByTicket(string ticket)
         {
 
-            var myAdvertisements = await _repository.GetAsync(new GetAdvertisementByTicket((TicketType) Enum.Parse(typeof(TicketType), ticket, true)));
+            var myAdvertisements = await _repository.ListAsync(new GetAdvertisementByTicket((TicketType) Enum.Parse(typeof(TicketType), ticket, true)));
             
             return Ok(_mapper.Map<IList<AdvertisementDto>>(myAdvertisements).OrderByDescending(x=>x.CreatedAtUtc));
         }
@@ -137,8 +137,11 @@ namespace TutorStudent.Application.Services
         [HttpGet("Advertisement")]
         public async Task<IActionResult> GetAdvertisement(Guid id)
         {
-
             var myAdvertisement = await _repository.GetByIdAsync(id);
+            if (myAdvertisement is null)
+            {
+                return NotFound();
+            }
             
             return Ok(_mapper.Map<AdvertisementDto>(myAdvertisement));
         }

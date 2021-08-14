@@ -33,13 +33,14 @@ namespace TutorStudent.Api
             CreateMap<AdvertisementCreateDto, Advertisement>();
             CreateMap<AdvertisementUpdateDto, Advertisement>();
             CreateMap<Advertisement, AdvertisementDto>()
-                .ForMember(x => x.TicketValue, opt => opt.MapFrom(c => c.Ticket));
+                .ForMember(x => x.TicketValue, opt => opt.MapFrom(c => c.Ticket.Humanize()));
 
             CreateMap<ApplyCreateDto, Apply>();
             CreateMap<Apply, ApplyDto>()
-                .ForMember(x => x.TicketValue, opt => opt.MapFrom(c => c.Ticket))
-                .ForMember(x => x.StateValue, opt => opt.MapFrom(c => c.State));
+                .ForMember(x => x.TicketValue, opt => opt.MapFrom(c => c.Ticket.Humanize()))
+                .ForMember(x => x.StateValue, opt => opt.MapFrom(c => c.State.Humanize()));
             
+            CreateMap<Log, LogDto>();
 
 
         }

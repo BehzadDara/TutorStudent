@@ -37,6 +37,16 @@ namespace TutorStudent.Api
             services.AddScoped<IUnitOfWork>(provider => provider.GetService<TutorStudentDbContext>());
             services.AddScoped<DbContext>(provider => provider.GetService<TutorStudentDbContext>());
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
+            
+            services.AddCors(options =>
+            {
+                options.AddPolicy("allowall", policy =>
+                {
+                    policy.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });  
+            });
 
             services.AddSwaggerGen(options =>
             {
@@ -62,12 +72,14 @@ namespace TutorStudent.Api
 
             app.UseMiddleware<ExceptionHandlingMiddleware>();
             
+            app.UseCors("allowall"); 
+            
             app.UseSwagger(options => { options.RouteTemplate = "api-docs/{documentName}/swagger.json"; });
 
             app.UseSwaggerUI(options =>
                 {
                     options.RoutePrefix = "api-docs";
-                    options.DocumentTitle = "myProject APIs";
+                    options.DocumentTitle = "Tutor Student APIs";
                     options.SwaggerEndpoint("v1/swagger.json", "Tutor Student definition");
                     options.OAuthClientId("swaggerapiui");
                     options.OAuthAppName("Swagger API UI");

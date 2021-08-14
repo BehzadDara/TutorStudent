@@ -17,7 +17,7 @@ namespace TutorStudent.Domain.Specifications
         }
 
         public override Expression<Func<Apply, bool>> Criteria =>
-            myApply => myApply.TutorId == _tutorId;
+            myApply => myApply.TutorId == _tutorId && !myApply.IsDeleted;
     }
     
     

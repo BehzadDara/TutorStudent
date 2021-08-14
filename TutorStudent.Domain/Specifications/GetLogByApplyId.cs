@@ -17,7 +17,7 @@ namespace TutorStudent.Domain.Specifications
         }
 
         public override Expression<Func<Log, bool>> Criteria =>
-            myLog => myLog.ApplyId == _applyId;
+            myLog => myLog.ApplyId == _applyId && !myLog.IsDeleted;
     }
     
     

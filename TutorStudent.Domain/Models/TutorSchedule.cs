@@ -15,6 +15,5 @@ namespace TutorStudent.Domain.Models
         [Required] public MeetingType Meeting { get; set; }
         [Required] public int Capacity { get; set; }
         [Required] public int Remain { get; set; }
-        [Required] public bool AutoConfirm { get; set; }
     }
 }

@@ -9,6 +9,7 @@ namespace TutorStudent.Infrastructure.Implementations
         public static IQueryable<T> GetQuery(IQueryable<T> inputQuery, Specification<T> spec)
         {
             var query = inputQuery;
+
             if (spec.Criteria != null)
             {
                 query = query.Where(spec.Criteria);

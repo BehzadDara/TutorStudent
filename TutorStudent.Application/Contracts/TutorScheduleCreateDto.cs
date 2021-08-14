@@ -9,6 +9,5 @@ namespace TutorStudent.Application.Contracts
         [Required] public string EndHour { get; set; }
         [Required] public string Meeting { get; set; }
         [Required] public int Capacity { get; set; }
-        [Required] public bool AutoConfirm { get; set; }
     }
 }

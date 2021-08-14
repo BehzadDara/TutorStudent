@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -83,7 +84,10 @@ namespace TutorStudent.Application.Services
                 return BadRequest();
             }
 
+            var use = myTutorSchedule.Capacity - myTutorSchedule.Remain;
+
             myTutorSchedule.Capacity = input.Capacity;
+            myTutorSchedule.Remain = myTutorSchedule.Capacity - use;
             
             _repository.Update(myTutorSchedule);
             await _unitOfWork.CompleteAsync();
@@ -108,8 +112,8 @@ namespace TutorStudent.Application.Services
             {
                 return Unauthorized();
             }
-            var myMeeting = await _meeting.GetAsync(new GetMeetingByTutorScheduleId(myTutorSchedule.Id));
-            if (!(myMeeting is null))
+            var myMeeting = await _meeting.ListAsync(new GetMeetingByTutorScheduleId(myTutorSchedule.Id));
+            if (myMeeting.Count != 0)
             {
                 return Unauthorized();
             }
@@ -129,11 +133,27 @@ namespace TutorStudent.Application.Services
                 return NotFound();
             }
 
-            var myTutorSchedules = await _repository.GetAsync(new GetTutorScheduleByTutorId(myTutor.Id));
+            var myTutorSchedules = await _repository.ListAsync(new GetTutorScheduleByTutorId(myTutor.Id));
             
-            return Ok(_mapper.Map<IList<TutorScheduleDto>>(myTutorSchedules).OrderBy(x=>x.Date));
+            return Ok(_mapper.Map<IList<TutorScheduleDto>>(myTutorSchedules).Where(y=>CheckDate(y.Date)).OrderBy(x=>x.Date));
+        }
+
+        private static bool CheckDate(string date)
+        {
+            var result = String.Compare(date, ParseToSolar(), StringComparison.Ordinal);
+            return result >= 0;
         }
         
+        private static string ParseToSolar()
+        {
+            var persianCalendar = new PersianCalendar();
+            var solarDate = 
+                persianCalendar.GetYear(DateTime.Now).ToString().Substring(0,4) +
+                persianCalendar.GetMonth(DateTime.Now).ToString().PadLeft(2,'0') +
+                persianCalendar.GetDayOfMonth(DateTime.Now).ToString().PadLeft(2,'0');
+            return solarDate;
+        }
+
         [HttpGet("TutorSchedule")]
         public async Task<IActionResult> GetSTutorSchedule(Guid id)
         {

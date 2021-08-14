@@ -96,7 +96,7 @@ namespace TutorStudent.Application.Services
                 return NotFound();
             }
 
-            var myApplys = await _repository.GetAsync(new GetApplyByTutorId(myTutor.Id));
+            var myApplys = await _repository.ListAsync(new GetApplyByTutorId(myTutor.Id));
             
             return Ok(_mapper.Map<IList<ApplyDto>>(myApplys).OrderByDescending(x=>x.CreatedAtUtc));
         }   
@@ -110,7 +110,7 @@ namespace TutorStudent.Application.Services
                 return NotFound();
             }
 
-            var myApplys = await _repository.GetAsync(new GetApplyByStudentId(myStudent.Id));
+            var myApplys = await _repository.ListAsync(new GetApplyByStudentId(myStudent.Id));
             
             return Ok(_mapper.Map<IList<ApplyDto>>(myApplys).OrderByDescending(x=>x.CreatedAtUtc));
         }
@@ -128,9 +128,25 @@ namespace TutorStudent.Application.Services
         }
 
         [HttpPut("Apply/Open")]
-        public async Task<IActionResult> OpenApply(Guid id)
+        public async Task<IActionResult> OpenApply(Guid userId, Guid id)
         {
             var myApply = await _repository.GetByIdAsync(id);
+            if (myApply is null)
+            {
+                return NotFound();
+            }
+
+            var myTutor = await _tutors.GetAsync(new GetTutorByUserId(userId));
+            if (myTutor is null)
+            {
+                return NotFound();
+            }
+
+            if (myTutor.Id != myApply.TutorId)
+            {
+                return Unauthorized();
+            }
+
             await myApply.FireTrigger(TriggerType.Open, "");
             _repository.Update(myApply);
 
@@ -143,14 +159,31 @@ namespace TutorStudent.Application.Services
                 Comment = ""
             };
             _logs.Add(myLog);
+            await _unitOfWork.CompleteAsync();
             
             return Ok(_mapper.Map<ApplyDto>(myApply));
         }
         
         [HttpPut("Apply/Confirm")]
-        public async Task<IActionResult> ConfirmApply(Guid id , string comment)
+        public async Task<IActionResult> ConfirmApply(Guid userId, Guid id , string comment)
         {
             var myApply = await _repository.GetByIdAsync(id);
+            if (myApply is null)
+            {
+                return NotFound();
+            }
+            
+            var myTutor = await _tutors.GetAsync(new GetTutorByUserId(userId));
+            if (myTutor is null)
+            {
+                return NotFound();
+            }
+
+            if (myTutor.Id != myApply.TutorId)
+            {
+                return Unauthorized();
+            }
+
             await myApply.FireTrigger(TriggerType.Confirm, comment);
             _repository.Update(myApply);
             
@@ -163,14 +196,31 @@ namespace TutorStudent.Application.Services
                 Comment = comment
             };
             _logs.Add(myLog);
+            await _unitOfWork.CompleteAsync();
             
             return Ok(_mapper.Map<ApplyDto>(myApply));
         }
         
         [HttpPut("Apply/Reject")]
-        public async Task<IActionResult> RejectApply(Guid id , string comment)
+        public async Task<IActionResult> RejectApply(Guid userId, Guid id , string comment)
         {
             var myApply = await _repository.GetByIdAsync(id);
+            if (myApply is null)
+            {
+                return NotFound();
+            }
+
+            var myTutor = await _tutors.GetAsync(new GetTutorByUserId(userId));
+            if (myTutor is null)
+            {
+                return NotFound();
+            }
+
+            if (myTutor.Id != myApply.TutorId)
+            {
+                return Unauthorized();
+            }
+
             await myApply.FireTrigger(TriggerType.Reject, comment);
             _repository.Update(myApply);
             
@@ -183,6 +233,7 @@ namespace TutorStudent.Application.Services
                 Comment = comment
             };
             _logs.Add(myLog);
+            await _unitOfWork.CompleteAsync();
             
             return Ok(_mapper.Map<ApplyDto>(myApply));
         }
@@ -195,8 +246,8 @@ namespace TutorStudent.Application.Services
             {
                 return NotFound();
             }
-            var myLogs = await _logs.GetAsync(new GetLogByApplyId(myApply.Id));
-            return Ok(_mapper.Map<IList<LogDto>>(myLogs));
+            var myLogs = await _logs.ListAsync(new GetLogByApplyId(myApply.Id));
+            return Ok(_mapper.Map<IList<LogDto>>(myLogs).OrderByDescending(x=>x.CreatedAtUtc));
         }
         
         
