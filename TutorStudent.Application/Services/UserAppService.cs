@@ -121,11 +121,14 @@ namespace TutorStudent.Application.Services
             }
 
             myUser.UserName = input.UserName;
-            myUser.Password = input.Password;
             myUser.FirstName = input.FirstName;
             myUser.LastName = input.LastName;
             myUser.Gender = (GenderType) Enum.Parse(typeof(GenderType), input.Gender, true);
-            myUser.Role = (RoleType) Enum.Parse(typeof(RoleType), input.Role, true);
+            myUser.Role = (RoleType) Enum.Parse(typeof(RoleType), input.Role, true);            
+            if (!string.IsNullOrEmpty(input.Password))
+            {
+                myUser.Password = input.Password;
+            }
             
             _repository.Update(myUser);
             await _unitOfWork.CompleteAsync();

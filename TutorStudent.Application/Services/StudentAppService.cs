@@ -106,7 +106,7 @@ namespace TutorStudent.Application.Services
         [HttpGet("Student")]
         public async Task<IActionResult> GetStudent(Guid id)
         {
-            var myStudent = await _repository.GetByIdAsync(id);
+            var myStudent = await _repository.GetAsync(new GetStudentByUserId(id));
             if (myStudent is null)
             {
                 return NotFound(new ResponseDto(Error.StudentNotFound));
