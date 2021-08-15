@@ -10,8 +10,8 @@ namespace TutorStudent.Domain.Models
         [Required] public Tutor Tutor { get; set; }
         [Required] public Guid TutorId { get; set; }
         [Required] public string Date { get; set; }
-        [Required] public string BeginHour { get; set; }
-        [Required] public string EndHour { get; set; }
+        [Required] public int BeginHour { get; set; }
+        [Required] public int EndHour { get; set; }
         [Required] public MeetingType Meeting { get; set; }
         [Required] public int Capacity { get; set; }
         [Required] public int Remain { get; set; }

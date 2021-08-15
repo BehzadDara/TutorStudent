@@ -46,7 +46,7 @@ namespace TutorStudent.Application.Services
             {
                 return BadRequest(new ResponseDto(Error.CapacityControl));
             }
-            if (Convert.ToInt32(input.BeginHour) >= Convert.ToInt32(input.EndHour))
+            if (input.BeginHour >= input.EndHour)
             {
                 return BadRequest(new ResponseDto(Error.DateControl));
             }

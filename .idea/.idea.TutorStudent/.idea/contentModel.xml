@@ -152,6 +152,8 @@
           <e p="20210814063416_Init2.Designer.cs" t="Include" />
           <e p="20210815073126_TrackingCodeAdded.cs" t="Include" />
           <e p="20210815073126_TrackingCodeAdded.Designer.cs" t="Include" />
+          <e p="20210815121411_HourInt.cs" t="Include" />
+          <e p="20210815121411_HourInt.Designer.cs" t="Include" />
           <e p="TutorStudentDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">

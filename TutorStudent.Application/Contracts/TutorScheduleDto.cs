@@ -7,8 +7,8 @@ namespace TutorStudent.Application.Contracts
     {
         [Required] public Guid TutorId { get; set; }
         [Required] public string Date { get; set; }
-        [Required] public string BeginHour { get; set; }
-        [Required] public string EndHour { get; set; }
+        [Required] public int BeginHour { get; set; }
+        [Required] public int EndHour { get; set; }
         [Required] public string Meeting { get; set; }
         [Required] public string MeetingValue { get; set; }
         [Required] public int Capacity { get; set; }
