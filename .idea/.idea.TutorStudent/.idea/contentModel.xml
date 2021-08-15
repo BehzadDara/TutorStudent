@@ -127,6 +127,7 @@
           <e p="GetAdvertisementByTicket.cs" t="Include" />
           <e p="GetAdvertisementByTutorId.cs" t="Include" />
           <e p="GetApplyByStudentId.cs" t="Include" />
+          <e p="GetApplyByTrackingCode.cs" t="Include" />
           <e p="GetApplyByTutorId.cs" t="Include" />
           <e p="GetLogByApplyId.cs" t="Include" />
           <e p="GetMeetingByTutorScheduleId.cs" t="Include" />

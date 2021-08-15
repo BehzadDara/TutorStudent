@@ -119,6 +119,18 @@ namespace TutorStudent.Application.Services
             return Ok(_mapper.Map<IList<ApplyDto>>(myApplys).OrderByDescending(x=>x.CreatedAtUtc));
         }
 
+        [HttpGet("Apply/TrackingCode")]
+        public async Task<IActionResult> GetApplyByTrackingCode(string trackingCode)
+        {
+            var myApply = await _repository.GetAsync(new GetApplyByTrackingCode(trackingCode));
+            if (myApply is null)
+            {
+                return NotFound(new ResponseDto(Error.ApplyNotFound));
+            }
+            
+            return Ok(_mapper.Map<ApplyDto>(myApply));
+        }
+
         [HttpGet("Apply")]
         public async Task<IActionResult> GetApply(Guid id)
         {
