@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
+using TutorStudent.Domain.Implementations;
 using TutorStudent.Domain.Interfaces;
 using TutorStudent.Domain.Models;
 
@@ -18,7 +19,7 @@ namespace TutorStudent.Domain.Specifications
         }
 
         public override Expression<Func<User, bool>> Criteria =>
-            myUser => myUser.UserName == _userName && myUser.Password == _password;
+            myUser => myUser.UserName == _userName && myUser.Password == Comb.HashPassword(_userName + _password + Error.PasswordTemp);
 
     }
 }

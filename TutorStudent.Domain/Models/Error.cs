@@ -19,5 +19,6 @@ namespace TutorStudent.Domain.Models
         public const string AdvertisementNotFound = "آگهی مد نظر یافت نشد";
         public const string ApplyNotFound = "درخواست مد نظر یافت نشد";
         public const string LogNotFound = "سابقه ای یافت نشد";
+        public const string PasswordTemp = "Tutor Student Project";
     }
 }

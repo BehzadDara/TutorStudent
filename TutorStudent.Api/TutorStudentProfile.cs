@@ -1,5 +1,6 @@
 ﻿using Humanizer;
 using TutorStudent.Application.Contracts;
+using TutorStudent.Domain.Implementations;
 using TutorStudent.Domain.Models;
 
 namespace TutorStudent.Api
@@ -8,7 +9,8 @@ namespace TutorStudent.Api
     {
         public TutorStudentProfile()
         {
-            CreateMap<UserCreateDto, User>();
+            CreateMap<UserCreateDto, User>()
+                .ForMember(x => x.Password, opt => opt.MapFrom(c => Comb.HashPassword(c.UserName + c.Password + Error.PasswordTemp)));
             CreateMap<UserUpdateDto, User>();
             CreateMap<User, UserDto>()
                 .ForMember(x => x.GenderValue, opt => opt.MapFrom(c => c.Gender.Humanize()))
@@ -44,5 +46,6 @@ namespace TutorStudent.Api
 
 
         }
+        
     }
 }

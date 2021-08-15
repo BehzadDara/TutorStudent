@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using TutorStudent.Application.Contracts;
 using TutorStudent.Domain.Enums;
+using TutorStudent.Domain.Implementations;
 using TutorStudent.Domain.Interfaces;
 using TutorStudent.Domain.Models;
 using TutorStudent.Domain.Specifications;
@@ -127,7 +128,7 @@ namespace TutorStudent.Application.Services
             myUser.Role = (RoleType) Enum.Parse(typeof(RoleType), input.Role, true);            
             if (!string.IsNullOrEmpty(input.Password))
             {
-                myUser.Password = input.Password;
+                myUser.Password = Comb.HashPassword(myUser.UserName + input.Password + Error.PasswordTemp);
             }
             
             _repository.Update(myUser);
@@ -145,13 +146,13 @@ namespace TutorStudent.Application.Services
                 return NotFound(new ResponseDto(Error.UserNotFound));
             }
 
-            if (myUser.Password != input.OldPassword)
+            if (myUser.Password != Comb.HashPassword(myUser.UserName + input.OldPassword + Error.PasswordTemp))
             {
                 return BadRequest(new ResponseDto(Error.WrongPassword));
             }
             
             
-            myUser.Password = input.NewPassword;
+            myUser.Password = Comb.HashPassword(myUser.UserName + input.NewPassword + Error.PasswordTemp);
             
             _repository.Update(myUser);
             await _unitOfWork.CompleteAsync();

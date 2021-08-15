@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading;
 
 namespace TutorStudent.Domain.Implementations
@@ -28,5 +30,21 @@ namespace TutorStudent.Domain.Implementations
                     binDate[7], binDate[6], binDate[5], binDate[4], binDate[3], binDate[2]
                 });
         }
+        
+        public static string HashPassword(string password)
+        {
+            var md5Hash = MD5.Create();
+            
+            var data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+            var builder = new StringBuilder();
+            foreach (var t in data)
+            {
+                builder.Append(t.ToString("x2"));
+            }
+            
+            return builder.ToString();
+        }
+        
+        
     }
 }
