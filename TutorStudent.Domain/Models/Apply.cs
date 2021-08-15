@@ -6,6 +6,8 @@ using JetBrains.Annotations;
 using TutorStudent.Domain.Enums;
 using TutorStudent.Domain.Implementations;
 using Stateless;
+using TutorStudent.Domain.ProxyServices;
+using TutorStudent.Domain.ProxyServices.Dto;
 
 namespace TutorStudent.Domain.Models
 {
@@ -18,11 +20,30 @@ namespace TutorStudent.Domain.Models
         [Required] public TicketType Ticket { get; set; }
         [Required] public StateType State { get; set; } = StateType.Unseen;
         [CanBeNull] public string Comment { get; set; }
+        [CanBeNull] public string TrackingCode { get; set; }
         
+        
+        
+        private ITrackingCode _trackingCodeService;
+        
+        private const string MyProjectName = "Tutor Student";
+        private const string MyPreName = "TS";
+        
+        public void GetTrackingCode(ITrackingCode trackingCodeService)
+        {
+            _trackingCodeService = trackingCodeService;
+            
+            var myTrackingCodeDto = new TrackingCodeProxyData
+            {
+                PreName = MyPreName,
+                ProjectName = MyProjectName
+            };
+            
+            TrackingCode = _trackingCodeService.GetTrackingCode(myTrackingCodeDto).Result;
+        }
         
         
         private readonly StateMachine<StateType, TriggerType> _stateMachine;
-
         public Apply()
         {
             _stateMachine = new StateMachine<StateType, TriggerType>(() => State, state => State = state);

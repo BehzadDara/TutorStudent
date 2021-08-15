@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using JetBrains.Annotations;
 
 namespace TutorStudent.Application.Contracts
 {
@@ -12,5 +13,6 @@ namespace TutorStudent.Application.Contracts
         [Required] public string Description { get; set; }
         [Required] public string State { get; set; }
         [Required] public string StateValue { get; set; }
+        [CanBeNull] public string TrackingCode { get; set; }
     }
 }

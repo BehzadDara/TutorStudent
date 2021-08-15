@@ -116,6 +116,13 @@
             </e>
           </e>
         </e>
+        <e p="ProxyServices" t="Include">
+          <e p="Dto" t="Include">
+            <e p="TrackingCodeProxyData.cs" t="Include" />
+            <e p="TrackingCodeProxyResponseDto.cs" t="Include" />
+          </e>
+          <e p="ITrackingCode.cs" t="Include" />
+        </e>
         <e p="Specifications" t="Include">
           <e p="GetAdvertisementByTicket.cs" t="Include" />
           <e p="GetAdvertisementByTutorId.cs" t="Include" />
@@ -142,6 +149,8 @@
           <e p="20210811101522_Init.Designer.cs" t="Include" />
           <e p="20210814063416_Init2.cs" t="Include" />
           <e p="20210814063416_Init2.Designer.cs" t="Include" />
+          <e p="20210815073126_TrackingCodeAdded.cs" t="Include" />
+          <e p="20210815073126_TrackingCodeAdded.Designer.cs" t="Include" />
           <e p="TutorStudentDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -150,6 +159,9 @@
               <e p="TutorStudent.Infrastructure.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
+        </e>
+        <e p="Proxies" t="Include">
+          <e p="TrackingCode.cs" t="Include" />
         </e>
         <e p="TutorStudent.Infrastructure.csproj" t="IncludeRecursive" />
         <e p="TutorStudentDbContext.cs" t="Include" />

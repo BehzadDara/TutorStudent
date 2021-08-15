@@ -8,8 +8,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using TutorStudent.Domain.Interfaces;
+using TutorStudent.Domain.ProxyServices;
 using TutorStudent.Infrastructure;
 using TutorStudent.Infrastructure.Implementations;
+using TutorStudent.Infrastructure.Proxies;
 
 namespace TutorStudent.Api
 {
@@ -37,6 +39,8 @@ namespace TutorStudent.Api
             services.AddScoped<IUnitOfWork>(provider => provider.GetService<TutorStudentDbContext>());
             services.AddScoped<DbContext>(provider => provider.GetService<TutorStudentDbContext>());
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
+            
+            services.AddScoped(typeof(ITrackingCode), typeof(TrackingCode));
             
             services.AddCors(options =>
             {

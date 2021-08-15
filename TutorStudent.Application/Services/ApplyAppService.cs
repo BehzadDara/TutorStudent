@@ -9,6 +9,7 @@ using TutorStudent.Application.Contracts;
 using TutorStudent.Domain.Enums;
 using TutorStudent.Domain.Interfaces;
 using TutorStudent.Domain.Models;
+using TutorStudent.Domain.ProxyServices;
 using TutorStudent.Domain.Specifications;
 
 namespace TutorStudent.Application.Services
@@ -24,9 +25,10 @@ namespace TutorStudent.Application.Services
         private readonly IRepository<Student> _students;
         private readonly IRepository<Tutor> _tutors;
         private readonly IRepository<Log> _logs;
+        private readonly ITrackingCode _trackingCode;
 
         public ApplyAppService(IMapper mapper, IUnitOfWork unitOfWork, IRepository<Apply> repository,
-            IRepository<Tutor> tutors, IRepository<Student> students, IRepository<Log> logs)
+            IRepository<Tutor> tutors, IRepository<Student> students, IRepository<Log> logs, ITrackingCode trackingCode)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
@@ -34,6 +36,7 @@ namespace TutorStudent.Application.Services
             _tutors = tutors;
             _students = students;
             _logs = logs;
+            _trackingCode = trackingCode;
         }
         
         [HttpPost("Apply")]
@@ -54,6 +57,7 @@ namespace TutorStudent.Application.Services
             myApply.TutorId = myTutor.Id;
             myApply.Student = myStudent;
             myApply.StudentId = myStudent.Id;
+            myApply.GetTrackingCode(_trackingCode);
             
             _repository.Add(myApply);
             await _unitOfWork.CompleteAsync();
