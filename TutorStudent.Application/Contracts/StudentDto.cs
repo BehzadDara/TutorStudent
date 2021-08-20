@@ -6,6 +6,7 @@ namespace TutorStudent.Application.Contracts
     public class StudentDto :EntityDto<Guid>
     {
         [Required] public UserDto User { get; set; }
+        [Required] public Guid UserId { get; set; }
         [Required] public string StudentNumber { get; set; }
     }
 }

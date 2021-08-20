@@ -9491,40 +9491,33 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\b.dara\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Behzad\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\b.dara\\Desktop\\TutorStudent\\TutorStudent.Application\\TutorStudent.Application.csproj",
+      "projectUniqueName": "C:\\Users\\Behzad\\Desktop\\TutorStudent\\TutorStudent.Application\\TutorStudent.Application.csproj",
       "projectName": "TutorStudent.Application",
-      "projectPath": "C:\\Users\\b.dara\\Desktop\\TutorStudent\\TutorStudent.Application\\TutorStudent.Application.csproj",
-      "packagesPath": "C:\\Users\\b.dara\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\b.dara\\Desktop\\TutorStudent\\TutorStudent.Application\\obj\\",
+      "projectPath": "C:\\Users\\Behzad\\Desktop\\TutorStudent\\TutorStudent.Application\\TutorStudent.Application.csproj",
+      "packagesPath": "C:\\Users\\Behzad\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Behzad\\Desktop\\TutorStudent\\TutorStudent.Application\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\b.dara\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Behzad\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {},
-        "https://myget.org/F/graphql-dotnet/api/v3/index.json": {},
         "https://nuget.sarmadins.ir/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "projectReferences": {
-            "C:\\Users\\b.dara\\Desktop\\TutorStudent\\TutorStudent.Infrastructure\\TutorStudent.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\b.dara\\Desktop\\TutorStudent\\TutorStudent.Infrastructure\\TutorStudent.Infrastructure.csproj"
+            "C:\\Users\\Behzad\\Desktop\\TutorStudent\\TutorStudent.Infrastructure\\TutorStudent.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Behzad\\Desktop\\TutorStudent\\TutorStudent.Infrastructure\\TutorStudent.Infrastructure.csproj"
             }
           }
         }

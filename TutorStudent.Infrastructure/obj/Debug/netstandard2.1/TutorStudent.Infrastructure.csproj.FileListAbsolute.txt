@@ -10,3 +10,15 @@ C:\Users\b.dara\Desktop\TutorStudent\TutorStudent.Infrastructure\obj\Debug\netst
 C:\Users\b.dara\Desktop\TutorStudent\TutorStudent.Infrastructure\obj\Debug\netstandard2.1\TutorStudent.Infrastructure.csproj.CopyComplete
 C:\Users\b.dara\Desktop\TutorStudent\TutorStudent.Infrastructure\obj\Debug\netstandard2.1\TutorStudent.Infrastructure.dll
 C:\Users\b.dara\Desktop\TutorStudent\TutorStudent.Infrastructure\obj\Debug\netstandard2.1\TutorStudent.Infrastructure.pdb
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Infrastructure\bin\Debug\netstandard2.1\TutorStudent.Infrastructure.deps.json
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Infrastructure\bin\Debug\netstandard2.1\TutorStudent.Infrastructure.dll
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Infrastructure\bin\Debug\netstandard2.1\TutorStudent.Infrastructure.pdb
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Infrastructure\bin\Debug\netstandard2.1\TutorStudent.Domain.dll
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Infrastructure\bin\Debug\netstandard2.1\TutorStudent.Domain.pdb
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Infrastructure\obj\Debug\netstandard2.1\TutorStudent.Infrastructure.csprojAssemblyReference.cache
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Infrastructure\obj\Debug\netstandard2.1\TutorStudent.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Infrastructure\obj\Debug\netstandard2.1\TutorStudent.Infrastructure.AssemblyInfo.cs
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Infrastructure\obj\Debug\netstandard2.1\TutorStudent.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Infrastructure\obj\Debug\netstandard2.1\TutorStudent.Infrastructure.csproj.CopyComplete
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Infrastructure\obj\Debug\netstandard2.1\TutorStudent.Infrastructure.dll
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Infrastructure\obj\Debug\netstandard2.1\TutorStudent.Infrastructure.pdb

@@ -12,3 +12,17 @@ C:\Users\b.dara\Desktop\TutorStudent\TutorStudent.Application\obj\Debug\netstand
 C:\Users\b.dara\Desktop\TutorStudent\TutorStudent.Application\obj\Debug\netstandard2.1\TutorStudent.Application.csproj.CopyComplete
 C:\Users\b.dara\Desktop\TutorStudent\TutorStudent.Application\obj\Debug\netstandard2.1\TutorStudent.Application.dll
 C:\Users\b.dara\Desktop\TutorStudent\TutorStudent.Application\obj\Debug\netstandard2.1\TutorStudent.Application.pdb
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Application\bin\Debug\netstandard2.1\TutorStudent.Application.deps.json
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Application\bin\Debug\netstandard2.1\TutorStudent.Application.dll
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Application\bin\Debug\netstandard2.1\TutorStudent.Application.pdb
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Application\bin\Debug\netstandard2.1\TutorStudent.Domain.dll
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Application\bin\Debug\netstandard2.1\TutorStudent.Infrastructure.dll
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Application\bin\Debug\netstandard2.1\TutorStudent.Infrastructure.pdb
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Application\bin\Debug\netstandard2.1\TutorStudent.Domain.pdb
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Application\obj\Debug\netstandard2.1\TutorStudent.Application.csprojAssemblyReference.cache
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Application\obj\Debug\netstandard2.1\TutorStudent.Application.AssemblyInfoInputs.cache
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Application\obj\Debug\netstandard2.1\TutorStudent.Application.AssemblyInfo.cs
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Application\obj\Debug\netstandard2.1\TutorStudent.Application.csproj.CoreCompileInputs.cache
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Application\obj\Debug\netstandard2.1\TutorStudent.Application.csproj.CopyComplete
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Application\obj\Debug\netstandard2.1\TutorStudent.Application.dll
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Application\obj\Debug\netstandard2.1\TutorStudent.Application.pdb

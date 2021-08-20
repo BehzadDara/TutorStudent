@@ -7,3 +7,12 @@ C:\Users\b.dara\Desktop\TutorStudent\TutorStudent.Domain\obj\Debug\netstandard2.
 C:\Users\b.dara\Desktop\TutorStudent\TutorStudent.Domain\obj\Debug\netstandard2.1\TutorStudent.Domain.csproj.CoreCompileInputs.cache
 C:\Users\b.dara\Desktop\TutorStudent\TutorStudent.Domain\obj\Debug\netstandard2.1\TutorStudent.Domain.dll
 C:\Users\b.dara\Desktop\TutorStudent\TutorStudent.Domain\obj\Debug\netstandard2.1\TutorStudent.Domain.pdb
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Domain\bin\Debug\netstandard2.1\TutorStudent.Domain.deps.json
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Domain\bin\Debug\netstandard2.1\TutorStudent.Domain.dll
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Domain\bin\Debug\netstandard2.1\TutorStudent.Domain.pdb
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Domain\obj\Debug\netstandard2.1\TutorStudent.Domain.csprojAssemblyReference.cache
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Domain\obj\Debug\netstandard2.1\TutorStudent.Domain.AssemblyInfoInputs.cache
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Domain\obj\Debug\netstandard2.1\TutorStudent.Domain.AssemblyInfo.cs
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Domain\obj\Debug\netstandard2.1\TutorStudent.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Domain\obj\Debug\netstandard2.1\TutorStudent.Domain.dll
+C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Domain\obj\Debug\netstandard2.1\TutorStudent.Domain.pdb

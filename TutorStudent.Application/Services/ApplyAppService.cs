@@ -101,8 +101,21 @@ namespace TutorStudent.Application.Services
             }
 
             var myApplys = await _repository.ListAsync(new GetApplyByTutorId(myTutor.Id));
+
+            var myApplysDto = _mapper.Map<IList<ApplyDto>>(myApplys).OrderByDescending(x => x.CreatedAtUtc);
             
-            return Ok(_mapper.Map<IList<ApplyDto>>(myApplys).OrderByDescending(x=>x.CreatedAtUtc));
+            foreach (var myApplyDto in myApplysDto)
+            {
+                var myStudent = await _students.GetByIdAsync(myApplyDto.StudentId);
+                if (myStudent is null)
+                {
+                    return NotFound(Error.StudentNotFound);
+                }
+
+                myApplyDto.Student = _mapper.Map<StudentDto>(myStudent);
+            }
+            
+            return Ok(myApplysDto);
         }   
         
         [HttpGet("Apply/Student")]
@@ -115,8 +128,21 @@ namespace TutorStudent.Application.Services
             }
 
             var myApplys = await _repository.ListAsync(new GetApplyByStudentId(myStudent.Id));
+
+            var myApplysDto = _mapper.Map<IList<ApplyDto>>(myApplys).OrderByDescending(x => x.CreatedAtUtc);
             
-            return Ok(_mapper.Map<IList<ApplyDto>>(myApplys).OrderByDescending(x=>x.CreatedAtUtc));
+            foreach (var myApplyDto in myApplysDto)
+            {
+                var myTutor = await _tutors.GetByIdAsync(myApplyDto.TutorId);
+                if (myTutor is null)
+                {
+                    return NotFound(Error.TutorNotFound);
+                }
+            
+                myApplyDto.Tutor = _mapper.Map<TutorDto>(myTutor);
+            }
+            
+            return Ok(myApplysDto);
         }
 
         [HttpGet("Apply/TrackingCode")]
@@ -127,8 +153,26 @@ namespace TutorStudent.Application.Services
             {
                 return NotFound(new ResponseDto(Error.ApplyNotFound));
             }
+
+            var myApplyDto = _mapper.Map<ApplyDto>(myApply);
+
+            var myStudent = await _students.GetByIdAsync(myApplyDto.StudentId);
+            if (myStudent is null)
+            {
+                return NotFound(Error.StudentNotFound);
+            }
+
+            myApplyDto.Student = _mapper.Map<StudentDto>(myStudent);
+
+            var myTutor = await _tutors.GetByIdAsync(myApplyDto.TutorId);
+            if (myTutor is null)
+            {
+                return NotFound(Error.TutorNotFound);
+            }
+
+            myApplyDto.Tutor = _mapper.Map<TutorDto>(myTutor);
             
-            return Ok(_mapper.Map<ApplyDto>(myApply));
+            return Ok(myApplyDto);
         }
 
         [HttpGet("Apply")]
@@ -140,7 +184,25 @@ namespace TutorStudent.Application.Services
                 return NotFound(new ResponseDto(Error.ApplyNotFound));
             }
             
-            return Ok(_mapper.Map<ApplyDto>(myApply));
+            var myApplyDto = _mapper.Map<ApplyDto>(myApply);
+
+            var myStudent = await _students.GetByIdAsync(myApplyDto.StudentId);
+            if (myStudent is null)
+            {
+                return NotFound(Error.StudentNotFound);
+            }
+
+            myApplyDto.Student = _mapper.Map<StudentDto>(myStudent);
+
+            var myTutor = await _tutors.GetByIdAsync(myApplyDto.TutorId);
+            if (myTutor is null)
+            {
+                return NotFound(Error.TutorNotFound);
+            }
+
+            myApplyDto.Tutor = _mapper.Map<TutorDto>(myTutor);
+            
+            return Ok(myApplyDto);
         }
 
         [HttpPut("Apply/Open")]
