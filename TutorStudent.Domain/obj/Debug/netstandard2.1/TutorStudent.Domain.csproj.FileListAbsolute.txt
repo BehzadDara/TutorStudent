@@ -16,3 +16,13 @@ C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Domain\obj\Debug\netstandard2.
 C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Domain\obj\Debug\netstandard2.1\TutorStudent.Domain.csproj.CoreCompileInputs.cache
 C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Domain\obj\Debug\netstandard2.1\TutorStudent.Domain.dll
 C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Domain\obj\Debug\netstandard2.1\TutorStudent.Domain.pdb
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Domain\bin\Debug\netstandard2.1\TutorStudent.Domain.deps.json
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Domain\bin\Debug\netstandard2.1\TutorStudent.Domain.dll
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Domain\bin\Debug\netstandard2.1\TutorStudent.Domain.pdb
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Domain\obj\Debug\netstandard2.1\TutorStudent.Domain.csproj.AssemblyReference.cache
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Domain\obj\Debug\netstandard2.1\TutorStudent.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Domain\obj\Debug\netstandard2.1\TutorStudent.Domain.AssemblyInfoInputs.cache
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Domain\obj\Debug\netstandard2.1\TutorStudent.Domain.AssemblyInfo.cs
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Domain\obj\Debug\netstandard2.1\TutorStudent.Domain.csproj.CoreCompileInputs.cache
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Domain\obj\Debug\netstandard2.1\TutorStudent.Domain.dll
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Domain\obj\Debug\netstandard2.1\TutorStudent.Domain.pdb

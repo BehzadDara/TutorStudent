@@ -1,5 +1,8 @@
 ﻿using Humanizer;
+using System;
+using System.Globalization;
 using TutorStudent.Application.Contracts;
+using TutorStudent.Domain.Enums;
 using TutorStudent.Domain.Implementations;
 using TutorStudent.Domain.Models;
 
@@ -30,6 +33,15 @@ namespace TutorStudent.Api
             CreateMap<TutorSchedule, TutorScheduleDto>()
                 .ForMember(x => x.MeetingValue, opt => opt.MapFrom(c => c.Meeting.Humanize()));
 
+            CreateMap<TutorWeeklyScheduleCreateDto, TutorWeeklySchedule>();
+            CreateMap<TutorWeeklySchedule, TutorWeeklyScheduleDto>()
+                .ForMember(x => x.MeetingValue, opt => opt.MapFrom(c => c.Meeting.Humanize()))
+                .ForMember(x => x.WeekDayValue, opt => opt.MapFrom(c => c.WeekDay.Humanize()));
+
+            CreateMap<TutorWeeklySchedule, TutorSchedule>()
+                .ForMember(x => x.Remain, opt => opt.MapFrom(c => c.Capacity))
+                .ForMember(x => x.Date, opt => opt.MapFrom(c => getDateFromWeekDay(c.WeekDay)));
+
             CreateMap<Meeting, MeetingDto>();
 
             CreateMap<AdvertisementCreateDto, Advertisement>();
@@ -46,6 +58,40 @@ namespace TutorStudent.Api
 
 
         }
-        
+
+        private string getDateFromWeekDay(WeekDayType weekDay)
+        {
+            var date = DateTime.Now; // today is thursday
+
+            switch (weekDay)
+            {
+                case WeekDayType.Saturday:
+                    date = date.AddDays(2);
+                    break;
+                case WeekDayType.Sunday:
+                    date = date.AddDays(3);
+                    break;
+                case WeekDayType.Monday:
+                    date = date.AddDays(4);
+                    break;
+                case WeekDayType.tuesday:
+                    date = date.AddDays(5);
+                    break;
+                case WeekDayType.Wednesday:
+                    date = date.AddDays(6);
+                    break;
+                case WeekDayType.Thursday:
+                    date = date.AddDays(7);
+                    break;
+                case WeekDayType.Friday:
+                    date = date.AddDays(8);
+                    break;
+            }
+            var persianCalendar = new PersianCalendar();
+            return 
+                persianCalendar.GetYear(date).ToString().Substring(0, 4) +
+                persianCalendar.GetMonth(date).ToString().PadLeft(2, '0') +
+                persianCalendar.GetDayOfMonth(date).ToString().PadLeft(2, '0');
+        }
     }
 }

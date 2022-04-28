@@ -22,3 +22,16 @@ C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Infrastructure\obj\Debug\netst
 C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Infrastructure\obj\Debug\netstandard2.1\TutorStudent.Infrastructure.csproj.CopyComplete
 C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Infrastructure\obj\Debug\netstandard2.1\TutorStudent.Infrastructure.dll
 C:\Users\Behzad\Desktop\TutorStudent\TutorStudent.Infrastructure\obj\Debug\netstandard2.1\TutorStudent.Infrastructure.pdb
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Infrastructure\bin\Debug\netstandard2.1\TutorStudent.Infrastructure.deps.json
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Infrastructure\bin\Debug\netstandard2.1\TutorStudent.Infrastructure.dll
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Infrastructure\bin\Debug\netstandard2.1\TutorStudent.Infrastructure.pdb
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Infrastructure\bin\Debug\netstandard2.1\TutorStudent.Domain.dll
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Infrastructure\bin\Debug\netstandard2.1\TutorStudent.Domain.pdb
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Infrastructure\obj\Debug\netstandard2.1\TutorStudent.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Infrastructure\obj\Debug\netstandard2.1\TutorStudent.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Infrastructure\obj\Debug\netstandard2.1\TutorStudent.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Infrastructure\obj\Debug\netstandard2.1\TutorStudent.Infrastructure.AssemblyInfo.cs
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Infrastructure\obj\Debug\netstandard2.1\TutorStudent.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Infrastructure\obj\Debug\netstandard2.1\TutorStudent.Infrastructure.csproj.CopyComplete
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Infrastructure\obj\Debug\netstandard2.1\TutorStudent.Infrastructure.dll
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Infrastructure\obj\Debug\netstandard2.1\TutorStudent.Infrastructure.pdb

@@ -12,6 +12,7 @@ namespace TutorStudent.Domain.Models
         public const string CapacityControl = "ظرفیت باید بزرگتر از صفر باشد";
         public const string DateControl = "تاریخ شروع باید قبل از تاریخ پایان باشد";
         public const string TutorScheduleNotFound = "زمان بندی مد نظر یافت نشد";
+        public const string TutorWeeklyScheduleNotFound = "زمان بندی هفتگی مد نظر یافت نشد";
         public const string CapacityControl2 = "مقدار ظرفیت جدید باید بیش از تعداد رزرو انجام شده باشد";
         public const string TutorScheduleInUse = "زمان بندی مد نظر دارای رزرو فعال است";
         public const string RemainControl = "ظرفیت زمان بندی مد نظر به تمام رسیده است";

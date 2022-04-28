@@ -10,8 +10,8 @@ using TutorStudent.Infrastructure;
 namespace TutorStudent.Infrastructure.Migrations
 {
     [DbContext(typeof(TutorStudentDbContext))]
-    [Migration("20210815121411_HourInt")]
-    partial class HourInt
+    [Migration("20220428130711_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -354,6 +354,60 @@ namespace TutorStudent.Infrastructure.Migrations
                     b.ToTable("TutorSchedules");
                 });
 
+            modelBuilder.Entity("TutorStudent.Domain.Models.TutorWeeklySchedule", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("BeginHour")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Capacity")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("EndHour")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Meeting")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("TutorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WeekDay")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TutorId");
+
+                    b.ToTable("TutorWeeklySchedules");
+                });
+
             modelBuilder.Entity("TutorStudent.Domain.Models.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -486,6 +540,17 @@ namespace TutorStudent.Infrastructure.Migrations
                 });
 
             modelBuilder.Entity("TutorStudent.Domain.Models.TutorSchedule", b =>
+                {
+                    b.HasOne("TutorStudent.Domain.Models.Tutor", "Tutor")
+                        .WithMany()
+                        .HasForeignKey("TutorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Tutor");
+                });
+
+            modelBuilder.Entity("TutorStudent.Domain.Models.TutorWeeklySchedule", b =>
                 {
                     b.HasOne("TutorStudent.Domain.Models.Tutor", "Tutor")
                         .WithMany()

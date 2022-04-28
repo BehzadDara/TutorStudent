@@ -1,34 +1,35 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Behzad\\Desktop\\TutorStudent\\TutorStudent.Application\\TutorStudent.Application.csproj": {}
+    "C:\\Users\\behzad.dara\\Desktop\\TutorStudent\\TutorStudent.Application\\TutorStudent.Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Behzad\\Desktop\\TutorStudent\\TutorStudent.Application\\TutorStudent.Application.csproj": {
+    "C:\\Users\\behzad.dara\\Desktop\\TutorStudent\\TutorStudent.Application\\TutorStudent.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Behzad\\Desktop\\TutorStudent\\TutorStudent.Application\\TutorStudent.Application.csproj",
+        "projectUniqueName": "C:\\Users\\behzad.dara\\Desktop\\TutorStudent\\TutorStudent.Application\\TutorStudent.Application.csproj",
         "projectName": "TutorStudent.Application",
-        "projectPath": "C:\\Users\\Behzad\\Desktop\\TutorStudent\\TutorStudent.Application\\TutorStudent.Application.csproj",
-        "packagesPath": "C:\\Users\\Behzad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Behzad\\Desktop\\TutorStudent\\TutorStudent.Application\\obj\\",
+        "projectPath": "C:\\Users\\behzad.dara\\Desktop\\TutorStudent\\TutorStudent.Application\\TutorStudent.Application.csproj",
+        "packagesPath": "C:\\Users\\behzad.dara\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\behzad.dara\\Desktop\\TutorStudent\\TutorStudent.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Behzad\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\behzad.dara\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.sarmadins.ir/v3/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.1": {
             "targetAlias": "netstandard2.1",
             "projectReferences": {
-              "C:\\Users\\Behzad\\Desktop\\TutorStudent\\TutorStudent.Infrastructure\\TutorStudent.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\Behzad\\Desktop\\TutorStudent\\TutorStudent.Infrastructure\\TutorStudent.Infrastructure.csproj"
+              "C:\\Users\\behzad.dara\\Desktop\\TutorStudent\\TutorStudent.Infrastructure\\TutorStudent.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\behzad.dara\\Desktop\\TutorStudent\\TutorStudent.Infrastructure\\TutorStudent.Infrastructure.csproj"
               }
             }
           }
@@ -43,6 +44,10 @@
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "dependencies": {
+            "Hangfire.Core": {
+              "target": "Package",
+              "version": "[1.8.0-beta4, )"
+            },
             "Humanizer.Core.fa": {
               "target": "Package",
               "version": "[2.8.26, )"
@@ -67,28 +72,29 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Behzad\\Desktop\\TutorStudent\\TutorStudent.Domain\\TutorStudent.Domain.csproj": {
+    "C:\\Users\\behzad.dara\\Desktop\\TutorStudent\\TutorStudent.Domain\\TutorStudent.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Behzad\\Desktop\\TutorStudent\\TutorStudent.Domain\\TutorStudent.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\behzad.dara\\Desktop\\TutorStudent\\TutorStudent.Domain\\TutorStudent.Domain.csproj",
         "projectName": "TutorStudent.Domain",
-        "projectPath": "C:\\Users\\Behzad\\Desktop\\TutorStudent\\TutorStudent.Domain\\TutorStudent.Domain.csproj",
-        "packagesPath": "C:\\Users\\Behzad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Behzad\\Desktop\\TutorStudent\\TutorStudent.Domain\\obj\\",
+        "projectPath": "C:\\Users\\behzad.dara\\Desktop\\TutorStudent\\TutorStudent.Domain\\TutorStudent.Domain.csproj",
+        "packagesPath": "C:\\Users\\behzad.dara\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\behzad.dara\\Desktop\\TutorStudent\\TutorStudent.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Behzad\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\behzad.dara\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.sarmadins.ir/v3/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.1": {
@@ -134,35 +140,36 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Behzad\\Desktop\\TutorStudent\\TutorStudent.Infrastructure\\TutorStudent.Infrastructure.csproj": {
+    "C:\\Users\\behzad.dara\\Desktop\\TutorStudent\\TutorStudent.Infrastructure\\TutorStudent.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Behzad\\Desktop\\TutorStudent\\TutorStudent.Infrastructure\\TutorStudent.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\behzad.dara\\Desktop\\TutorStudent\\TutorStudent.Infrastructure\\TutorStudent.Infrastructure.csproj",
         "projectName": "TutorStudent.Infrastructure",
-        "projectPath": "C:\\Users\\Behzad\\Desktop\\TutorStudent\\TutorStudent.Infrastructure\\TutorStudent.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Behzad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Behzad\\Desktop\\TutorStudent\\TutorStudent.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\behzad.dara\\Desktop\\TutorStudent\\TutorStudent.Infrastructure\\TutorStudent.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\behzad.dara\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\behzad.dara\\Desktop\\TutorStudent\\TutorStudent.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Behzad\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\behzad.dara\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.sarmadins.ir/v3/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.1": {
             "targetAlias": "netstandard2.1",
             "projectReferences": {
-              "C:\\Users\\Behzad\\Desktop\\TutorStudent\\TutorStudent.Domain\\TutorStudent.Domain.csproj": {
-                "projectPath": "C:\\Users\\Behzad\\Desktop\\TutorStudent\\TutorStudent.Domain\\TutorStudent.Domain.csproj"
+              "C:\\Users\\behzad.dara\\Desktop\\TutorStudent\\TutorStudent.Domain\\TutorStudent.Domain.csproj": {
+                "projectPath": "C:\\Users\\behzad.dara\\Desktop\\TutorStudent\\TutorStudent.Domain\\TutorStudent.Domain.csproj"
               }
             }
           }
@@ -201,7 +208,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     }

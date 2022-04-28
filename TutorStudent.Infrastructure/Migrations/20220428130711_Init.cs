@@ -97,6 +97,7 @@ namespace TutorStudent.Infrastructure.Migrations
                     Ticket = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     State = table.Column<int>(type: "int", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TrackingCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdatedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -177,12 +178,11 @@ namespace TutorStudent.Infrastructure.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     TutorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Date = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BeginHour = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EndHour = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BeginHour = table.Column<int>(type: "int", nullable: false),
+                    EndHour = table.Column<int>(type: "int", nullable: false),
                     Meeting = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Capacity = table.Column<int>(type: "int", nullable: false),
                     Remain = table.Column<int>(type: "int", nullable: false),
-                    AutoConfirm = table.Column<bool>(type: "bit", nullable: false),
                     CreatedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdatedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -196,6 +196,36 @@ namespace TutorStudent.Infrastructure.Migrations
                     table.PrimaryKey("PK_TutorSchedules", x => x.Id);
                     table.ForeignKey(
                         name: "FK_TutorSchedules_Tutors_TutorId",
+                        column: x => x.TutorId,
+                        principalTable: "Tutors",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TutorWeeklySchedules",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TutorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    WeekDay = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BeginHour = table.Column<int>(type: "int", nullable: false),
+                    EndHour = table.Column<int>(type: "int", nullable: false),
+                    Meeting = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Capacity = table.Column<int>(type: "int", nullable: false),
+                    CreatedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdatedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    DeletedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TutorWeeklySchedules", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TutorWeeklySchedules_Tutors_TutorId",
                         column: x => x.TutorId,
                         principalTable: "Tutors",
                         principalColumn: "Id",
@@ -264,6 +294,11 @@ namespace TutorStudent.Infrastructure.Migrations
                 name: "IX_TutorSchedules_TutorId",
                 table: "TutorSchedules",
                 column: "TutorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TutorWeeklySchedules_TutorId",
+                table: "TutorWeeklySchedules",
+                column: "TutorId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -279,6 +314,9 @@ namespace TutorStudent.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "TutorSchedules");
+
+            migrationBuilder.DropTable(
+                name: "TutorWeeklySchedules");
 
             migrationBuilder.DropTable(
                 name: "Applies");

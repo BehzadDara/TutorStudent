@@ -16,6 +16,7 @@ namespace TutorStudent.Infrastructure
         public DbSet<Advertisement> Advertisements { get; set; }
         public DbSet<Apply> Applies { get; set; }
         public DbSet<Log> Logs { get; set; }
+        public DbSet<TutorWeeklySchedule> TutorWeeklySchedules { get; set; }
         
         public TutorStudentDbContext(DbContextOptions options) :base(options)
         {
@@ -31,6 +32,7 @@ namespace TutorStudent.Infrastructure
             modelBuilder.Entity<Advertisement>().HasKey(x => x.Id);
             modelBuilder.Entity<Apply>().HasKey(x => x.Id);
             modelBuilder.Entity<Log>().HasKey(x => x.Id);
+            modelBuilder.Entity<TutorWeeklySchedule>().HasKey(x => x.Id);
             
             modelBuilder.Entity<User>().Property(e => e.Gender)
                 .HasConversion(
@@ -51,12 +53,22 @@ namespace TutorStudent.Infrastructure
                 .HasConversion(
                     v => v.ToString(),
                     v => (TicketType)Enum.Parse(typeof(TicketType), v));
-            
+
             modelBuilder.Entity<Apply>().Property(e => e.Ticket)
                 .HasConversion(
                     v => v.ToString(),
                     v => (TicketType)Enum.Parse(typeof(TicketType), v));
+
+            modelBuilder.Entity<TutorWeeklySchedule>().Property(e => e.Meeting)
+                .HasConversion(
+                    v => v.ToString(),
+                    v => (MeetingType)Enum.Parse(typeof(MeetingType), v));
             
+            modelBuilder.Entity<TutorWeeklySchedule>().Property(e => e.WeekDay)
+                .HasConversion(
+                    v => v.ToString(),
+                    v => (WeekDayType)Enum.Parse(typeof(WeekDayType), v));
+
 
 
         }

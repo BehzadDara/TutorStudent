@@ -12,6 +12,7 @@ using TutorStudent.Domain.ProxyServices;
 using TutorStudent.Infrastructure;
 using TutorStudent.Infrastructure.Implementations;
 using TutorStudent.Infrastructure.Proxies;
+using Hangfire;
 
 namespace TutorStudent.Api
 {
@@ -62,8 +63,11 @@ namespace TutorStudent.Api
                 });
                 
             });
-            
-            
+
+            services.AddHangfire(configuration =>
+                configuration.UseSqlServerStorage(Configuration.GetConnectionString("TutorStudent")));
+            services.AddHangfireServer();
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env,TutorStudentDbContext dbContext)
@@ -94,6 +98,8 @@ namespace TutorStudent.Api
             app.UseRouting();
             
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+
+            app.UseHangfireDashboard("/jobs");
         }
     }
 }
