@@ -10,7 +10,7 @@ using TutorStudent.Infrastructure;
 namespace TutorStudent.Infrastructure.Migrations
 {
     [DbContext(typeof(TutorStudentDbContext))]
-    [Migration("20220428130711_Init")]
+    [Migration("20220820045119_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

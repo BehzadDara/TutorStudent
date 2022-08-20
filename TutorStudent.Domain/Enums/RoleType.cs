@@ -9,6 +9,10 @@ namespace TutorStudent.Domain.Enums
         [Description("استاد")]
         Tutor, 
         [Description("دانشجو")]
-        Student
+        Student, 
+        [Description("تدریسیار")]
+        TeacherAssistant, 
+        [Description("دفتر دانشکده")]
+        FacultyManagement
     }
 }

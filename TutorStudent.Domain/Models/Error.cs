@@ -20,6 +20,12 @@ namespace TutorStudent.Domain.Models
         public const string AdvertisementNotFound = "آگهی مد نظر یافت نشد";
         public const string ApplyNotFound = "درخواست مد نظر یافت نشد";
         public const string LogNotFound = "سابقه ای یافت نشد";
+        public const string TeacherAssistantNotFound = "تدریسیار یافت نشد";
+        public const string TeacherAssistantScheduleNotFound = "زمان بندی مد نظر یافت نشد";
+        public const string TeacherAssistantMeetingNotFound = "رزرو مد نظر یافت نشد";
+        public const string TeacherAssistantScheduleInUse = "زمان بندی مد نظر دارای رزرو فعال است";
+        public const string TeacherAssistantWeeklyScheduleNotFound = "زمان بندی هفتگی مد نظر یافت نشد";
+        public const string FacultyManagementNotFound = "دفتر دانشکده یافت نشد";
         public const string PasswordTemp = "Tutor Student Project";
     }
 }

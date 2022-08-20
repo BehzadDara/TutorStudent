@@ -21,15 +21,17 @@ namespace TutorStudent.Application.Services
         private readonly IRepository<User> _repository;
         private readonly IRepository<Tutor> _tutors;
         private readonly IRepository<Student> _students;
+        private readonly IRepository<TeacherAssistant> _teacherAssistant;
 
         public UserAppService(IMapper mapper, IUnitOfWork unitOfWork, IRepository<User> repository, 
-            IRepository<Tutor> tutors, IRepository<Student> students)
+            IRepository<Tutor> tutors, IRepository<Student> students, IRepository<TeacherAssistant> teacherAssistant)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
             _repository = repository;
             _tutors = tutors;
             _students = students;
+            _teacherAssistant = teacherAssistant;
         }
 
 
@@ -61,6 +63,7 @@ namespace TutorStudent.Application.Services
             switch (myUser.Role)
             {
                 case RoleType.Manager:
+                case RoleType.FacultyManagement:
                     var myManagerDto = new ManagerDto
                     {
                         User = _mapper.Map<UserDto>(myUser)
@@ -84,6 +87,7 @@ namespace TutorStudent.Application.Services
 
                     myStudent.User = myUser;
                     return Ok(_mapper.Map<StudentDto>(myStudent));
+
                 default:
                     return NoContent();
             }
@@ -104,8 +108,46 @@ namespace TutorStudent.Application.Services
             await _unitOfWork.CompleteAsync();
             
             return Ok(_mapper.Map<UserDto>(myUser));
-        }  
-        
+        }
+
+        [HttpPost("FacultyManagement")]
+        public async Task<IActionResult> CreateFacultyManagement(Guid managerId, UserCreateDto input)
+        {
+            var myManager = await _repository.GetByIdAsync(managerId);
+            if (myManager is null || myManager.Role != RoleType.Manager)
+            {
+                return Unauthorized(new ResponseDto(Error.AccessDenied));
+            }
+
+            var myUser = _mapper.Map<User>(input);
+            myUser.Role = RoleType.FacultyManagement;
+            _repository.Add(myUser);
+            await _unitOfWork.CompleteAsync();
+
+            return Ok(_mapper.Map<UserDto>(myUser));
+        }
+
+        [HttpDelete("FacultyManagement")]
+        public async Task<IActionResult> DeleteFacultyManagement(Guid managerId, Guid id)
+        {
+            var myManager = await _repository.GetByIdAsync(managerId);
+            if (myManager is null || myManager.Role != RoleType.Manager)
+            {
+                return Unauthorized(new ResponseDto(Error.AccessDenied));
+            }
+
+            var myUser = await _repository.GetByIdAsync(id);
+            if (myUser is null)
+            {
+                return NotFound(new ResponseDto(Error.FacultyManagementNotFound));
+            }
+
+            await _repository.DeleteAsync(myUser.Id);
+            await _unitOfWork.CompleteAsync();
+
+            return NoContent();
+        }
+
         [HttpPut("User")]
         public async Task<IActionResult> UpdateUser(Guid managerId, Guid id, UserUpdateDto input)
         {

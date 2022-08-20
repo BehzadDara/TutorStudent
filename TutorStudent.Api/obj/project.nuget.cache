@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+RfMKTOkCcV3OM1whftnWfoXyNTWJC47Yrx+8fK5l/IhJvbYOCST/fleGuUuNgEam+ojrNmygmnN5ltrxxAjZw==",
+  "dgSpecHash": "nRFzqMkn7unuhX5yFSp0+zxYPpd2OC5FOYLzYKJKTjWQRd62MhJ9TCCCXVpdwvBHluemcq1xYl2RlBEDbIYO4A==",
   "success": true,
   "projectFilePath": "C:\\Users\\behzad.dara\\Desktop\\TutorStudent\\TutorStudent.Api\\TutorStudent.Api.csproj",
   "expectedPackageFiles": [
@@ -221,7 +221,7 @@
     "C:\\Users\\behzad.dara\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
     "C:\\Users\\behzad.dara\\.nuget\\packages\\system.xml.xpath\\4.3.0\\system.xml.xpath.4.3.0.nupkg.sha512",
     "C:\\Users\\behzad.dara\\.nuget\\packages\\system.xml.xpath.xdocument\\4.3.0\\system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.16\\microsoft.netcore.app.host.win-x64.5.0.16.nupkg.sha512",
+    "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512",
     "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
     "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
     "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"

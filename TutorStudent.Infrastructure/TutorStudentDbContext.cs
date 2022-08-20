@@ -17,6 +17,9 @@ namespace TutorStudent.Infrastructure
         public DbSet<Apply> Applies { get; set; }
         public DbSet<Log> Logs { get; set; }
         public DbSet<TutorWeeklySchedule> TutorWeeklySchedules { get; set; }
+        public DbSet<TeacherAssistant> TeacherAssistants { get; set; }
+        public DbSet<TeacherAssistantSchedule> TeacherAssistantSchedules { get; set; }
+        public DbSet<TeacherAssistantMeeting> TeacherAssistantMeetings { get; set; }
         
         public TutorStudentDbContext(DbContextOptions options) :base(options)
         {
@@ -33,6 +36,9 @@ namespace TutorStudent.Infrastructure
             modelBuilder.Entity<Apply>().HasKey(x => x.Id);
             modelBuilder.Entity<Log>().HasKey(x => x.Id);
             modelBuilder.Entity<TutorWeeklySchedule>().HasKey(x => x.Id);
+            modelBuilder.Entity<TeacherAssistant>().HasKey(x => x.Id);
+            modelBuilder.Entity<TeacherAssistantSchedule>().HasKey(x => x.Id);
+            modelBuilder.Entity<TeacherAssistantMeeting>().HasKey(x => x.Id);
             
             modelBuilder.Entity<User>().Property(e => e.Gender)
                 .HasConversion(
@@ -45,6 +51,11 @@ namespace TutorStudent.Infrastructure
                     v => (RoleType)Enum.Parse(typeof(RoleType), v));
             
             modelBuilder.Entity<TutorSchedule>().Property(e => e.Meeting)
+                .HasConversion(
+                    v => v.ToString(),
+                    v => (MeetingType)Enum.Parse(typeof(MeetingType), v));
+            
+            modelBuilder.Entity<TeacherAssistantSchedule>().Property(e => e.Meeting)
                 .HasConversion(
                     v => v.ToString(),
                     v => (MeetingType)Enum.Parse(typeof(MeetingType), v));
@@ -65,6 +76,16 @@ namespace TutorStudent.Infrastructure
                     v => (MeetingType)Enum.Parse(typeof(MeetingType), v));
             
             modelBuilder.Entity<TutorWeeklySchedule>().Property(e => e.WeekDay)
+                .HasConversion(
+                    v => v.ToString(),
+                    v => (WeekDayType)Enum.Parse(typeof(WeekDayType), v));
+
+            modelBuilder.Entity<TeacherAssistantWeeklySchedule>().Property(e => e.Meeting)
+                .HasConversion(
+                    v => v.ToString(),
+                    v => (MeetingType)Enum.Parse(typeof(MeetingType), v));
+            
+            modelBuilder.Entity<TeacherAssistantWeeklySchedule>().Property(e => e.WeekDay)
                 .HasConversion(
                     v => v.ToString(),
                     v => (WeekDayType)Enum.Parse(typeof(WeekDayType), v));

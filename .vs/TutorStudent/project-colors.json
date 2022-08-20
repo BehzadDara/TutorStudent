@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "d067def1-553b-468b-a6f5-774c9d7af99e": {
+      "ProjectGuid": "d067def1-553b-468b-a6f5-774c9d7af99e",
+      "DisplayName": "TutorStudent.Domain",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "ffe1c230-8006-4d6c-8cbc-44d64823147c": {
+      "ProjectGuid": "ffe1c230-8006-4d6c-8cbc-44d64823147c",
+      "DisplayName": "TutorStudent.Infrastructure",
+      "ColorIndex": 1
+    },
+    "d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17": {
+      "ProjectGuid": "d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17",
+      "DisplayName": "TutorStudent.Application",
+      "ColorIndex": 2
+    },
+    "52ea5510-4c17-411b-a817-acda78ca8f9f": {
+      "ProjectGuid": "52ea5510-4c17-411b-a817-acda78ca8f9f",
+      "DisplayName": "TutorStudent.Api",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}

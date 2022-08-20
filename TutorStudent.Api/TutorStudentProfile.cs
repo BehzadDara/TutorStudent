@@ -56,6 +56,25 @@ namespace TutorStudent.Api
             
             CreateMap<Log, LogDto>();
 
+            CreateMap<TeacherAssistantCreateDto, TeacherAssistant>();
+            CreateMap<TeacherAssistant, TeacherAssistantDto>();
+
+            CreateMap<TeacherAssistantMeeting, TeacherAssistantMeetingDto>();
+
+            CreateMap<TeacherAssistantScheduleCreateDto, TeacherAssistantSchedule>()
+                .ForMember(x => x.Remain, opt => opt.MapFrom(c => c.Capacity));
+            CreateMap<TeacherAssistantScheduleUpdateDto, TeacherAssistantSchedule>();
+            CreateMap<TeacherAssistantSchedule, TeacherAssistantScheduleDto>()
+                .ForMember(x => x.MeetingValue, opt => opt.MapFrom(c => c.Meeting.Humanize()));
+
+            CreateMap<TeacherAssistantWeeklyScheduleCreateDto, TeacherAssistantWeeklySchedule>();
+            CreateMap<TeacherAssistantWeeklySchedule, TeacherAssistantWeeklyScheduleDto>()
+                .ForMember(x => x.MeetingValue, opt => opt.MapFrom(c => c.Meeting.Humanize()))
+                .ForMember(x => x.WeekDayValue, opt => opt.MapFrom(c => c.WeekDay.Humanize()));
+
+            CreateMap<TeacherAssistantWeeklySchedule, TeacherAssistantSchedule>()
+                .ForMember(x => x.Remain, opt => opt.MapFrom(c => c.Capacity))
+                .ForMember(x => x.Date, opt => opt.MapFrom(c => getDateFromWeekDay(c.WeekDay)));
 
         }
 
