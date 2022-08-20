@@ -42,6 +42,7 @@ namespace TutorStudent.Api
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
             
             services.AddScoped(typeof(ITrackingCode), typeof(TrackingCode));
+            services.AddScoped(typeof(INotification<>), typeof(EmailNotification<>));
             
             services.AddCors(options =>
             {

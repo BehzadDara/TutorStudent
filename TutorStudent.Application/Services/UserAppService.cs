@@ -8,6 +8,8 @@ using TutorStudent.Domain.Implementations;
 using TutorStudent.Domain.Interfaces;
 using TutorStudent.Domain.Models;
 using TutorStudent.Domain.Specifications;
+using TutorStudent.Domain.ProxyServices;
+using TutorStudent.Domain.ProxyServices.Dto;
 
 namespace TutorStudent.Application.Services
 {
@@ -22,9 +24,11 @@ namespace TutorStudent.Application.Services
         private readonly IRepository<Tutor> _tutors;
         private readonly IRepository<Student> _students;
         private readonly IRepository<TeacherAssistant> _teacherAssistant;
+        private readonly INotification<EmailContextDto> _notification;
 
         public UserAppService(IMapper mapper, IUnitOfWork unitOfWork, IRepository<User> repository, 
-            IRepository<Tutor> tutors, IRepository<Student> students, IRepository<TeacherAssistant> teacherAssistant)
+            IRepository<Tutor> tutors, IRepository<Student> students, IRepository<TeacherAssistant> teacherAssistant,
+            INotification<EmailContextDto> notification)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
@@ -32,6 +36,7 @@ namespace TutorStudent.Application.Services
             _tutors = tutors;
             _students = students;
             _teacherAssistant = teacherAssistant;
+            _notification = notification;
         }
 
 
@@ -87,6 +92,15 @@ namespace TutorStudent.Application.Services
 
                     myStudent.User = myUser;
                     return Ok(_mapper.Map<StudentDto>(myStudent));
+                case RoleType.TeacherAssistant:
+                    var myTeacherAssistant = await _teacherAssistant.GetAsync(new GetTeacherAssistantByUserId(myUser.Id));
+                    if (myTeacherAssistant is null)
+                    {
+                        return NotFound(new ResponseDto(Error.UserNotFound));
+                    }
+
+                    myTeacherAssistant.User = myUser;
+                    return Ok(_mapper.Map<TeacherAssistantDto>(myTeacherAssistant));
 
                 default:
                     return NoContent();
@@ -106,7 +120,8 @@ namespace TutorStudent.Application.Services
             myUser.Role = RoleType.Manager;
             _repository.Add(myUser);
             await _unitOfWork.CompleteAsync();
-            
+
+            await _notification.Send(myUser, new EmailContextDto { Subject = "subject", Body = "body" });
             return Ok(_mapper.Map<UserDto>(myUser));
         }
 

@@ -16,6 +16,6 @@ namespace TutorStudent.Domain.Specifications
         }
 
         public override Expression<Func<TeacherAssistantMeeting, bool>> Criteria =>
-            myTeacherAssistantMeeting => myTeacherAssistantMeeting.TeacherAssistantScheduleId == _tutorScheduleId;
+            myTeacherAssistantMeeting => myTeacherAssistantMeeting.TeacherAssistantScheduleId == _teacherAssistantScheduleId;
     }
 }
