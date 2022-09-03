@@ -27,5 +27,8 @@ namespace TutorStudent.Domain.Models
         public const string TeacherAssistantWeeklyScheduleNotFound = "زمان بندی هفتگی مد نظر یافت نشد";
         public const string FacultyManagementNotFound = "دفتر دانشکده یافت نشد";
         public const string PasswordTemp = "Tutor Student Project";
+        public const string FreeTutorScheduleNotExist = "استاد زمان بندی خالی ندارد : ";
+        public const string CommonTutorScheduleNotFound = "زمان بندی مشترک یافت نشد";
+        public const string RemoveTutorCondition = "با حذف استاد {0} {1} زمان بندی زیر موجود است";
     }
 }
