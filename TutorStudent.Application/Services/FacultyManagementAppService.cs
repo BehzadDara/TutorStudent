@@ -34,8 +34,8 @@ namespace TutorStudent.Application.Services
             _tutorSchedules = tutorSchedules;
         }
 
-        [HttpPost("TutorsMeeting")]
-        public async Task<IActionResult> CreateTutorsMeeting(Guid facultyManagementId, List<Guid> input)
+        [HttpPost("TutorsFreeTimes")]
+        public async Task<IActionResult> GetTutorsFreeTimes(Guid facultyManagementId, List<Guid> input)
         {
             var result = new List<FacultyManagementSuggestionDto>();
 
