@@ -8,6 +8,7 @@ namespace TutorStudent.Domain.Models
         public const string UserNotFound = "کاربر یافت نشد";
         public const string TutorNotFound = "استاد یافت نشد";
         public const string StudentNotFound = "دانشجو یافت نشد";
+        public const string FacultyManagementSuggestionNotFound = "جلسه اساتید یافت نشد";
         public const string AccessDenied = "شما دسترسی انجام این کار را ندارید";
         public const string CapacityControl = "ظرفیت باید بزرگتر از صفر باشد";
         public const string DateControl = "تاریخ شروع باید قبل از تاریخ پایان باشد";

@@ -76,6 +76,9 @@ namespace TutorStudent.Api
                 .ForMember(x => x.Remain, opt => opt.MapFrom(c => c.Capacity))
                 .ForMember(x => x.Date, opt => opt.MapFrom(c => getDateFromWeekDay(c.WeekDay)));
 
+            CreateMap<FacultyManagementSuggestionDto, FacultyManagementSuggestion>();
+            CreateMap<FacultyManagementSuggestion, FacultyManagementSuggestionDto>();
+
         }
 
         private string getDateFromWeekDay(WeekDayType weekDay)

@@ -23,21 +23,176 @@ namespace TutorStudent.Application.Services
         private readonly IRepository<Tutor> _tutors;
         private readonly IRepository<User> _users;
         private readonly IRepository<TutorSchedule> _tutorSchedules;
+        private readonly IRepository<FacultyManagementSuggestion> _facultyManagementSuggestions;
+        private readonly IRepository<FacultyManagementSuggestionTutor> _facultyManagementSuggestionTutors;
 
         public FacultyManagementAppService(IMapper mapper, IUnitOfWork unitOfWork, IRepository<Tutor> tutors,
-            IRepository<User> users, IRepository<TutorSchedule> tutorSchedules)
+            IRepository<User> users, IRepository<TutorSchedule> tutorSchedules, 
+            IRepository<FacultyManagementSuggestion> facultyManagementSuggestions, 
+            IRepository<FacultyManagementSuggestionTutor> facultyManagementSuggestionTutors)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
             _tutors = tutors;
             _users = users;
             _tutorSchedules = tutorSchedules;
+            _facultyManagementSuggestions = facultyManagementSuggestions;
+            _facultyManagementSuggestionTutors = facultyManagementSuggestionTutors;
         }
+
+        [HttpPost("TutorsMeeting")]
+        public async Task<IActionResult> CreateTutorsMeeting(Guid facultyManagementId, FacultyManagementSuggestionDto facultyManagementSuggestionDto, [FromQuery] List<Guid> input)
+        {
+            var myFacultyManagement = await _users.GetByIdAsync(facultyManagementId);
+            if (myFacultyManagement is null || myFacultyManagement.Role != RoleType.FacultyManagement)
+            {
+                return Unauthorized(new ResponseDto(Error.AccessDenied));
+            }
+
+            var myFacultyManagementSuggestion = _mapper.Map<FacultyManagementSuggestion>(facultyManagementSuggestionDto);
+
+            _facultyManagementSuggestions.Add(myFacultyManagementSuggestion);
+
+            foreach(var id in input)
+            {
+                var myTutor = await _tutors.GetByIdAsync(id);
+                if (myTutor is null)
+                {
+                    return NotFound(new ResponseDto(Error.TutorNotFound));
+                }
+
+                var myFacultyManagementSuggestionTutor = new FacultyManagementSuggestionTutor
+                {
+                    FacultyManagementSuggestion = myFacultyManagementSuggestion,
+                    TutorId = myTutor.Id
+                };
+
+                _facultyManagementSuggestionTutors.Add(myFacultyManagementSuggestionTutor);
+
+            }
+
+            await _unitOfWork.CompleteAsync();
+
+            return Ok(facultyManagementSuggestionDto);
+        }
+
+        [HttpDelete("TutorsMeeting")]
+        public async Task<IActionResult> DeleteTutorsMeeting(Guid facultyManagementId, Guid id)
+        {
+            var myFacultyManagement = await _users.GetByIdAsync(facultyManagementId);
+            if (myFacultyManagement is null || myFacultyManagement.Role != RoleType.FacultyManagement)
+            {
+                return Unauthorized(new ResponseDto(Error.AccessDenied));
+            }
+
+            var myFacultyManagementSuggestion = await _facultyManagementSuggestions.GetByIdAsync(id);
+            if (myFacultyManagementSuggestion is null)
+            {
+                return NotFound(new ResponseDto(Error.FacultyManagementSuggestionNotFound));
+            }
+
+            var myFacultyManagementSuggestionTutors = await _facultyManagementSuggestionTutors.ListAsync(
+                new GetFacultyManagementSuggestionTutorByFacultyManagementSuggestionId(id));
+
+            foreach (var myFacultyManagementSuggestionTutor in myFacultyManagementSuggestionTutors)
+            {
+                await _facultyManagementSuggestionTutors.DeleteAsync(myFacultyManagementSuggestionTutor);
+            }
+            await _facultyManagementSuggestions.DeleteAsync(myFacultyManagementSuggestion);
+
+            await _unitOfWork.CompleteAsync();
+
+            return NoContent();
+        }
+
+        [HttpGet("TutorsMeeting")]
+        public async Task<IActionResult> GetTutorsMeeting(Guid id, Guid input)
+        {
+            var myPerson = await _users.GetByIdAsync(id);
+            if (myPerson is null || (myPerson.Role != RoleType.FacultyManagement && myPerson.Role != RoleType.Tutor))
+            {
+                return Unauthorized(new ResponseDto(Error.AccessDenied));
+            }
+
+            var myFacultyManagementSuggestion = await _facultyManagementSuggestions.GetByIdAsync(input);
+            if(myFacultyManagementSuggestion is null)
+            {
+                return NotFound(new ResponseDto(Error.FacultyManagementSuggestionNotFound));
+            }
+
+            var myFacultyManagementSuggestionTutors = await _facultyManagementSuggestionTutors.ListAsync(
+                new GetFacultyManagementSuggestionTutorByFacultyManagementSuggestionId(myFacultyManagementSuggestion.Id));
+
+            var Tutors = new List<Tutor>();
+
+            foreach(var myFacultyManagementSuggestionTutor in myFacultyManagementSuggestionTutors)
+            {
+                var myTutor = await _tutors.GetByIdAsync(myFacultyManagementSuggestionTutor.TutorId);
+                if(myTutor is null)
+                {
+                    return NotFound(new ResponseDto(Error.TutorNotFound));
+                }
+
+                var myUser = await _users.GetByIdAsync(myTutor.UserId);
+                if (myUser is null)
+                {
+                    return NotFound(new ResponseDto(Error.UserNotFound));
+                }
+
+                myTutor.User = myUser;
+
+                Tutors.Add(myTutor);
+
+            }
+
+            var myFacultyManagementSuggestionDetailDto = new FacultyManagementSuggestionDetailDto
+            {
+                FacultyManagementSuggestionDto = _mapper.Map<FacultyManagementSuggestionDto>(myFacultyManagementSuggestion),
+                Tutors = _mapper.Map<List<TutorDto>>(Tutors)
+            };
+
+            return Ok(myFacultyManagementSuggestionDetailDto);
+        }
+        
+
+        [HttpGet("TutorsMeetings")]
+        public async Task<IActionResult> GetTutorsMeetings(Guid id)
+        {
+            var myPerson = await _users.GetByIdAsync(id);
+            if (myPerson is null || (myPerson.Role != RoleType.FacultyManagement && myPerson.Role != RoleType.Tutor))
+            {
+                return Unauthorized(new ResponseDto(Error.AccessDenied));
+            }
+
+            var myFacultyManagementSuggestions = (await _facultyManagementSuggestions.ListAllAsync()).Where(x=>CheckDate(x.Date)).OrderBy(x => x.Date).ToList();
+
+            if(myPerson.Role == RoleType.Tutor)
+            {
+                var myTutor = await _tutors.GetAsync(new GetTutorByUserId(myPerson.Id));
+                var myFacultyManagementSuggestionsTmp = new List<FacultyManagementSuggestion>();
+
+                foreach(var myFacultyManagementSuggestion in myFacultyManagementSuggestions)
+                {
+                    var myFacultyManagementSuggestionTutors = await _facultyManagementSuggestionTutors.ListAsync(
+                        new GetFacultyManagementSuggestionTutorByFacultyManagementSuggestionId(myFacultyManagementSuggestion.Id));
+
+                    if(myFacultyManagementSuggestionTutors.Where(x=>x.TutorId == myTutor.Id).ToList().Count > 0)
+                    {
+                        myFacultyManagementSuggestionsTmp.Add(myFacultyManagementSuggestion);
+                    }
+                }
+
+                myFacultyManagementSuggestions = myFacultyManagementSuggestionsTmp;
+            }
+
+            return Ok(_mapper.Map<List<FacultyManagementSuggestionDto>>(myFacultyManagementSuggestions));
+        }
+
 
         [HttpPost("TutorsFreeTimes")]
         public async Task<IActionResult> GetTutorsFreeTimes(Guid facultyManagementId, List<Guid> input)
         {
-            var result = new List<FacultyManagementSuggestionDto>();
+            var result = new List<FacultyManagementSuggestion>();
 
             var myFacultyManagement = await _users.GetByIdAsync(facultyManagementId);
             if (myFacultyManagement is null || myFacultyManagement.Role != RoleType.FacultyManagement)
@@ -77,7 +232,7 @@ namespace TutorStudent.Application.Services
 
             foreach(var x in myTutorSchedules.FirstOrDefault())
             {
-                result.Add(new FacultyManagementSuggestionDto
+                result.Add(new FacultyManagementSuggestion
                 {
                     Date = x.Date,
                     BeginHour = x.BeginHour,
@@ -96,7 +251,7 @@ namespace TutorStudent.Application.Services
 
             if (!result.Any() && myTutors.Count >= 3)
             {
-                result = new List<FacultyManagementSuggestionDto>();
+                result = new List<FacultyManagementSuggestion>();
 
                 foreach (var myTutor in myTutors)
                 {
@@ -117,7 +272,7 @@ namespace TutorStudent.Application.Services
 
                     foreach (var x in tmpMyTutorSchedules.FirstOrDefault())
                     {
-                        result.Add(new FacultyManagementSuggestionDto
+                        result.Add(new FacultyManagementSuggestion
                         {
                             Date = x.Date,
                             BeginHour = x.BeginHour,
@@ -148,12 +303,12 @@ namespace TutorStudent.Application.Services
                 return NotFound(new ResponseDto(Error.CommonTutorScheduleNotFound));
             }
 
-            return Ok(result);
+            return Ok(_mapper.Map<List<FacultyManagementSuggestionDto>>(result));
         }
 
-        private static List<FacultyManagementSuggestionDto> FindCommonTutorSchedule(List<FacultyManagementSuggestionDto> list1, List<TutorSchedule> list2)
+        private static List<FacultyManagementSuggestion> FindCommonTutorSchedule(List<FacultyManagementSuggestion> list1, List<TutorSchedule> list2)
         {
-            var result = new List<FacultyManagementSuggestionDto>();
+            var result = new List<FacultyManagementSuggestion>();
 
             foreach (var item1 in list1)
             {
@@ -169,7 +324,7 @@ namespace TutorStudent.Application.Services
                         else if(item1.EndHour > item2.BeginHour && item1.BeginHour <= item2.BeginHour &&
                             item1.EndHour <= item2.EndHour)
                         {
-                            result.Add(new FacultyManagementSuggestionDto
+                            result.Add(new FacultyManagementSuggestion
                             {
                                 Date = item1.Date,
                                 BeginHour = item2.BeginHour,
@@ -179,7 +334,7 @@ namespace TutorStudent.Application.Services
                         else if(item1.EndHour > item2.BeginHour && item1.BeginHour > item2.BeginHour &&
                             item1.EndHour <= item2.EndHour)
                         {
-                            result.Add(new FacultyManagementSuggestionDto
+                            result.Add(new FacultyManagementSuggestion
                             {
                                 Date = item1.Date,
                                 BeginHour = item1.BeginHour,
@@ -188,7 +343,7 @@ namespace TutorStudent.Application.Services
                         }
                         else if(item1.EndHour >= item2.EndHour && item1.BeginHour <= item2.BeginHour)
                         {
-                            result.Add(new FacultyManagementSuggestionDto
+                            result.Add(new FacultyManagementSuggestion
                             {
                                 Date = item1.Date,
                                 BeginHour = item2.BeginHour,
@@ -198,7 +353,7 @@ namespace TutorStudent.Application.Services
                         else if(item1.BeginHour >= item2.BeginHour && item1.BeginHour <= item2.EndHour &&
                             item1.EndHour >= item2.EndHour)
                         {
-                            result.Add(new FacultyManagementSuggestionDto
+                            result.Add(new FacultyManagementSuggestion
                             {
                                 Date = item1.Date,
                                 BeginHour = item1.BeginHour,

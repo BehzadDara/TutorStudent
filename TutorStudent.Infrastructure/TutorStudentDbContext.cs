@@ -20,6 +20,8 @@ namespace TutorStudent.Infrastructure
         public DbSet<TeacherAssistant> TeacherAssistants { get; set; }
         public DbSet<TeacherAssistantSchedule> TeacherAssistantSchedules { get; set; }
         public DbSet<TeacherAssistantMeeting> TeacherAssistantMeetings { get; set; }
+        public DbSet<FacultyManagementSuggestion> FacultyManagementSuggestions { get; set; }
+        public DbSet<FacultyManagementSuggestionTutor> FacultyManagementSuggestionTutors { get; set; }
         
         public TutorStudentDbContext(DbContextOptions options) :base(options)
         {
@@ -39,6 +41,8 @@ namespace TutorStudent.Infrastructure
             modelBuilder.Entity<TeacherAssistant>().HasKey(x => x.Id);
             modelBuilder.Entity<TeacherAssistantSchedule>().HasKey(x => x.Id);
             modelBuilder.Entity<TeacherAssistantMeeting>().HasKey(x => x.Id);
+            modelBuilder.Entity<FacultyManagementSuggestion>().HasKey(x => x.Id);
+            modelBuilder.Entity<FacultyManagementSuggestionTutor>().HasKey(x => x.Id);
             
             modelBuilder.Entity<User>().Property(e => e.Gender)
                 .HasConversion(
