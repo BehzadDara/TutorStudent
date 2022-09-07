@@ -8,6 +8,28 @@ namespace TutorStudent.Infrastructure.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "FacultyManagementSuggestions",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Date = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BeginHour = table.Column<int>(type: "int", nullable: false),
+                    EndHour = table.Column<int>(type: "int", nullable: false),
+                    Condition = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdatedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    DeletedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FacultyManagementSuggestions", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -35,6 +57,32 @@ namespace TutorStudent.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "FacultyManagementSuggestionTutors",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FacultyManagementSuggestionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TutorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CreatedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdatedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    DeletedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FacultyManagementSuggestionTutors", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_FacultyManagementSuggestionTutors_FacultyManagementSuggestions_FacultyManagementSuggestionId",
+                        column: x => x.FacultyManagementSuggestionId,
+                        principalTable: "FacultyManagementSuggestions",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Students",
                 columns: table => new
                 {
@@ -54,6 +102,33 @@ namespace TutorStudent.Infrastructure.Migrations
                     table.PrimaryKey("PK_Students", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Students_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TeacherAssistants",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TutorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SkypeId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdatedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    DeletedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TeacherAssistants", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TeacherAssistants_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
@@ -139,6 +214,93 @@ namespace TutorStudent.Infrastructure.Migrations
                         name: "FK_Meetings_Students_StudentId",
                         column: x => x.StudentId,
                         principalTable: "Students",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TeacherAssistantMeetings",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TeacherAssistantScheduleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    StudentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CreatedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdatedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    DeletedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TeacherAssistantMeetings", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TeacherAssistantMeetings_Students_StudentId",
+                        column: x => x.StudentId,
+                        principalTable: "Students",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TeacherAssistantSchedules",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TeacherAssistantId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Date = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BeginHour = table.Column<int>(type: "int", nullable: false),
+                    EndHour = table.Column<int>(type: "int", nullable: false),
+                    Meeting = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Capacity = table.Column<int>(type: "int", nullable: false),
+                    Remain = table.Column<int>(type: "int", nullable: false),
+                    CreatedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdatedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    DeletedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TeacherAssistantSchedules", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TeacherAssistantSchedules_TeacherAssistants_TeacherAssistantId",
+                        column: x => x.TeacherAssistantId,
+                        principalTable: "TeacherAssistants",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TeacherAssistantWeeklySchedule",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TeacherAssistantId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    WeekDay = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BeginHour = table.Column<int>(type: "int", nullable: false),
+                    EndHour = table.Column<int>(type: "int", nullable: false),
+                    Meeting = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Capacity = table.Column<int>(type: "int", nullable: false),
+                    CreatedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdatedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    DeletedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TeacherAssistantWeeklySchedule", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TeacherAssistantWeeklySchedule_TeacherAssistants_TeacherAssistantId",
+                        column: x => x.TeacherAssistantId,
+                        principalTable: "TeacherAssistants",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -271,6 +433,11 @@ namespace TutorStudent.Infrastructure.Migrations
                 column: "StudentId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_FacultyManagementSuggestionTutors_FacultyManagementSuggestionId",
+                table: "FacultyManagementSuggestionTutors",
+                column: "FacultyManagementSuggestionId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Logs_ApplyId",
                 table: "Logs",
                 column: "ApplyId");
@@ -284,6 +451,26 @@ namespace TutorStudent.Infrastructure.Migrations
                 name: "IX_Students_UserId",
                 table: "Students",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TeacherAssistantMeetings_StudentId",
+                table: "TeacherAssistantMeetings",
+                column: "StudentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TeacherAssistants_UserId",
+                table: "TeacherAssistants",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TeacherAssistantSchedules_TeacherAssistantId",
+                table: "TeacherAssistantSchedules",
+                column: "TeacherAssistantId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TeacherAssistantWeeklySchedule_TeacherAssistantId",
+                table: "TeacherAssistantWeeklySchedule",
+                column: "TeacherAssistantId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tutors_UserId",
@@ -307,10 +494,22 @@ namespace TutorStudent.Infrastructure.Migrations
                 name: "Advertisements");
 
             migrationBuilder.DropTable(
+                name: "FacultyManagementSuggestionTutors");
+
+            migrationBuilder.DropTable(
                 name: "Logs");
 
             migrationBuilder.DropTable(
                 name: "Meetings");
+
+            migrationBuilder.DropTable(
+                name: "TeacherAssistantMeetings");
+
+            migrationBuilder.DropTable(
+                name: "TeacherAssistantSchedules");
+
+            migrationBuilder.DropTable(
+                name: "TeacherAssistantWeeklySchedule");
 
             migrationBuilder.DropTable(
                 name: "TutorSchedules");
@@ -319,7 +518,13 @@ namespace TutorStudent.Infrastructure.Migrations
                 name: "TutorWeeklySchedules");
 
             migrationBuilder.DropTable(
+                name: "FacultyManagementSuggestions");
+
+            migrationBuilder.DropTable(
                 name: "Applies");
+
+            migrationBuilder.DropTable(
+                name: "TeacherAssistants");
 
             migrationBuilder.DropTable(
                 name: "Tutors");
