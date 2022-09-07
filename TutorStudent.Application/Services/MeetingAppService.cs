@@ -4,10 +4,11 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using TutorStudent.Application.Contracts;
-using TutorStudent.Domain.Enums;
 using TutorStudent.Domain.Interfaces;
 using TutorStudent.Domain.Models;
 using TutorStudent.Domain.Specifications;
+using TutorStudent.Domain.ProxyServices.Dto;
+using TutorStudent.Domain.ProxyServices;
 
 namespace TutorStudent.Application.Services
 {
@@ -21,15 +22,23 @@ namespace TutorStudent.Application.Services
         private readonly IRepository<Meeting> _repository;
         private readonly IRepository<TutorSchedule> _tutorSchedule;
         private readonly IRepository<Student> _student;
+        private readonly IRepository<Tutor> _tutor;
+        private readonly IRepository<User> _user;
+        private readonly INotification<EmailContextDto> _notification;
 
         public MeetingAppService(IMapper mapper, IUnitOfWork unitOfWork, IRepository<Meeting> repository, 
-            IRepository<TutorSchedule> tutorSchedule, IRepository<Student> student)
+            IRepository<TutorSchedule> tutorSchedule, IRepository<Student> student,
+            IRepository<Tutor> tutor, IRepository<User> user,
+            INotification<EmailContextDto> notification)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
             _repository = repository;
             _tutorSchedule = tutorSchedule;
             _student = student;
+            _tutor = tutor;
+            _user = user;
+            _notification = notification;
         }
         
         [HttpPost("Meeting")]
@@ -39,6 +48,12 @@ namespace TutorStudent.Application.Services
             if (myStudent is null)
             {
                 return NotFound(new ResponseDto(Error.StudentNotFound));
+            } 
+            
+            var myStudentUser = await _user.GetByIdAsync(myStudent.UserId);
+            if (myStudentUser is null)
+            {
+                return NotFound(new ResponseDto(Error.UserNotFound));
             }   
             
             var myTutorSchedule = await _tutorSchedule.GetByIdAsync(tutorScheduleId);
@@ -51,7 +66,21 @@ namespace TutorStudent.Application.Services
             {
                 return BadRequest(new ResponseDto(Error.RemainControl));
             }
-            
+
+            var myTutor = await _tutor.GetByIdAsync(myTutorSchedule.TutorId);
+
+            if (myTutor is null)
+            {
+                return NotFound(new ResponseDto(Error.TutorNotFound));
+            }
+
+            var myTutorUser = await _user.GetByIdAsync(myTutor.UserId);
+
+            if (myTutorUser is null)
+            {
+                return NotFound(new ResponseDto(Error.UserNotFound));
+            }
+
             var myMeeting = new Meeting
             {
                 Student = myStudent,
@@ -64,7 +93,25 @@ namespace TutorStudent.Application.Services
             _tutorSchedule.Update(myTutorSchedule);
             
             await _unitOfWork.CompleteAsync();
-            
+
+            var emailContextDto1 = new EmailContextDto
+            {
+                To = myStudentUser.Email,
+                Subject = "رزرو جلسه توسط دانشجو",
+                Body = $"دانشجوی گرامی {myStudentUser.FirstName} {myStudentUser.LastName}، رزرو جلسه با استاد {myTutorUser.FirstName} {myTutorUser.LastName} تاریخ {myTutorSchedule.Date} بازه زمانی {myTutorSchedule.BeginHour} تا {myTutorSchedule.EndHour} با موفقیت انجام شد."
+            };
+
+            await _notification.Send(emailContextDto1);
+
+            var emailContextDto2 = new EmailContextDto
+            {
+                To = myTutorUser.Email,
+                Subject = "رزرو جلسه توسط دانشجو",
+                Body = $"استاد گرامی {myTutorUser.FirstName} {myTutorUser.LastName}، دانشجوی {myStudentUser.FirstName} {myStudentUser.LastName} تاریخ {myTutorSchedule.Date} بازه زمانی {myTutorSchedule.BeginHour} تا {myTutorSchedule.EndHour} را به عنوان وقت جلسه رزرو کرد."
+            };
+
+            await _notification.Send(emailContextDto2);
+
             return Ok(_mapper.Map<MeetingDto>(myMeeting));
         }  
         

@@ -8,6 +8,6 @@ namespace TutorStudent.Domain.ProxyServices
 {
     public interface INotification<T> where T : class
     {
-        Task<bool> Send(User user, T context);
+        Task<bool> Send(T context);
     }
 }

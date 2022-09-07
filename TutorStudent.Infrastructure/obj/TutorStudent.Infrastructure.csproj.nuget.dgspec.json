@@ -49,6 +49,14 @@
               "target": "Package",
               "version": "[2021.1.0-eap01, )"
             },
+            "MailKit": {
+              "target": "Package",
+              "version": "[3.4.0, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[3.4.0, )"
+            },
             "Stateless": {
               "target": "Package",
               "version": "[5.11.0, )"
@@ -114,6 +122,10 @@
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[3.4.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.0, )"
@@ -121,6 +133,10 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[3.4.0, )"
             }
           },
           "imports": [

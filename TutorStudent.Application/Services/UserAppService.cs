@@ -24,11 +24,9 @@ namespace TutorStudent.Application.Services
         private readonly IRepository<Tutor> _tutors;
         private readonly IRepository<Student> _students;
         private readonly IRepository<TeacherAssistant> _teacherAssistant;
-        private readonly INotification<EmailContextDto> _notification;
 
         public UserAppService(IMapper mapper, IUnitOfWork unitOfWork, IRepository<User> repository, 
-            IRepository<Tutor> tutors, IRepository<Student> students, IRepository<TeacherAssistant> teacherAssistant,
-            INotification<EmailContextDto> notification)
+            IRepository<Tutor> tutors, IRepository<Student> students, IRepository<TeacherAssistant> teacherAssistant)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
@@ -36,7 +34,6 @@ namespace TutorStudent.Application.Services
             _tutors = tutors;
             _students = students;
             _teacherAssistant = teacherAssistant;
-            _notification = notification;
         }
 
 
@@ -121,7 +118,6 @@ namespace TutorStudent.Application.Services
             _repository.Add(myUser);
             await _unitOfWork.CompleteAsync();
 
-            await _notification.Send(myUser, new EmailContextDto { Subject = "subject", Body = "body" });
             return Ok(_mapper.Map<UserDto>(myUser));
         }
 

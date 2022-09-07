@@ -49,6 +49,14 @@
               "target": "Package",
               "version": "[2021.1.0-eap01, )"
             },
+            "MailKit": {
+              "target": "Package",
+              "version": "[3.4.0, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[3.4.0, )"
+            },
             "Stateless": {
               "target": "Package",
               "version": "[5.11.0, )"

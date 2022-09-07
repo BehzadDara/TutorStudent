@@ -13,6 +13,7 @@ using TutorStudent.Infrastructure;
 using TutorStudent.Infrastructure.Implementations;
 using TutorStudent.Infrastructure.Proxies;
 using Hangfire;
+using TutorStudent.Domain.ProxyServices.Dto;
 
 namespace TutorStudent.Api
 {
@@ -42,8 +43,10 @@ namespace TutorStudent.Api
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
             
             services.AddScoped(typeof(ITrackingCode), typeof(TrackingCode));
-            services.AddScoped(typeof(INotification<>), typeof(EmailNotification<>));
+            services.AddScoped(typeof(INotification<>), typeof(EmailNotification<>)); 
             
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
+
             services.AddCors(options =>
             {
                 options.AddPolicy("allowall", policy =>
