@@ -8,6 +8,8 @@ using TutorStudent.Domain.Enums;
 using TutorStudent.Domain.Interfaces;
 using TutorStudent.Domain.Models;
 using TutorStudent.Domain.Specifications;
+using TutorStudent.Domain.ProxyServices.Dto;
+using TutorStudent.Domain.ProxyServices;
 
 namespace TutorStudent.Application.Services
 {
@@ -20,14 +22,16 @@ namespace TutorStudent.Application.Services
         private readonly IUnitOfWork _unitOfWork;
         private readonly IRepository<TeacherAssistant> _repository;
         private readonly IRepository<User> _users;
+        private readonly INotification<EmailContextDto> _notification;
 
         public TeacherAssistantAppService(IMapper mapper, IUnitOfWork unitOfWork, IRepository<TeacherAssistant> repository,
-            IRepository<User> users)
+            IRepository<User> users, INotification<EmailContextDto> notification)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
             _repository = repository;
             _users = users;
+            _notification = notification;
         }
 
         [HttpPost("TeacherAssistant")]
@@ -43,6 +47,15 @@ namespace TutorStudent.Application.Services
             myTeacherAssistant.User.Role = RoleType.TeacherAssistant;
             _repository.Add(myTeacherAssistant);
             await _unitOfWork.CompleteAsync();
+
+            var emailContextDto = new EmailContextDto
+            {
+                To = input.User.Email,
+                Subject = "اطلاعات حساب کاربری سامانه تعامل استاد و دانشجو",
+                Body = $"تدریسیار گرامی {myTeacherAssistant.User.FirstName} {myTeacherAssistant.User.LastName}، شما به سامانه تعامل استاد و دانشجو اضافه شدید."
+            };
+
+            _notification.Send(emailContextDto);
 
             return Ok(_mapper.Map<TeacherAssistantDto>(myTeacherAssistant));
         }

@@ -12,7 +12,9 @@ namespace TutorStudent.Infrastructure.Proxies
     public class TrackingCode : ITrackingCode
     {
         private readonly HttpClient _client;
-        private const string TrackingCodeUrl = "http://localhost:5029/api/TrackingCodeModelAppService/TrackingCodeModel";
+        //private const string TrackingCodeUrl = "http://localhost:5029/api/TrackingCodeModelAppService/TrackingCodeModel";
+        private const string TrackingCodeUrl = "http://87.248.139.36:5001/api/TrackingCodeModelAppService/TrackingCodeModel";
+
         
         public TrackingCode()
         {

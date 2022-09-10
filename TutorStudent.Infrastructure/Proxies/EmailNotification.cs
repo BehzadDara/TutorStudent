@@ -40,9 +40,21 @@ namespace TutorStudent.Infrastructure.Proxies
             {
                 Sender = MailboxAddress.Parse(_mailSettings.Mail),
                 Subject = context.Subject,
-                Body = builder.ToMessageBody()
+                Body = builder.ToMessageBody(),
             };
             email.To.Add(MailboxAddress.Parse(context.To));
+
+            // attachment
+            if(context.Attachment != null && context.Attachment.Length > 0)
+            {
+                byte[] fileBytes;
+                using(var ms = new MemoryStream())
+                {
+                    context.Attachment.CopyTo(ms);
+                    fileBytes = ms.ToArray();
+                }
+                builder.Attachments.Add(context.Attachment.FileName, fileBytes, ContentType.Parse(context.Attachment.ContentType));
+            }
 
             using var smtp = new SmtpClient();
             smtp.Connect(_mailSettings.Host, _mailSettings.Port, SecureSocketOptions.StartTls);

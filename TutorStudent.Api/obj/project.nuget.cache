@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "H0fX8nWCR38xiL59ko0RUyG+DiKfBh6T+A/3AglAhYlJyICUttsmdbV1DdFZP3O0pYKa/3L6owqYPU5AQIoxBA==",
+  "dgSpecHash": "4PDgHB5aa7/jDABiMrdD5WYvPA3rnMdHLWlU7tQQcDNuqNQ/bnjdhINrgTQ/Iw8mXr8qO0Qzz8zolkG3I5M7Ng==",
   "success": true,
   "projectFilePath": "C:\\Users\\behzad.dara\\Desktop\\TutorStudent\\TutorStudent.Api\\TutorStudent.Api.csproj",
   "expectedPackageFiles": [
@@ -31,7 +31,7 @@
     "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.aspnetcore.http\\2.2.0\\microsoft.aspnetcore.http.2.2.0.nupkg.sha512",
     "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.aspnetcore.http.extensions\\2.2.0\\microsoft.aspnetcore.http.extensions.2.2.0.nupkg.sha512",
-    "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+    "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\2.2.0\\microsoft.aspnetcore.jsonpatch.2.2.0.nupkg.sha512",
     "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.aspnetcore.localization\\2.2.0\\microsoft.aspnetcore.localization.2.2.0.nupkg.sha512",
     "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.aspnetcore.mvc\\2.2.0\\microsoft.aspnetcore.mvc.2.2.0.nupkg.sha512",
@@ -87,7 +87,7 @@
     "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.extensions.objectpool\\2.2.0\\microsoft.extensions.objectpool.2.2.0.nupkg.sha512",
     "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
-    "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+    "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
     "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.extensions.webencoders\\2.2.0\\microsoft.extensions.webencoders.2.2.0.nupkg.sha512",
     "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.identity.client\\4.14.0\\microsoft.identity.client.4.14.0.nupkg.sha512",
     "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\5.6.0\\microsoft.identitymodel.jsonwebtokens.5.6.0.nupkg.sha512",
@@ -164,6 +164,7 @@
     "C:\\Users\\behzad.dara\\.nuget\\packages\\system.io.compression.zipfile\\4.3.0\\system.io.compression.zipfile.4.3.0.nupkg.sha512",
     "C:\\Users\\behzad.dara\\.nuget\\packages\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Users\\behzad.dara\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\behzad.dara\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512",
     "C:\\Users\\behzad.dara\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
     "C:\\Users\\behzad.dara\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\behzad.dara\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",

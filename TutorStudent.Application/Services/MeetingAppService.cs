@@ -9,6 +9,11 @@ using TutorStudent.Domain.Models;
 using TutorStudent.Domain.Specifications;
 using TutorStudent.Domain.ProxyServices.Dto;
 using TutorStudent.Domain.ProxyServices;
+using System.Linq;
+using Microsoft.AspNetCore.Http;
+using System.Globalization;
+using System.Text;
+using Microsoft.AspNetCore.Http.Internal;
 
 namespace TutorStudent.Application.Services
 {
@@ -67,6 +72,12 @@ namespace TutorStudent.Application.Services
                 return BadRequest(new ResponseDto(Error.RemainControl));
             }
 
+            var myMeetings = await _repository.ListAsync(new GetMeetingByTutorScheduleId(tutorScheduleId));
+            if(myMeetings.Where(x=> x.StudentId == myStudent.Id).Count() > 0)
+            {
+                return BadRequest(new ResponseDto(Error.DuplicateMeeting));
+            }
+
             var myTutor = await _tutor.GetByIdAsync(myTutorSchedule.TutorId);
 
             if (myTutor is null)
@@ -98,23 +109,93 @@ namespace TutorStudent.Application.Services
             {
                 To = myStudentUser.Email,
                 Subject = "رزرو جلسه توسط دانشجو",
-                Body = $"دانشجوی گرامی {myStudentUser.FirstName} {myStudentUser.LastName}، رزرو جلسه با استاد {myTutorUser.FirstName} {myTutorUser.LastName} تاریخ {myTutorSchedule.Date} بازه زمانی {myTutorSchedule.BeginHour} تا {myTutorSchedule.EndHour} با موفقیت انجام شد."
+                Body = $"دانشجوی گرامی {myStudentUser.FirstName} {myStudentUser.LastName}، رزرو جلسه با استاد {myTutorUser.FirstName} {myTutorUser.LastName} تاریخ {myTutorSchedule.Date} بازه زمانی {myTutorSchedule.BeginHour} تا {myTutorSchedule.EndHour} با موفقیت انجام شد.",
+                //Attachment = CreateMeetingAttachment(myTutorSchedule)
             };
 
-            await _notification.Send(emailContextDto1);
+            _notification.Send(emailContextDto1);
 
             var emailContextDto2 = new EmailContextDto
             {
                 To = myTutorUser.Email,
                 Subject = "رزرو جلسه توسط دانشجو",
-                Body = $"استاد گرامی {myTutorUser.FirstName} {myTutorUser.LastName}، دانشجوی {myStudentUser.FirstName} {myStudentUser.LastName} تاریخ {myTutorSchedule.Date} بازه زمانی {myTutorSchedule.BeginHour} تا {myTutorSchedule.EndHour} را به عنوان وقت جلسه رزرو کرد."
+                Body = $"استاد گرامی {myTutorUser.FirstName} {myTutorUser.LastName}، دانشجوی {myStudentUser.FirstName} {myStudentUser.LastName} تاریخ {myTutorSchedule.Date} بازه زمانی {myTutorSchedule.BeginHour} تا {myTutorSchedule.EndHour} را به عنوان وقت جلسه رزرو کرد.",
+                //Attachment = CreateMeetingAttachment(myTutorSchedule)
             };
 
-            await _notification.Send(emailContextDto2);
+            _notification.Send(emailContextDto2);
 
             return Ok(_mapper.Map<MeetingDto>(myMeeting));
-        }  
-        
+        }
+
+/*        private IFormFile CreateMeetingAttachment(TutorSchedule myTutorSchedule)
+        {
+            //some variables for demo purposes
+            DateTime DateStart = ShamsiToMiladi(myTutorSchedule.Date, myTutorSchedule.BeginHour);
+            DateTime DateEnd = ShamsiToMiladi(myTutorSchedule.Date, myTutorSchedule.BeginHour);
+            string Summary = "رزرو جلسه توسط دانشجو";
+            string FileName = "TutorCalendar";
+
+            //create a new stringbuilder instance
+            StringBuilder sb = new StringBuilder();
+
+            //start the calendar item
+            sb.AppendLine("BEGIN:VCALENDAR");
+            sb.AppendLine("VERSION:2.0");
+            sb.AppendLine("PRODID:tutorStudent");
+            sb.AppendLine("CALSCALE:GREGORIAN");
+            sb.AppendLine("METHOD:PUBLISH");
+
+            //create a time zone if needed, TZID to be used in the event itself
+            sb.AppendLine("BEGIN:VTIMEZONE");
+            sb.AppendLine("TZID:Europe/Amsterdam");
+            sb.AppendLine("BEGIN:STANDARD");
+            sb.AppendLine("TZOFFSETTO:+0100");
+            sb.AppendLine("TZOFFSETFROM:+0100");
+            sb.AppendLine("END:STANDARD");
+            sb.AppendLine("END:VTIMEZONE");
+
+            //add the event
+            sb.AppendLine("BEGIN:VEVENT");
+
+            //with time zone specified
+            sb.AppendLine("DTSTART;TZID=Europe/Amsterdam:" + DateStart.ToString("yyyyMMddTHHmm00"));
+            sb.AppendLine("DTEND;TZID=Europe/Amsterdam:" + DateEnd.ToString("yyyyMMddTHHmm00"));
+            //or without
+            sb.AppendLine("DTSTART:" + DateStart.ToString("yyyyMMddTHHmm00"));
+            sb.AppendLine("DTEND:" + DateEnd.ToString("yyyyMMddTHHmm00"));
+
+            sb.AppendLine("SUMMARY:" + Summary + "");
+            sb.AppendLine("END:VEVENT");
+
+            //end calendar item
+            sb.AppendLine("END:VCALENDAR");
+
+            //create a string from the stringbuilder
+            string CalendarItem = sb.ToString();
+
+            var f = new FormFile(CalendarItem, CalendarItem.Length, CalendarItem.Length, Summary, FileName);
+
+
+*//*            //send the calendar item to the browser
+            Response.ClearHeaders();
+            Response.Clear();
+            Response.Buffer = true;
+            Response.ContentType = "text/calendar";
+            Response.AddHeader("content-length", CalendarItem.Length.ToString());
+            Response.AddHeader("content-disposition", "attachment; filename=\"" + FileName + ".ics\"");
+            Response.Write(CalendarItem);
+            Response.Flush();
+            HttpContext.Current.ApplicationInstance.CompleteRequest();*//*
+        }
+*/
+        private DateTime ShamsiToMiladi(string date, int hour)
+        {
+            DateTime dt = DateTime.Parse(date, new CultureInfo("fa-IR"));
+            dt.AddHours(hour);
+            return dt;
+        }
+
         [HttpDelete("Meeting")]
         public async Task<IActionResult> DeleteMeeting(Guid userId, Guid id)
         {

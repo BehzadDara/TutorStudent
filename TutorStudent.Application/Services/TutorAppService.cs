@@ -8,6 +8,8 @@ using TutorStudent.Domain.Enums;
 using TutorStudent.Domain.Interfaces;
 using TutorStudent.Domain.Models;
 using TutorStudent.Domain.Specifications;
+using TutorStudent.Domain.ProxyServices.Dto;
+using TutorStudent.Domain.ProxyServices;
 
 namespace TutorStudent.Application.Services
 {
@@ -20,14 +22,16 @@ namespace TutorStudent.Application.Services
         private readonly IUnitOfWork _unitOfWork;
         private readonly IRepository<Tutor> _repository;
         private readonly IRepository<User> _users;
+        private readonly INotification<EmailContextDto> _notification;
 
         public TutorAppService(IMapper mapper, IUnitOfWork unitOfWork, IRepository<Tutor> repository,
-            IRepository<User> users)
+            IRepository<User> users, INotification<EmailContextDto> notification)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
             _repository = repository;
             _users = users;
+            _notification = notification;
         }
         
         [HttpPost("Tutor")]
@@ -43,7 +47,16 @@ namespace TutorStudent.Application.Services
             myTutor.User.Role = RoleType.Tutor;
             _repository.Add(myTutor);
             await _unitOfWork.CompleteAsync();
-            
+
+            var emailContextDto = new EmailContextDto
+            {
+                To = input.User.Email,
+                Subject = "اطلاعات حساب کاربری سامانه تعامل استاد و دانشجو",
+                Body = $"استاد گرامی {myTutor.User.FirstName} {myTutor.User.LastName}، شما به سامانه تعامل استاد و دانشجو اضافه شدید."
+            };
+
+            _notification.Send(emailContextDto);
+
             return Ok(_mapper.Map<TutorDto>(myTutor));
         }  
         

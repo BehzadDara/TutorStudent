@@ -10,6 +10,8 @@ using TutorStudent.Domain.Models;
 using TutorStudent.Domain.Specifications;
 using System.Linq;
 using System.Globalization;
+using TutorStudent.Domain.ProxyServices;
+using TutorStudent.Domain.ProxyServices.Dto;
 
 namespace TutorStudent.Application.Services
 {
@@ -25,11 +27,14 @@ namespace TutorStudent.Application.Services
         private readonly IRepository<TutorSchedule> _tutorSchedules;
         private readonly IRepository<FacultyManagementSuggestion> _facultyManagementSuggestions;
         private readonly IRepository<FacultyManagementSuggestionTutor> _facultyManagementSuggestionTutors;
+        private readonly INotification<EmailContextDto> _notification;
+        private readonly IRepository<User> _user;
 
         public FacultyManagementAppService(IMapper mapper, IUnitOfWork unitOfWork, IRepository<Tutor> tutors,
             IRepository<User> users, IRepository<TutorSchedule> tutorSchedules, 
             IRepository<FacultyManagementSuggestion> facultyManagementSuggestions, 
-            IRepository<FacultyManagementSuggestionTutor> facultyManagementSuggestionTutors)
+            IRepository<FacultyManagementSuggestionTutor> facultyManagementSuggestionTutors,
+            INotification<EmailContextDto> notification, IRepository<User> user)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
@@ -38,6 +43,8 @@ namespace TutorStudent.Application.Services
             _tutorSchedules = tutorSchedules;
             _facultyManagementSuggestions = facultyManagementSuggestions;
             _facultyManagementSuggestionTutors = facultyManagementSuggestionTutors;
+            _notification = notification;
+            _user = user;
         }
 
         [HttpPost("TutorsMeeting")]
@@ -61,6 +68,13 @@ namespace TutorStudent.Application.Services
                     return NotFound(new ResponseDto(Error.TutorNotFound));
                 }
 
+                var myTutorUser = await _user.GetByIdAsync(myTutor.UserId);
+
+                if (myTutorUser is null)
+                {
+                    return NotFound(new ResponseDto(Error.UserNotFound));
+                }
+
                 var myFacultyManagementSuggestionTutor = new FacultyManagementSuggestionTutor
                 {
                     FacultyManagementSuggestion = myFacultyManagementSuggestion,
@@ -68,6 +82,16 @@ namespace TutorStudent.Application.Services
                 };
 
                 _facultyManagementSuggestionTutors.Add(myFacultyManagementSuggestionTutor);
+
+                var emailContextDto = new EmailContextDto
+                {
+                    To = myTutorUser.Email,
+                    Subject = "جلسه دفتر دانشکده",
+                    Body = $"استاد گرامی {myTutorUser.FirstName} {myTutorUser.LastName}، دانشکده جلسه در تاریخ {facultyManagementSuggestionDto.Date} ساعت {facultyManagementSuggestionDto.BeginHour} الی {facultyManagementSuggestionDto.EndHour} را تنظیم کرد."
+                };
+
+                _notification.Send(emailContextDto);
+
 
             }
 

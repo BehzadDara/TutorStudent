@@ -18,6 +18,7 @@ namespace TutorStudent.Domain.Models
         public const string TutorScheduleInUse = "زمان بندی مد نظر دارای رزرو فعال است";
         public const string RemainControl = "ظرفیت زمان بندی مد نظر به تمام رسیده است";
         public const string MeetingNotFound = "رزرو مد نظر یافت نشد";
+        public const string DuplicateMeeting = "شما قبلا این جلسه را رزرو کردید";
         public const string AdvertisementNotFound = "آگهی مد نظر یافت نشد";
         public const string ApplyNotFound = "درخواست مد نظر یافت نشد";
         public const string LogNotFound = "سابقه ای یافت نشد";

@@ -8,6 +8,7 @@
         <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
         <PackageReference Include="JetBrains.Annotations" Version="2021.1.0-eap01" />
         <PackageReference Include="MailKit" Version="3.4.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
         <PackageReference Include="MimeKit" Version="3.4.0" />
         <PackageReference Include="Stateless" Version="5.11.0" />
     </ItemGroup>

@@ -11,6 +11,7 @@ using TutorStudent.Domain.Interfaces;
 using TutorStudent.Domain.Models;
 using TutorStudent.Domain.ProxyServices;
 using TutorStudent.Domain.Specifications;
+using TutorStudent.Domain.ProxyServices.Dto;
 
 namespace TutorStudent.Application.Services
 {
@@ -26,9 +27,12 @@ namespace TutorStudent.Application.Services
         private readonly IRepository<Tutor> _tutors;
         private readonly IRepository<Log> _logs;
         private readonly ITrackingCode _trackingCode;
+        private readonly INotification<EmailContextDto> _notification;
+        private readonly IRepository<User> _user;
 
         public ApplyAppService(IMapper mapper, IUnitOfWork unitOfWork, IRepository<Apply> repository,
-            IRepository<Tutor> tutors, IRepository<Student> students, IRepository<Log> logs, ITrackingCode trackingCode)
+            IRepository<Tutor> tutors, IRepository<Student> students, IRepository<Log> logs, ITrackingCode trackingCode,
+            INotification<EmailContextDto> notificatio, IRepository<User> user)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
@@ -37,6 +41,8 @@ namespace TutorStudent.Application.Services
             _students = students;
             _logs = logs;
             _trackingCode = trackingCode;
+            _notification = notificatio;
+            _user = user;
         }
         
         [HttpPost("Apply")]
@@ -46,13 +52,27 @@ namespace TutorStudent.Application.Services
             if (myStudent is null)
             {
                 return NotFound(new ResponseDto(Error.StudentNotFound));
-            }       
+            }
+
+            var myStudentUser = await _user.GetByIdAsync(myStudent.UserId);
+            if (myStudentUser is null)
+            {
+                return NotFound(new ResponseDto(Error.UserNotFound));
+            }
+
             var myTutor = await _tutors.GetByIdAsync(input.TutorId);
             if (myTutor is null)
             {
                 return NotFound(new ResponseDto(Error.TutorNotFound));
             }
-            
+
+            var myTutorUser = await _user.GetByIdAsync(myTutor.UserId);
+
+            if (myTutorUser is null)
+            {
+                return NotFound(new ResponseDto(Error.UserNotFound));
+            }
+
             var myApply = _mapper.Map<Apply>(input);
             myApply.TutorId = myTutor.Id;
             myApply.Student = myStudent;
@@ -61,7 +81,16 @@ namespace TutorStudent.Application.Services
             
             _repository.Add(myApply);
             await _unitOfWork.CompleteAsync();
-            
+
+            var emailContextDto = new EmailContextDto
+            {
+                To = myTutorUser.Email,
+                Subject = "درخواست دانشجو به آگهی",
+                Body = $"استاد گرامی {myTutorUser.FirstName} {myTutorUser.LastName}، درخواست با موضوع {myApply.Ticket.Humanize()} توسط {myStudentUser.FirstName} {myStudentUser.LastName} ثبت شد."
+            };
+
+            _notification.Send(emailContextDto);
+
             return Ok(_mapper.Map<ApplyDto>(myApply));
         }  
         
