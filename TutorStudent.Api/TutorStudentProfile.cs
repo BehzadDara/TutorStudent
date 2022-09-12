@@ -84,29 +84,31 @@ namespace TutorStudent.Api
         private string getDateFromWeekDay(WeekDayType weekDay)
         {
             var date = DateTime.Now; // today is thursday
+            var dayOfWeek = date.DayOfWeek;
+            var tmp = ((int)dayOfWeek * -1) + 7;
 
             switch (weekDay)
             {
                 case WeekDayType.Saturday:
-                    date = date.AddDays(2);
+                    date = date.AddDays((tmp + 6) % 7);
                     break;
                 case WeekDayType.Sunday:
-                    date = date.AddDays(3);
+                    date = date.AddDays((tmp + 0) % 7);
                     break;
                 case WeekDayType.Monday:
-                    date = date.AddDays(4);
+                    date = date.AddDays((tmp + 1) % 7);
                     break;
                 case WeekDayType.tuesday:
-                    date = date.AddDays(5);
+                    date = date.AddDays((tmp + 2) % 7);
                     break;
                 case WeekDayType.Wednesday:
-                    date = date.AddDays(6);
+                    date = date.AddDays((tmp + 3) % 7);
                     break;
                 case WeekDayType.Thursday:
-                    date = date.AddDays(7);
+                    date = date.AddDays((tmp + 4) % 7);
                     break;
                 case WeekDayType.Friday:
-                    date = date.AddDays(8);
+                    date = date.AddDays((tmp + 5) % 7);
                     break;
             }
             var persianCalendar = new PersianCalendar();

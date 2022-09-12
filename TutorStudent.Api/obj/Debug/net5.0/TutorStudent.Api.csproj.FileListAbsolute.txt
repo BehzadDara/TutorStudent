@@ -275,3 +275,6 @@ C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Api\bin\Debug\net5.0\Syst
 C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Api\bin\Debug\net5.0\System.Text.Encoding.CodePages.dll
 C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Api\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
 C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Api\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\System.Text.Encoding.CodePages.dll
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Api\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Api\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Api\bin\Debug\net5.0\System.IO.Pipelines.dll

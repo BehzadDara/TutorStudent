@@ -52,7 +52,7 @@ namespace TutorStudent.Application.Services
             {
                 To = input.User.Email,
                 Subject = "اطلاعات حساب کاربری سامانه تعامل استاد و دانشجو",
-                Body = $"استاد گرامی {myTutor.User.FirstName} {myTutor.User.LastName}، شما به سامانه تعامل استاد و دانشجو اضافه شدید."
+                Body = $"استاد گرامی {myTutor.User.FirstName} {myTutor.User.LastName}، شما با رمز عبور {input.User.Password} به سامانه تعامل استاد و دانشجو اضافه شدید."
             };
 
             _notification.Send(emailContextDto);
