@@ -3,12 +3,12 @@ i:{00000000-0000-0000-0000-000000000000}:TutorStudent.sln
 ++TutorStudent.Api
 i:{00000000-0000-0000-0000-000000000000}:TutorStudent.Api
 ++Connected Services 
-i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>904
+i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>936
 ++Dependencies
-i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>903
-i:{d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17}:>721
-i:{d067def1-553b-468b-a6f5-774c9d7af99e}:>722
-i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:>720
+i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>935
+i:{d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17}:>744
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:>743
+i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:>745
 ++Properties
 i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.api\properties\
 ++appsettings.json
@@ -26,7 +26,7 @@ i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:c:\users\behzad.dara\desktop\tutorstude
 ++TutorStudentProfile.cs
 i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.api\tutorstudentprofile.cs
 ++No service dependencies discovered
-i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>905
+i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>937
 ++Analyzers
 i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:analyzers
 i:{d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17}:analyzers
@@ -73,28 +73,38 @@ i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:c:\users\behzad.dara\desktop\tutorstude
 ++Microsoft.NETCore.App
 i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.api\microsoft.netcore.app
 ++AutoMapper.Extensions.Microsoft.DependencyInjection (8.1.1)
-i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>918
-i:{d067def1-553b-468b-a6f5-774c9d7af99e}:>945
+i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>972
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:>952
 ++Hangfire.AspNetCore (1.8.0-beta4)
-i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>923
+i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>977
 ++Hangfire.SqlServer (1.8.0-beta4)
-i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>922
+i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>976
+++MailKit (3.4.0)
+i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>980
+i:{d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17}:>945
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:>956
+i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:>994
 ++MediatR.Extensions.Microsoft.DependencyInjection (9.0.0)
-i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>924
+i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>979
 ++Microsoft.EntityFrameworkCore (5.0.0)
-i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>916
-i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:>930
+i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>970
+i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:>991
 ++Microsoft.EntityFrameworkCore.Design (5.0.0)
-i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>919
+i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>973
 ++Microsoft.EntityFrameworkCore.SqlServer (5.0.0)
-i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>917
-i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:>931
+i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>971
+i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:>992
+++MimeKit (3.4.0)
+i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>978
+i:{d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17}:>943
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:>955
+i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:>993
 ++Newtonsoft.Json (13.0.1)
-i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>921
+i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>975
 ++Swashbuckle.AspNetCore (6.0.7)
-i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>920
+i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:>974
 ++TutorStudent.Application
-i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.application\tutorstudent.application.csproj
+i:{52ea5510-4c17-411b-a817-acda78ca8f9f}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.application\bin\debug\netstandard2.1\tutorstudent.application.dll
 i:{00000000-0000-0000-0000-000000000000}:TutorStudent.Application
 ++Contracts
 i:{d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.application\contracts\
@@ -104,6 +114,8 @@ i:{d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17}:c:\users\behzad.dara\desktop\tutorstude
 i:{d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.application\services\advertisementappservice.cs
 ++ApplyAppService.cs
 i:{d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.application\services\applyappservice.cs
+++FacultyManagementAppService.cs
+i:{d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.application\services\facultymanagementappservice.cs
 ++MeetingAppService.cs
 i:{d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.application\services\meetingappservice.cs
 ++StudentAppService.cs
@@ -140,6 +152,10 @@ i:{d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17}:c:\users\behzad.dara\desktop\tutorstude
 i:{d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.application\contracts\changepassworddto.cs
 ++EntityDto.cs
 i:{d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.application\contracts\entitydto.cs
+++FacultyManagementSuggestionDetailDto.cs
+i:{d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.application\contracts\facultymanagementsuggestiondetaildto.cs
+++FacultyManagementSuggestionDto.cs
+i:{d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.application\contracts\facultymanagementsuggestiondto.cs
 ++LogDto.cs
 i:{d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.application\contracts\logdto.cs
 ++LoginDto.cs
@@ -205,17 +221,17 @@ i:{d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17}:c:\users\behzad.dara\desktop\tutorstude
 i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\netstandard.library
 i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.infrastructure\netstandard.library
 ++Hangfire.Core (1.8.0-beta4)
-i:{d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17}:>939
+i:{d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17}:>944
 ++Humanizer.Core.fa (2.8.26)
-i:{d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17}:>937
+i:{d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17}:>941
 ++Microsoft.AspNetCore.Mvc (2.2.0)
-i:{d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17}:>938
+i:{d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17}:>942
 ++TutorStudent.Infrastructure
 i:{d6c6ea9e-0c7e-4d9b-a4c9-35a3bdb1dd17}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.infrastructure\tutorstudent.infrastructure.csproj
 i:{00000000-0000-0000-0000-000000000000}:TutorStudent.Infrastructure
 ++TutorStudent.Domain
 i:{00000000-0000-0000-0000-000000000000}:TutorStudent.Domain
-i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\tutorstudent.domain.csproj
+i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\bin\debug\netstandard2.1\tutorstudent.domain.dll
 ++Enums
 i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\enums\
 ++Implementations
@@ -225,40 +241,14 @@ i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:c:\users\behzad.dara\desktop\tutorstude
 i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\interfaces\
 ++Models
 i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\
-++Advertisement.cs
-i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\advertisement.cs
-++Apply.cs
-i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\apply.cs
-++Error.cs
-i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\error.cs
-++Log.cs
-i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\log.cs
-++Meeting.cs
-i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\meeting.cs
-++Student.cs
-i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\student.cs
-++TeacherAssistant.cs
-i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\teacherassistant.cs
-++TeacherAssistantMeeting.cs
-i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\teacherassistantmeeting.cs
-++TeacherAssistantSchedule.cs
-i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\teacherassistantschedule.cs
-++TeacherAssistantWeeklySchedule.cs
-i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\teacherassistantweeklyschedule.cs
-++Tutor.cs
-i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\tutor.cs
-++TutorSchedule.cs
-i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\tutorschedule.cs
-++TutorWeeklySchedule.cs
-i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\tutorweeklyschedule.cs
-++User.cs
-i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\user.cs
 ++ProxyServices
 i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\proxyservices\
 ++Dto
 i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\proxyservices\dto\
 ++EmailContextDto.cs
 i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\proxyservices\dto\emailcontextdto.cs
+++MailSettings.cs
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\proxyservices\dto\mailsettings.cs
 ++TrackingCodeProxyData.cs
 i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\proxyservices\dto\trackingcodeproxydata.cs
 ++TrackingCodeProxyResponseDto.cs
@@ -305,6 +295,38 @@ i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstude
 i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\interfaces\iunitofwork.cs
 ++Specification.cs
 i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\interfaces\specification.cs
+++Advertisement.cs
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\advertisement.cs
+++Apply.cs
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\apply.cs
+++Error.cs
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\error.cs
+++FacultyManagementSuggestion.cs
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\facultymanagementsuggestion.cs
+++FacultyManagementSuggestionTutor.cs
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\facultymanagementsuggestiontutor.cs
+++Log.cs
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\log.cs
+++Meeting.cs
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\meeting.cs
+++Student.cs
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\student.cs
+++TeacherAssistant.cs
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\teacherassistant.cs
+++TeacherAssistantMeeting.cs
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\teacherassistantmeeting.cs
+++TeacherAssistantSchedule.cs
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\teacherassistantschedule.cs
+++TeacherAssistantWeeklySchedule.cs
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\teacherassistantweeklyschedule.cs
+++Tutor.cs
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\tutor.cs
+++TutorSchedule.cs
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\tutorschedule.cs
+++TutorWeeklySchedule.cs
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\tutorweeklyschedule.cs
+++User.cs
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\models\user.cs
 ++GetAdvertisementByTicket.cs
 i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\specifications\getadvertisementbyticket.cs
 ++GetAdvertisementByTutorId.cs
@@ -315,6 +337,8 @@ i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstude
 i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\specifications\getapplybytrackingcode.cs
 ++GetApplyByTutorId.cs
 i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\specifications\getapplybytutorid.cs
+++GetFacultyManagementSuggestionTutorByFacultyManagementSuggestionId.cs
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\specifications\getfacultymanagementsuggestiontutorbyfacultymanagementsuggestionid.cs
 ++GetLogByApplyId.cs
 i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\specifications\getlogbyapplyid.cs
 ++GetMeetingByTutorScheduleId.cs
@@ -338,21 +362,13 @@ i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstude
 ++GetUserByUserNameAndPassword.cs
 i:{d067def1-553b-468b-a6f5-774c9d7af99e}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.domain\specifications\getuserbyusernameandpassword.cs
 ++JetBrains.Annotations (2021.1.0-eap01)
-i:{d067def1-553b-468b-a6f5-774c9d7af99e}:>946
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:>953
+++Microsoft.AspNetCore.Http.Features (5.0.17)
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:>951
 ++stateless (5.11.0)
-i:{d067def1-553b-468b-a6f5-774c9d7af99e}:>947
-++DbContextBase.cs
-i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.infrastructure\implementations\dbcontextbase.cs
-++EfRepository.cs
-i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.infrastructure\implementations\efrepository.cs
-++SpecificationEvaluator.cs
-i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.infrastructure\implementations\specificationevaluator.cs
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:>954
 ++Migrations
 i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.infrastructure\migrations\
-++20220820045119_Init.cs
-i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.infrastructure\migrations\20220820045119_init.cs
-++TutorStudentDbContextModelSnapshot.cs
-i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.infrastructure\migrations\tutorstudentdbcontextmodelsnapshot.cs
 ++Proxies
 i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.infrastructure\proxies\
 ++EmailNotification.cs
@@ -361,5 +377,18 @@ i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:c:\users\behzad.dara\desktop\tutorstude
 i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.infrastructure\proxies\trackingcode.cs
 ++TutorStudentDbContext.cs
 i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.infrastructure\tutorstudentdbcontext.cs
-++20220820045119_Init.Designer.cs
-i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.infrastructure\migrations\20220820045119_init.designer.cs
+++DbContextBase.cs
+i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.infrastructure\implementations\dbcontextbase.cs
+++EfRepository.cs
+i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.infrastructure\implementations\efrepository.cs
+++SpecificationEvaluator.cs
+i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.infrastructure\implementations\specificationevaluator.cs
+++20220907094334_Init.cs
+i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.infrastructure\migrations\20220907094334_init.cs
+++TutorStudentDbContextModelSnapshot.cs
+i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.infrastructure\migrations\tutorstudentdbcontextmodelsnapshot.cs
+++20220907094334_Init.Designer.cs
+i:{ffe1c230-8006-4d6c-8cbc-44d64823147c}:c:\users\behzad.dara\desktop\tutorstudent\tutorstudent.infrastructure\migrations\20220907094334_init.designer.cs
+++Microsoft.AspNetCore.Http (2.2.2)
+i:{d067def1-553b-468b-a6f5-774c9d7af99e}:>1026
+++Stateless (5.11.0)

@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Http;
 using System.Globalization;
 using System.Text;
 using Microsoft.AspNetCore.Http.Internal;
+using System.IO;
 
 namespace TutorStudent.Application.Services
 {
@@ -110,7 +111,7 @@ namespace TutorStudent.Application.Services
                 To = myStudentUser.Email,
                 Subject = "رزرو جلسه توسط دانشجو",
                 Body = $"دانشجوی گرامی {myStudentUser.FirstName} {myStudentUser.LastName}، رزرو جلسه با استاد {myTutorUser.FirstName} {myTutorUser.LastName} تاریخ {myTutorSchedule.Date} بازه زمانی {myTutorSchedule.BeginHour} تا {myTutorSchedule.EndHour} با موفقیت انجام شد.",
-                //Attachment = CreateMeetingAttachment(myTutorSchedule)
+                Attachment = CreateMeetingAttachment(myTutorSchedule)
             };
 
             _notification.Send(emailContextDto1);
@@ -120,7 +121,7 @@ namespace TutorStudent.Application.Services
                 To = myTutorUser.Email,
                 Subject = "رزرو جلسه توسط دانشجو",
                 Body = $"استاد گرامی {myTutorUser.FirstName} {myTutorUser.LastName}، دانشجوی {myStudentUser.FirstName} {myStudentUser.LastName} تاریخ {myTutorSchedule.Date} بازه زمانی {myTutorSchedule.BeginHour} تا {myTutorSchedule.EndHour} را به عنوان وقت جلسه رزرو کرد.",
-                //Attachment = CreateMeetingAttachment(myTutorSchedule)
+                Attachment = CreateMeetingAttachment(myTutorSchedule)
             };
 
             _notification.Send(emailContextDto2);
@@ -128,13 +129,12 @@ namespace TutorStudent.Application.Services
             return Ok(_mapper.Map<MeetingDto>(myMeeting));
         }
 
-/*        private IFormFile CreateMeetingAttachment(TutorSchedule myTutorSchedule)
+        private Byte[] CreateMeetingAttachment(TutorSchedule myTutorSchedule)
         {
             //some variables for demo purposes
             DateTime DateStart = ShamsiToMiladi(myTutorSchedule.Date, myTutorSchedule.BeginHour);
             DateTime DateEnd = ShamsiToMiladi(myTutorSchedule.Date, myTutorSchedule.BeginHour);
             string Summary = "رزرو جلسه توسط دانشجو";
-            string FileName = "TutorCalendar";
 
             //create a new stringbuilder instance
             StringBuilder sb = new StringBuilder();
@@ -174,10 +174,13 @@ namespace TutorStudent.Application.Services
             //create a string from the stringbuilder
             string CalendarItem = sb.ToString();
 
-            var f = new FormFile(CalendarItem, CalendarItem.Length, CalendarItem.Length, Summary, FileName);
+            byte[] bytes = Encoding.ASCII.GetBytes(CalendarItem);
+            //var stream = new MemoryStream(bytes);
+            return bytes;
+            //FormFile file = new FormFile(stream, 0, stream.Length, "name", "fileName.extension");
+            //return file;
 
-
-*//*            //send the calendar item to the browser
+            /*//send the calendar item to the browser
             Response.ClearHeaders();
             Response.Clear();
             Response.Buffer = true;
@@ -186,12 +189,13 @@ namespace TutorStudent.Application.Services
             Response.AddHeader("content-disposition", "attachment; filename=\"" + FileName + ".ics\"");
             Response.Write(CalendarItem);
             Response.Flush();
-            HttpContext.Current.ApplicationInstance.CompleteRequest();*//*
+            HttpContext.Current.ApplicationInstance.CompleteRequest();*/
         }
-*/
+
         private DateTime ShamsiToMiladi(string date, int hour)
         {
-            DateTime dt = DateTime.Parse(date, new CultureInfo("fa-IR"));
+            var validDate = date.Substring(0, 4) + "/" + date.Substring(4, 2) + "/" + date.Substring(6, 2);
+            DateTime dt = DateTime.Parse(validDate, new CultureInfo("fa-IR"));
             dt.AddHours(hour);
             return dt;
         }

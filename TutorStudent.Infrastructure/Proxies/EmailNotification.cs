@@ -31,30 +31,44 @@ namespace TutorStudent.Infrastructure.Proxies
 
         public async Task<bool> Send(T context)
         {
-            var builder = new BodyBuilder
-            {
-                HtmlBody = context.Body
-            };
 
             var email = new MimeMessage
             {
                 Sender = MailboxAddress.Parse(_mailSettings.Mail),
-                Subject = context.Subject,
-                Body = builder.ToMessageBody(),
+                Subject = context.Subject
             };
             email.To.Add(MailboxAddress.Parse(context.To));
+            var multipart = new Multipart("mixed")
+            {
+                new TextPart("plain")
+                {
+                    Text = context.Body
+                }
+            };
 
             // attachment
-            if(context.Attachment != null && context.Attachment.Length > 0)
+            if (context.Attachment != null && context.Attachment.Length > 0)
             {
-                byte[] fileBytes;
-                using(var ms = new MemoryStream())
+                var ms = new MemoryStream(context.Attachment, 0, context.Attachment.Length);
+
+                var content = new MimeContent(ms); 
+
+                var contentDisposition = new ContentDisposition(ContentDisposition.Attachment);
+                var contentTransferEncoding = ContentEncoding.Base64;
+                var fileName = "Attachment";
+
+                var attachment = new MimePart("ics")
                 {
-                    context.Attachment.CopyTo(ms);
-                    fileBytes = ms.ToArray();
-                }
-                builder.Attachments.Add(context.Attachment.FileName, fileBytes, ContentType.Parse(context.Attachment.ContentType));
+                    Content = new MimeContent(ms),
+                    ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
+                    ContentTransferEncoding = ContentEncoding.Base64,
+                    FileName = "Attachment"
+                };
+
+                multipart.Add(attachment);
             }
+
+            email.Body = multipart;
 
             using var smtp = new SmtpClient();
             smtp.Connect(_mailSettings.Host, _mailSettings.Port, SecureSocketOptions.StartTls);

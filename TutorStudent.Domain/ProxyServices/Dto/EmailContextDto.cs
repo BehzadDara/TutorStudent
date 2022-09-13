@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 
 namespace TutorStudent.Domain.ProxyServices.Dto
 {
@@ -10,6 +7,6 @@ namespace TutorStudent.Domain.ProxyServices.Dto
         public string To { get; set; }
         public string Subject { get; set; }
         public string Body { get; set; }
-        public IFormFile Attachment { get; set; }
+        public Byte[] Attachment { get; set; }
     }
 }
