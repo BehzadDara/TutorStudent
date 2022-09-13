@@ -10,6 +10,8 @@ using TutorStudent.Domain.Models;
 using TutorStudent.Domain.Specifications;
 using TutorStudent.Domain.ProxyServices;
 using TutorStudent.Domain.ProxyServices.Dto;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TutorStudent.Application.Services
 {
@@ -212,7 +214,14 @@ namespace TutorStudent.Application.Services
             
             return Ok(_mapper.Map<UserDto>(myUser));
         }
-        
-        
+
+        [HttpGet("Managers")]
+        public async Task<IActionResult> GetManagers()
+        {
+            var users = await _repository.ListAllAsync();
+
+            return Ok(_mapper.Map<List<UserDto>>(users.Where(x => x.Role == RoleType.Manager)));
+        }
+
     }
 }

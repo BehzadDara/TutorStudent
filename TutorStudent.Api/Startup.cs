@@ -36,9 +36,9 @@ namespace TutorStudent.Api
             services.AddAutoMapper(typeof(Startup));
             
             services.AddDbContext<TutorStudentDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("TutorProduction")));
+                options.UseSqlServer(Configuration.GetConnectionString("TutorStudent")));
 
-            services.BuildServiceProvider().GetService<TutorStudentDbContext>().Database.Migrate();
+            //services.BuildServiceProvider().GetService<TutorStudentDbContext>().Database.Migrate();
 
             services.AddScoped<IUnitOfWork>(provider => provider.GetService<TutorStudentDbContext>());
             services.AddScoped<DbContext>(provider => provider.GetService<TutorStudentDbContext>());

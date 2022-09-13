@@ -275,10 +275,11 @@ namespace TutorStudent.Application.Services
 
             if (!result.Any() && myTutors.Count >= 3)
             {
-                result = new List<FacultyManagementSuggestion>();
 
                 foreach (var myTutor in myTutors)
                 {
+                    var resultTmp = new List<FacultyManagementSuggestion>();
+
                     var mytutorUser = await _users.GetByIdAsync(myTutor.UserId);
                     if (mytutorUser is null)
                     {
@@ -296,7 +297,7 @@ namespace TutorStudent.Application.Services
 
                     foreach (var x in tmpMyTutorSchedules.FirstOrDefault())
                     {
-                        result.Add(new FacultyManagementSuggestion
+                        resultTmp.Add(new FacultyManagementSuggestion
                         {
                             Date = x.Date,
                             BeginHour = x.BeginHour,
@@ -306,17 +307,18 @@ namespace TutorStudent.Application.Services
 
                     foreach (var tmpMyTutorSchedule in tmpMyTutorSchedules)
                     {
-                        result = FindCommonTutorSchedule(result, tmpMyTutorSchedule);
-                        if (!result.Any())
+                        resultTmp = FindCommonTutorSchedule(resultTmp, tmpMyTutorSchedule);
+                        if (!resultTmp.Any())
                         {
                             break;
                         }
                     }
 
-                    if (result.Any())
+                    if (resultTmp.Any())
                     {
-                        result.ForEach(x => x.Condition = 
+                        resultTmp.ForEach(x => x.Condition = 
                             String.Format(Error.RemoveTutorCondition, mytutorUser.FirstName, mytutorUser.LastName));
+                        result.AddRange(resultTmp);
                     }
 
                 }
@@ -328,6 +330,15 @@ namespace TutorStudent.Application.Services
             }
 
             return Ok(_mapper.Map<List<FacultyManagementSuggestionDto>>(result));
+        }
+
+
+        [HttpGet("FacultyManagements")]
+        public async Task<IActionResult> GetFacultyManagements()
+        {
+            var users = await _users.ListAllAsync();
+
+            return Ok(_mapper.Map<List<UserDto>>(users.Where(x => x.Role == RoleType.FacultyManagement)));
         }
 
         private static List<FacultyManagementSuggestion> FindCommonTutorSchedule(List<FacultyManagementSuggestion> list1, List<TutorSchedule> list2)
