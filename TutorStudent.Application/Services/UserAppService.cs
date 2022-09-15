@@ -26,9 +26,11 @@ namespace TutorStudent.Application.Services
         private readonly IRepository<Tutor> _tutors;
         private readonly IRepository<Student> _students;
         private readonly IRepository<TeacherAssistant> _teacherAssistant;
+        private readonly INotification<EmailContextDto> _notification;
 
         public UserAppService(IMapper mapper, IUnitOfWork unitOfWork, IRepository<User> repository, 
-            IRepository<Tutor> tutors, IRepository<Student> students, IRepository<TeacherAssistant> teacherAssistant)
+            IRepository<Tutor> tutors, IRepository<Student> students, IRepository<TeacherAssistant> teacherAssistant,
+            INotification<EmailContextDto> notification)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
@@ -36,6 +38,7 @@ namespace TutorStudent.Application.Services
             _tutors = tutors;
             _students = students;
             _teacherAssistant = teacherAssistant;
+            _notification = notification;
         }
 
 
@@ -191,6 +194,46 @@ namespace TutorStudent.Application.Services
             
             return Ok(_mapper.Map<UserDto>(myUser));
         } 
+        
+        [HttpGet("ForgetPassword")]
+        public async Task<IActionResult> GetForgetPassword(string userName)
+        {
+            var myUser = await _repository.GetAsync(new GetUserByUserName(userName));
+            if (myUser is null)
+            {
+                return NotFound(new ResponseDto(Error.UserNotFound));
+            }
+
+            var link = $"http://tutor.h4di.ir/forget-password/{myUser.Id}";
+
+            var emailContextDto = new EmailContextDto
+            {
+                To = myUser.Email,
+                Subject = "تغییر رمز عبور سامانه تعامل استاد و دانشجو",
+                Body = $"کاربر گرامی {myUser.FirstName} {myUser.LastName} از طریق لینک {link} اقدام به تغییر رمز عبور بفرمایید"
+            };
+
+            await _notification.Send(emailContextDto);
+
+            return Ok(new ResponseDto(Error.ForgetPasswordLinkSent));
+        }
+
+        [HttpPost("ForgetPassword")]
+        public async Task<IActionResult> CreateForgetPassword(Guid id, ForgetPasswordDto input)
+        {
+            var myUser = await _repository.GetByIdAsync(id);
+            if (myUser is null)
+            {
+                return NotFound(new ResponseDto(Error.UserNotFound));
+            }
+            
+            myUser.Password = Comb.HashPassword(myUser.UserName + input.NewPassword + Error.PasswordTemp);
+            
+            _repository.Update(myUser);
+            await _unitOfWork.CompleteAsync();
+            
+            return Ok(_mapper.Map<UserDto>(myUser));
+        }
         
         [HttpPut("Password")]
         public async Task<IActionResult> UpdatePassword(Guid id, ChangePasswordDto input)

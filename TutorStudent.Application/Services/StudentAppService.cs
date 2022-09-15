@@ -55,7 +55,7 @@ namespace TutorStudent.Application.Services
                 Body = $"دانشجوی گرامی {myStudent.User.FirstName} {myStudent.User.LastName}، شما با رمز عبور {input.User.Password} به سامانه تعامل استاد و دانشجو اضافه شدید."
             };
 
-            _notification.Send(emailContextDto);
+            await _notification.Send(emailContextDto);
 
             return Ok(_mapper.Map<StudentDto>(myStudent));
         }  

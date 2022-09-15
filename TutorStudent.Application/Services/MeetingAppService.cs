@@ -113,7 +113,7 @@ namespace TutorStudent.Application.Services
                 //Attachment = CreateMeetingAttachment(myTutorSchedule)
             };
 
-            _notification.Send(emailContextDto1);
+            await _notification.Send(emailContextDto1);
 
             var emailContextDto2 = new EmailContextDto
             {
@@ -123,7 +123,7 @@ namespace TutorStudent.Application.Services
                 //Attachment = CreateMeetingAttachment(myTutorSchedule)
             };
 
-            _notification.Send(emailContextDto2);
+            await _notification.Send(emailContextDto2);
 
             return Ok(_mapper.Map<MeetingDto>(myMeeting));
         }

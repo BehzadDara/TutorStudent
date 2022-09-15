@@ -99,7 +99,7 @@ namespace TeacherAssistantStudent.Application.Services
                 Body = $"دانشجوی گرامی {myStudentUser.FirstName} {myStudentUser.LastName}، رزرو جلسه با تدریسیار {myTeacherAssistantUser.FirstName} {myTeacherAssistantUser.LastName} تاریخ {myTeacherAssistantSchedule.Date} بازه زمانی {myTeacherAssistantSchedule.BeginHour} تا {myTeacherAssistantSchedule.EndHour} با موفقیت انجام شد."
             };
 
-            _notification.Send(emailContextDto1);
+            await _notification.Send(emailContextDto1);
 
             var emailContextDto2 = new EmailContextDto
             {
@@ -108,7 +108,7 @@ namespace TeacherAssistantStudent.Application.Services
                 Body = $"تدریسیار گرامی {myTeacherAssistantUser.FirstName} {myTeacherAssistantUser.LastName}، دانشجوی {myStudentUser.FirstName} {myStudentUser.LastName} تاریخ {myTeacherAssistantSchedule.Date} بازه زمانی {myTeacherAssistantSchedule.BeginHour} تا {myTeacherAssistantSchedule.EndHour} را به عنوان وقت جلسه رزرو کرد."
             };
 
-            _notification.Send(emailContextDto2);
+            await _notification.Send(emailContextDto2);
 
             return Ok(_mapper.Map<TeacherAssistantMeetingDto>(myTeacherAssistantMeeting));
         }  

@@ -90,7 +90,7 @@ namespace TutorStudent.Application.Services
                     Body = $"استاد گرامی {myTutorUser.FirstName} {myTutorUser.LastName}، دانشکده جلسه در تاریخ {facultyManagementSuggestionDto.Date} ساعت {facultyManagementSuggestionDto.BeginHour} الی {facultyManagementSuggestionDto.EndHour} را تنظیم کرد."
                 };
 
-                _notification.Send(emailContextDto);
+                await _notification.Send(emailContextDto);
 
 
             }

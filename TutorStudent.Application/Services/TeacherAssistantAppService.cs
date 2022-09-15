@@ -55,7 +55,7 @@ namespace TutorStudent.Application.Services
                 Body = $"تدریسیار گرامی {myTeacherAssistant.User.FirstName} {myTeacherAssistant.User.LastName}، شما به سامانه تعامل استاد و دانشجو اضافه شدید."
             };
 
-            _notification.Send(emailContextDto);
+            await _notification.Send(emailContextDto);
 
             return Ok(_mapper.Map<TeacherAssistantDto>(myTeacherAssistant));
         }

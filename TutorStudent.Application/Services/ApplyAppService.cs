@@ -89,7 +89,7 @@ namespace TutorStudent.Application.Services
                 Body = $"استاد گرامی {myTutorUser.FirstName} {myTutorUser.LastName}، درخواست با موضوع {myApply.Ticket.Humanize()} توسط {myStudentUser.FirstName} {myStudentUser.LastName} ثبت شد."
             };
 
-            _notification.Send(emailContextDto);
+            await _notification.Send(emailContextDto);
 
             return Ok(_mapper.Map<ApplyDto>(myApply));
         }  
