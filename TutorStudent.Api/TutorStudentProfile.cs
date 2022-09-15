@@ -56,7 +56,8 @@ namespace TutorStudent.Api
             
             CreateMap<Log, LogDto>();
 
-            CreateMap<TeacherAssistantCreateDto, TeacherAssistant>();
+            CreateMap<TeacherAssistantCreateDto, TeacherAssistant>()
+                .ForMember(x => x.User.UserName, opt => opt.MapFrom(c => c.User.UserName + "TA"));
             CreateMap<TeacherAssistant, TeacherAssistantDto>();
 
             CreateMap<TeacherAssistantMeeting, TeacherAssistantMeetingDto>();
