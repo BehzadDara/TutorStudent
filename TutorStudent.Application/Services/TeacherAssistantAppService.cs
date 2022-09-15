@@ -43,6 +43,7 @@ namespace TutorStudent.Application.Services
                 return Unauthorized(new ResponseDto(Error.AccessDenied));
             }
 
+            input.User.UserName += "TA";
             var myTeacherAssistant = _mapper.Map<TeacherAssistant>(input);
             myTeacherAssistant.User.Role = RoleType.TeacherAssistant;
             _repository.Add(myTeacherAssistant);
@@ -117,7 +118,7 @@ namespace TutorStudent.Application.Services
         }
 
         [HttpGet("TeacherAssistant")]
-        public async Task<IActionResult> GetTutor(Guid id)
+        public async Task<IActionResult> GetTeacherAssistant(Guid id)
         {
             var myTeacherAssistant = await _repository.GetAsync(new GetTeacherAssistantByUserId(id));
             if (myTeacherAssistant is null)
@@ -134,7 +135,7 @@ namespace TutorStudent.Application.Services
         }
 
         [HttpGet("TeacherAssistants")]
-        public async Task<IActionResult> GetTutors()
+        public async Task<IActionResult> GetTeacherAssistants()
         {
             var myTeacherAssistants = await _repository.ListAllAsync();
 
