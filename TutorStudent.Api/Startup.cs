@@ -14,6 +14,7 @@ using TutorStudent.Infrastructure.Implementations;
 using TutorStudent.Infrastructure.Proxies;
 using Hangfire;
 using TutorStudent.Domain.ProxyServices.Dto;
+using TutorStudent.Domain.DependencyInjectionAttribute;
 
 namespace TutorStudent.Api
 {
@@ -36,17 +37,26 @@ namespace TutorStudent.Api
             services.AddAutoMapper(typeof(Startup));
             
             services.AddDbContext<TutorStudentDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("TutorProduction")));
+                options.UseSqlServer(Configuration.GetConnectionString("TutorStudent")));
 
-            services.BuildServiceProvider().GetService<TutorStudentDbContext>().Database.Migrate();
+            //services.BuildServiceProvider().GetService<TutorStudentDbContext>().Database.Migrate();
 
             services.AddScoped<IUnitOfWork>(provider => provider.GetService<TutorStudentDbContext>());
             services.AddScoped<DbContext>(provider => provider.GetService<TutorStudentDbContext>());
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
             
             services.AddScoped(typeof(ITrackingCode), typeof(TrackingCode));
-            services.AddScoped(typeof(INotification<>), typeof(EmailNotification<>)); 
-            
+            services.AddScoped(typeof(INotification<>), typeof(EmailNotification<>));
+
+            #region Test 
+
+            // use attribute instead
+            //services.AddSingleton(typeof(ITestSingletonInterface), typeof(TestClass1));
+            //services.AddTransient(typeof(ITestTransientInterface), typeof(TestClass2));
+            //services.AddScoped(typeof(ITestScopedInterface), typeof(TestClass3));
+
+            #endregion
+
             services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
 
             services.AddCors(options =>
@@ -73,6 +83,9 @@ namespace TutorStudent.Api
             services.AddHangfire(configuration =>
                 configuration.UseSqlServerStorage(Configuration.GetConnectionString("TutorStudent")));
             services.AddHangfireServer();
+
+            // dependency injection attribute
+            services.AddDependencyScanning().ScanAssembly();
 
         }
 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "jBE89LZxhaShoUsymJE3jBF1fZuuSlFjSmJyYXIJxuQHoUD7Q6fPSXAC9vqDWp5NL7Qrvp3n89A9aGjtUp0mcg==",
+  "dgSpecHash": "SbRLKLA5IF0vXb37hzhl9fMd5GQ2/Il9vMh0K7zgVUjx0X7d9CBz6P3qvPBKSyxu+BmOKezkDfyU7KbDEwsd+Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\behzad.dara\\Desktop\\TutorStudent\\TutorStudent.Infrastructure\\TutorStudent.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -20,8 +20,8 @@
     "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.extensions.caching.memory\\5.0.0\\microsoft.extensions.caching.memory.5.0.0.nupkg.sha512",
     "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
-    "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.0\\microsoft.extensions.dependencyinjection.5.0.0.nupkg.sha512",
-    "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.1\\microsoft.extensions.dependencyinjection.6.0.1.nupkg.sha512",
+    "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.extensions.logging\\5.0.0\\microsoft.extensions.logging.5.0.0.nupkg.sha512",
     "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\behzad.dara\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",

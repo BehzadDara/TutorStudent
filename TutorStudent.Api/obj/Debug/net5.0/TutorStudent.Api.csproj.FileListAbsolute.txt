@@ -278,3 +278,5 @@ C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Api\bin\Debug\net5.0\runt
 C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Api\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
 C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Api\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
 C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Api\bin\Debug\net5.0\System.IO.Pipelines.dll
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Api\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\behzad.dara\Desktop\TutorStudent\TutorStudent.Api\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
