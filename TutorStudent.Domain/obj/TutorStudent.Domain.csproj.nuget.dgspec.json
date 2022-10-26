@@ -68,6 +68,10 @@
             "Stateless": {
               "target": "Package",
               "version": "[5.11.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.4, )"
             }
           },
           "imports": [

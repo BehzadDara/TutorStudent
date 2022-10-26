@@ -12,6 +12,7 @@
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
         <PackageReference Include="MimeKit" Version="3.4.0" />
         <PackageReference Include="Stateless" Version="5.11.0" />
+        <PackageReference Include="System.Data.SqlClient" Version="4.8.4" />
     </ItemGroup>
 
 </Project>
